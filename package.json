@@ -1,0 +1,30 @@
+{
+  "name": "featurebook",
+  "version": "1.0.0",
+  "description": "TBD",
+  "main": "featurebook.js",
+  "bin": {
+    "featurebook": "featurebook.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gherkin",
+    "feature",
+    "browser",
+    "cute"
+  ],
+  "author": {
+    "name": "Daniel Pacak",
+    "email": "pacak.daniel@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SOFTWARE-CLINIC/featurebook.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 0.10.x"
+  }
+}
