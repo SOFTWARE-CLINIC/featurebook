@@ -8,7 +8,7 @@ beautiful system specifications from Gherkin source files stored in a VCS.
 FeatureBook can be installed from npm using:
 
 ```
-$ npm install featurebook-cli -g
+$ npm install featurebook -g
 ```
 
 You can serve a repository as a system specification using:
