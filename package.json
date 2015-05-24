@@ -2,9 +2,8 @@
   "name": "featurebook",
   "version": "1.0.0",
   "description": "TBD",
-  "main": "featurebook.js",
   "bin": {
-    "featurebook": "featurebook.js"
+    "featurebook": "./bin/featurebook.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,5 +25,11 @@
   "license": "MIT",
   "engines": {
     "node": ">= 0.10.x"
+  },
+  "dependencies": {
+    "commander": "^2.8.1",
+    "content-disposition": "^0.5.0",
+    "express": "^4.12.4",
+    "bash-color": "0.0.3"
   }
 }
