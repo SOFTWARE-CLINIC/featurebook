@@ -6,7 +6,7 @@ $(function(){
 
 	// Start by fetching the file data from scan route with an AJAX request
 
-	$.get('api/rest/tree', function(data) {
+	$.get('api/rest/feature/tree', function(data) {
 
 		var response = [data],
 			currentPath = '',
