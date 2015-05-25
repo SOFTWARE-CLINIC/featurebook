@@ -1,38 +1,34 @@
 #!/usr/bin/env node
 
 var path = require('path'),
-    express = require('express'),
-    contentDisposition = require('content-disposition'),
-    pkg = require('../package.json'),
-    scan = require('../lib/scan'),
-    program = require('commander');
+  express = require('express'),
+  pkg = require('../package.json'),
+  dirWalker = require('../lib/directory-walker'),
+  gherkin = require('../lib/gherkin-parser'),
+  program = require('commander');
 
 program
-	.version(pkg.version)
-	.option('-p, --port <port>', 'Port on which to listen to (defaults to 3000)', parseInt)
-	.parse(process.argv);
+  .version(pkg.version)
+  .option('-p, --port <port>', 'Port on which to listen to (defaults to 3000)', parseInt)
+  .parse(process.argv);
 
 var port = program.port || 3000;
 
-// scan the directory in which the script was called.
-var tree = scan('.', 'files');
-
-// create a new express app
 var app = express();
 
 // serve static files from the frontend folder
 app.use('/', express.static(path.join(__dirname, '../frontend')));
-// serve files from the current directory under the /files route
 
-app.use('/files', express.static(process.cwd(), {
-	index: false,
-	setHeaders: function(res, path) {
-		res.setHeader('Content-Disposition', contentDisposition(path))
-	}
-}));
+// http://localhost:3000/api/rest/feature/tree
+app.get('/api/rest/feature/tree', function (req, res) {
+  // scan the directory in which the script was called.
+  res.send(dirWalker.walk('.', '.'));
+});
 
-app.get('/api/rest/tree', function(req, res) {
-	res.send(tree);
+// http://localhost:3000/api/rest/feature/raw/hello_world.feature
+// http://localhost:3000/api/rest/feature/raw/non_technical%2Fload_testing.feature
+app.get('/api/rest/feature/raw/:path', function (req, res) {
+  res.send(gherkin.parse(req.params.path));
 });
 
 app.listen(port);

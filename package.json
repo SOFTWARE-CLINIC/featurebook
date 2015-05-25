@@ -28,8 +28,10 @@
   },
   "dependencies": {
     "commander": "^2.8.1",
-    "content-disposition": "^0.5.0",
     "express": "^4.12.4",
     "bash-color": "0.0.3"
+  },
+  "devDependencies": {
+    "gherkin": "^2.12.2"
   }
 }
