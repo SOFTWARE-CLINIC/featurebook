@@ -1,20 +1,24 @@
 FeatureBook
 ===========
 
-FeatureBook is a command line tool (and Node.js library) for generating
-beautiful system specifications from Gherkin source files stored in a VCS.
+[![Build Status](https://travis-ci.org/SOFTWARE-CLINIC/featurebook.svg)](https://travis-ci.org/SOFTWARE-CLINIC/featurebook)
 
-# Usage
-FeatureBook can be installed from npm using:
+FeatureBook is a command line tool (and [Node.js](https://nodejs.org) library) for generating beautiful system
+specifications from [Gherkin](https://github.com/cucumber/cucumber/wiki/Gherkin) source files. Here is an
+[example](https://github.com/SOFTWARE-CLINIC/featurebook-example) system specification.
+
+## Usage
+
+FeatureBook can be installed from [npm](https://www.npmjs.com) using:
 
 ```
 $ npm install featurebook -g
 ```
 
-You can serve a repository as a system specification using:
+You can serve the current directory as a system specification using:
 
 ```
-$ featurebook serve
+$ featurebook serve --port 3000
 ```
 
 Or simply build the static website using:
