@@ -11,8 +11,10 @@
   "keywords": [
     "gherkin",
     "feature",
+    "specification",
     "browser",
-    "cute"
+    "cute",
+    "beautiful"
   ],
   "author": {
     "name": "Daniel Pacak",
@@ -22,7 +24,10 @@
     "type": "git",
     "url": "https://github.com/SOFTWARE-CLINIC/featurebook.git"
   },
-  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SOFTWARE-CLINIC/featurebook/issues"
+  },
+  "license": "Apache 2",
   "engines": {
     "node": ">= 0.10.x"
   },
