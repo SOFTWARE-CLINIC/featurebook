@@ -6,7 +6,7 @@
     "featurebook": "./bin/featurebook-cli.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --reporter spec --timeout 15000"
   },
   "keywords": [
     "gherkin",
@@ -29,9 +29,10 @@
   "dependencies": {
     "commander": "^2.8.1",
     "express": "^4.12.4",
-    "bash-color": "0.0.3"
+    "bash-color": "0.0.3",
+    "gherkin": "^2.12.2"
   },
   "devDependencies": {
-    "gherkin": "^2.12.2"
+    "should": "5.2.0"
   }
 }
