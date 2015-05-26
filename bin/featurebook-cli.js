@@ -11,4 +11,4 @@ program
 
 var port = program.port || 3000;
 
-featurebook.serve(port, '.');
+featurebook.serve('.', port);
