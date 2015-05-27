@@ -10,6 +10,8 @@ FeatureBook is a command line tool (and [Node.js](https://nodejs.org) library) f
 specifications from [Gherkin](https://github.com/cucumber/cucumber/wiki/Gherkin) source files. Here is an
 [example](https://github.com/SOFTWARE-CLINIC/featurebook-example) system specification.
 
+![Demo](/README/featurebook_demo.png)
+
 ## Usage
 
 FeatureBook can be installed from [npm](https://www.npmjs.com) using:
