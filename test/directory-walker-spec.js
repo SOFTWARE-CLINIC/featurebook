@@ -11,8 +11,8 @@ describe('directory-walker', function () {
 
       assert.equal(tree.items.length, 2);
 
-      assertNodeEqual(tree.items[0], 'eating_cucumbers.feature', 'file', 'test\\resources\\eating_cucumbers.feature');
-      assertNodeEqual(tree.items[1], 'hello_world.feature', 'file', 'test\\resources\\hello_world.feature');
+      assertNodeEqual(tree.items[0], 'eating_cucumbers.feature', 'file', 'test/resources/eating_cucumbers.feature');
+      assertNodeEqual(tree.items[1], 'hello_world.feature', 'file', 'test/resources/hello_world.feature');
     });
   });
 
