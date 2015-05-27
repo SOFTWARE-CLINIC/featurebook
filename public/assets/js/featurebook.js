@@ -1,3 +1,3 @@
 $(function () {
-  console.log("ready!");
+  console.log('FeatureBook is ready to rumble!');
 });
