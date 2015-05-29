@@ -29,7 +29,7 @@ $ featurebook serve --port 3000
 Or simply build the static website using:
 
 ```
-$ featurebook build
+$ featurebook build --output-dir ~/book
 ```
 
 ## License
