@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "TBD",
   "bin": {
-    "featurebook": "./bin/featurebook-cli.js"
+    "featurebook": "./bin/featurebook.js"
   },
   "scripts": {
     "test": "mocha --reporter spec --timeout 15000"
