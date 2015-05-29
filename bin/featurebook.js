@@ -2,6 +2,7 @@
 
 var pkg = require('../package.json'),
   program = require('commander'),
+  path = require('path'),
   featurebook = require('../lib/featurebook');
 
 program
@@ -24,11 +25,11 @@ program.parse(process.argv);
 displayHelpIfNoCommandWasProvided();
 
 function serve(sourceDir, options) {
-  featurebook.serve(sourceDir || '.', options.port || 3000);
+  featurebook.serve(sourceDir || process.cwd(), options.port || 3000);
 }
 
 function build(sourceDir, options) {
-  featurebook.build(sourceDir || '.', options.outputDir || './dist');
+  featurebook.build(sourceDir || process.cwd(), options.outputDir || path.join(process.cwd(), 'dist'));
 }
 
 function displayHelpIfNoCommandWasProvided() {

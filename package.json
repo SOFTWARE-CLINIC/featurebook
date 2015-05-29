@@ -1,7 +1,7 @@
 {
   "name": "featurebook",
   "version": "1.0.0",
-  "description": "TBD",
+  "description": "A command line tool (and Node.js library) for generating beautiful system specifications from Gherkin source files.",
   "bin": {
     "featurebook": "./bin/featurebook.js"
   },
