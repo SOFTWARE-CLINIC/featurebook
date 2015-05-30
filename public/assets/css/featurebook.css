@@ -18,13 +18,21 @@ body {
 
 .featurebook-features-tree {
     float: left;
-    width: 25%;
+    width: 35%;
     background: #373743;
+}
+
+.featurebook-features-tree a {
+    color: white;
+}
+
+.featurebook-features-tree a:hover {
+    font-weight: bolder;
 }
 
 .featurebook-feature {
     float: left;
-    width: 73%;
+    width: 63%;
     margin-left: 2%;
     background: #373743;
     padding: 20px;
@@ -34,7 +42,7 @@ body {
 
 }
 
-.featurebook-feature-description  {
+.featurebook-feature-description {
     padding-left: 40px;
 }
 
