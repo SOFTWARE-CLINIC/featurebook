@@ -1,96 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head lang="en">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <title>FeatureBook: Specification by Example</title>
-        <link href="assets/css/featurebook.css" rel="stylesheet"/>
-    </head>
-    <body>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>FeatureBook</title>
+    <link href="assets/css/featurebook.css" rel="stylesheet"/>
+</head>
+<body>
 
-        <div class="featurebook">
-            <!-- displays the title of this book -->
-            <h1>Specification by Example</h1>
+<div class="featurebook">
+    <!-- displays the title of this book -->
+    <h1 class="featurebook-title"></h1>
 
-            <!-- displays all features as a tree -->
-            <aside id="features-tree" class="featurebook-features-tree"></aside>
+    <!-- displays all features as a tree -->
+    <aside class="featurebook-features-tree"></aside>
 
-            <!-- displays currently selected feature -->
-            <main class="featurebook-feature">
-                <h3 class="featurebook-feature-name">Feature: Load Testing</h3>
+    <!-- displays currently selected feature -->
+    <main class="featurebook-feature">
+        Select a feature to display.
+    </main>
 
-                <div class="featurebook-feature-description">
-                    <p>Here you describe your feature my fried. It's even possible to include images!</p>
+</div>
 
-                    <!-- [hello world](/asserts/images/hello_world.png) is translated to img element -->
-                    <img src="api/rest/raw/assets/images/hello_world.png"/>
-
-                    <p>Some other text goes here.</p>
-                </div>
-
-                <div class="featurebook-scenario">
-                    <h3>Scenario: New Account SLA</h3>
-
-                    <div class="featurebook-step">
-                        <span class="featurebook-keyword">Given</span> there are 100,000 users registered on the system
-                    </div>
-                    <div class="featurebook-step">
-                        <span class="featurebook-keyword">When</span> I create a new account
-                    </div>
-                    <div class="featurebook-step">
-                        <span class="featurebook-keyword">Then</span> I should be taken to my dashboard within 5ms
-                    </div>
-                </div>
-
-                <div class="featurebook-scenario">
-                    <h3>Scenario: Access Homepage SLA</h3>
-
-                    <div class="featurebook-step">
-                        <span class="featurebook-keyword">Given</span> 1000 users are hitting the homepage simultaneously
-                    </div>
-                    <div class="featurebook-step">
-                        <span class="featurebook-keyword">Then</span> each user should get a response within 2ms
-                    </div>
-                </div>
-
-                <div class="featurebook-scenario">
-                    <h3>Scenario Outline: Eat</h3>
-
-                    <div class="featurebook-step">
-                        <span class="featurebook-keyword">Given</span> there are <span class="featurebook-var">&lt;start&gt;</span> cucumbers
-                    </div>
-                    <div class="featurebook-step">
-                        <span class="featurebook-keyword">When</span> I eat <span class="featurebook-var">&lt;eat&gt;</span> cucumbers
-                    </div>
-                    <div class="featurebook-step">
-                        <span class="featurebook-keyword">Then</span> I should have <span class="featurebook-var">&lt;left&gt;</span> cucumbers
-                    </div>
-                    <div class="featurebook-examples">
-                        <h3>Examples:</h3>
-                        <table>
-                            <tr>
-                                <td><span class="featurebook-var">&lt;start&gt;</span></td>
-                                <td><span class="featurebook-var">&lt;eat&gt;</span></td>
-                                <td><span class="featurebook-var">&lt;left&gt;</span></td>
-                            </tr>
-                            <tr>
-                                <td>12</td>
-                                <td>5</td>
-                                <td>7</td>
-                            </tr>
-                            <tr>
-                                <td>20</td>
-                                <td>5</td>
-                                <td>15</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </main>
-
-        </div>
-
-        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-        <script src="assets/js/featurebook.js"></script>
-    </body>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="assets/js/featurebook.js"></script>
+</body>
 </html>
