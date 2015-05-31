@@ -4,6 +4,13 @@ $(function () {
     createFeaturesTreeElement();
 });
 
+function selectFeature() {
+    var path = featurePathFromHash();
+    if (path) {
+        displayFeature(path);
+    }
+}
+
 function createSummaryElements() {
 
     getSummary().done(function (summary) {
@@ -21,7 +28,7 @@ function createFeaturesTreeElement() {
     getFeatures()
         .done(function (node) {
             createNodeElement(node, $('<ul/>').appendTo($('.featurebook-features-tree')));
-            // TODO Check for hash in the URL; if present mark a corresponding feature as active (CSS class).
+            selectFeature();
         });
 
     function getFeatures() {
@@ -36,7 +43,10 @@ function createFeaturesTreeElement() {
             });
         } else {
             var li = $('<li/>').appendTo(container);
-            $('<a/>').text(node.name).attr('href', '#feature/' + encodeURIComponent(node.path)).appendTo(li);
+            $('<a/>')
+                .text(node.name)
+                .attr('href', '#feature/' + encodeURIComponent(node.path))
+                .appendTo(li);
         }
     }
 
@@ -45,17 +55,26 @@ function createFeaturesTreeElement() {
 function onHashChange() {
     var path = featurePathFromHash();
     if (path) {
-        getFeature().done(function (feature) {
-            var container = $('.featurebook-feature');
-
-            container.empty();
-            createFeatureElement(feature, $('.featurebook-feature'));
-        });
+        displayFeature(path);
     }
+}
+
+function displayFeature(path) {
+    getFeature().done(function (feature) {
+        var container = $('.featurebook-feature');
+        container.empty();
+        createFeatureElement(feature, container);
+        markSelectedFeature(path)
+    });
 
     function getFeature() {
         return $.ajax('api/rest/feature/parsed/' + path);
     }
+}
+
+function markSelectedFeature(path) {
+    $('.featurebook-features-tree a').removeClass('active');
+    $('.featurebook-features-tree a[href="#feature/' + path + '"]').addClass('active');
 }
 
 function featurePathFromHash() {

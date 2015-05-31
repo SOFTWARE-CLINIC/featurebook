@@ -22,12 +22,16 @@ body {
     background: #373743;
 }
 
+.active {
+    font-weight: bold;
+}
+
 .featurebook-features-tree a {
     color: white;
 }
 
 .featurebook-features-tree a:hover {
-    font-weight: bolder;
+    color: darkorange;
 }
 
 .featurebook-feature {
