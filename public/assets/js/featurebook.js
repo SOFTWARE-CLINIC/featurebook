@@ -97,6 +97,11 @@ function createFeatureElement(feature, container) {
     createDescriptionElement(feature.description)
         .appendTo(container);
 
+    if (feature.background) {
+        createBackgroundElement(feature.background)
+            .appendTo(container);
+    }
+
     $.each(feature.scenarios, function (i, scenario) {
         createScenarioElement(scenario)
             .appendTo(container);
@@ -111,6 +116,20 @@ function createFeatureElement(feature, container) {
         return $('<div/>')
             .text(description)
             .addClass('featurebook-feature-description');
+    }
+
+    function createBackgroundElement(background) {
+        var backgroundElement = $('<div/>')
+            .addClass('featurebook-background');
+
+        $('<h3/>').text('Background:').appendTo(backgroundElement);
+
+        $.each(background.steps, function (i, step) {
+            createStepElement(step)
+                .appendTo(backgroundElement);
+        });
+
+        return backgroundElement;
     }
 
     function createScenarioElement(scenario) {

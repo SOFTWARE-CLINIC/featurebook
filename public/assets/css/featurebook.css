@@ -54,7 +54,7 @@ body {
     padding: 0 20px;
 }
 
-.featurebook-scenario, .featurebook-scenario-outline {
+.featurebook-background, .featurebook-scenario, .featurebook-scenario-outline {
     padding: 20px 20px 0px 40px;
 }
 
