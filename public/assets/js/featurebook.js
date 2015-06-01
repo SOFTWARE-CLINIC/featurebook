@@ -60,12 +60,16 @@ function onHashChange() {
 }
 
 function displayFeature(path) {
-    getFeature().done(function (feature) {
-        var container = $('.featurebook-feature');
-        container.empty();
-        createFeatureElement(feature, container);
-        markSelectedFeature(path)
-    });
+    getFeature()
+        .done(function (feature) {
+            var container = $('.featurebook-feature');
+            container.empty();
+            createFeatureElement(feature, container);
+            markSelectedFeature(path)
+        })
+        .fail(function () {
+            alert('Sorry dude but I have problem displaying `' + decodeURIComponent(path) + '`. Make sure it has a valid syntax.');
+        });
 
     function getFeature() {
         return $.ajax('api/rest/feature/parsed/' + path);

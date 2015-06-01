@@ -2,7 +2,7 @@ var spawn = require('child_process').spawn,
   concat = require('concat-stream'),
   path = require('path');
 
-describe('featurebook-cli', function () {
+describe.skip('featurebook-cli', function () {
 
   var executable;
 
