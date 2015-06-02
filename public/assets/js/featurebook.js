@@ -14,8 +14,10 @@ function selectFeature() {
 function createSummaryElements() {
 
     getSummary().done(function (summary) {
-        $('.featurebook-title').text(summary.title);
-        $('title').text(summary.title);
+        var version = summary.version || '',
+            title = summary.title + ' ' + version;
+        $('.featurebook-title').text(title);
+        $('title').text(title);
     });
 
     function getSummary() {
