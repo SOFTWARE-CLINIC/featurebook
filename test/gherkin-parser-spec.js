@@ -1,5 +1,6 @@
 var gherkin = require('../lib/gherkin-parser'),
-    assert = require('assert');
+    assert = require('assert'),
+    should = require('chai').should();
 
 describe('gherkin-parser', function () {
 
@@ -23,12 +24,12 @@ describe('gherkin-parser', function () {
         });
 
         it('should parse a simple feature with a single scenario outline', function () {
-            var featureAsJson = gherkin.parse('test/resources/eating_cucumbers.feature'),
-                firstScenarioOutline = featureAsJson.scenario_outlines[0];
+            var feature = gherkin.parse('test/resources/eating_cucumbers.feature'),
+                firstScenarioOutline = feature.scenario_outlines[0];
 
-            assert.equal(featureAsJson.name, 'Eating cucumbers');
-            assert.equal(featureAsJson.scenarios.length, 0);
-            assert.equal(featureAsJson.scenario_outlines.length, 1);
+            feature.name.should.equal('Eating cucumbers');
+            feature.scenarios.should.have.length(0);
+            feature.scenario_outlines.should.have.length(1);
 
             assert.equal(firstScenarioOutline.name, 'Eat');
             assert.equal(firstScenarioOutline.steps.length, 3);
@@ -44,12 +45,12 @@ describe('gherkin-parser', function () {
         });
 
         it('should parse a simple feature with the background', function () {
-            var featureAsJson = gherkin.parse('test/resources/simple_feature_with_background.feature');
-            var backgroundSteps = featureAsJson.background.steps;
-            var firstScenarioSteps = featureAsJson.scenarios[0].steps;
+            var feature = gherkin.parse('test/resources/simple_feature_with_background.feature');
+            var backgroundSteps = feature.background.steps;
+            var firstScenarioSteps = feature.scenarios[0].steps;
 
-            assert.equal(featureAsJson.name, 'Simple feature with background');
-            assert.equal(backgroundSteps.length, 3);
+            feature.name.should.equal('Simple feature with background');
+            feature.background.steps.should.have.length(3);
 
             assertStepEqual(backgroundSteps[0], 'Given', 'background step 1');
             assertStepEqual(backgroundSteps[1], 'And', 'background step 2');
@@ -58,6 +59,21 @@ describe('gherkin-parser', function () {
             assertStepEqual(firstScenarioSteps[0], 'Given', 'scenario step 1');
             assertStepEqual(firstScenarioSteps[1], 'When', 'scenario step 2');
             assertStepEqual(firstScenarioSteps[2], 'Then', 'scenario step 3');
+        });
+
+        it('should parse a simple feature written in Polish', function () {
+            var feature = gherkin.parse('test/resources/simple_feature_written_in_polish.feature', 'pl'),
+                firstScenario = feature.scenarios[0];
+
+            feature.name.should.equal('Logowanie do aplikacji');
+            feature.scenarios.should.have.length(1);
+            feature.scenario_outlines.should.have.length(0);
+
+            assertStepEqual(firstScenario.steps[0], 'Mając', 'otwartą stronę "/login.com"');
+            assertStepEqual(firstScenario.steps[1], 'Kiedy', 'wpiszesz "admin" jako nazwę');
+            assertStepEqual(firstScenario.steps[2], 'I', 'wpiszesz "***" jako hasło');
+            assertStepEqual(firstScenario.steps[3], 'I', 'klikniesz przycisk "Loguj"');
+            assertStepEqual(firstScenario.steps[4], 'Wtedy', 'zalogujesz się jako administrator');
         });
 
     });

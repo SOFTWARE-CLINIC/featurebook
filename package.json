@@ -38,7 +38,7 @@
     "gherkin": "^2.12.2"
   },
   "devDependencies": {
-    "concat-stream": "^1.4.8",
-    "should": "5.2.0"
+    "chai": "^2.3.0",
+    "concat-stream": "^1.4.8"
   }
 }

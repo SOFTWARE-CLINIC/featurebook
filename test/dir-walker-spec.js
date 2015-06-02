@@ -1,5 +1,6 @@
 var walker = require('../lib/dir-walker'),
     assert = require('assert'),
+    should = require('chai').should(),
     path = require('path');
 
 describe('directory-walker', function () {
@@ -9,7 +10,7 @@ describe('directory-walker', function () {
 
             assertNodeEqual(tree, 'resources', 'folder', '.');
 
-            assert.equal(tree.items.length, 4);
+            tree.items.should.have.length(5);
 
             assertNodeEqual(tree.items[0], 'eating_cucumbers.feature', 'file', 'eating_cucumbers.feature');
             assertNodeEqual(tree.items[1], 'hello_world.feature', 'file', 'hello_world.feature');

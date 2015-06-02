@@ -52,6 +52,7 @@ body {
 
 .featurebook-feature-name {
     padding: 0 20px;
+    font-size: x-large;
 }
 
 .featurebook-background, .featurebook-scenario, .featurebook-scenario-outline {
