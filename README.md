@@ -16,19 +16,34 @@ specifications from [Gherkin](https://github.com/cucumber/cucumber/wiki/Gherkin)
 
 FeatureBook can be installed from [npm](https://www.npmjs.com) using:
 
-```
+```shell
 $ npm install featurebook -g
 ```
 
+> To be perfectly frank, the `featurebook` package has not been published to [npm](https://www.npmjs.com/) yet.
+> You can still use it though by [symlink](https://docs.npmjs.com/cli/link)ing the latest development snapshot:
+> 
+> ```shell
+> $ git clone https://github.com/SOFTWARE-CLINIC/featurebook.git
+> $ cd featurebook
+> $ sudo npm link
+> ```
+>
+> To unlink the package:
+>
+> ```shell
+> $ npm r featurebook -g
+> ```
+
 You can serve the current directory as a system specification using:
 
-```
+```shell
 $ featurebook serve --port 3000
 ```
 
 Or simply build the static website using:
 
-```
+```shell
 $ featurebook build --output-dir ~/book
 ```
 
