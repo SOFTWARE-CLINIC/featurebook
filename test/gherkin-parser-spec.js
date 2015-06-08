@@ -10,10 +10,10 @@ describe('gherkin-parser', function () {
             var featureAsJson = gherkin.parse('test/resources/hello_world.feature'),
                 firstScenario = featureAsJson.scenarios[0];
 
-            assert.equal(featureAsJson.name, 'Hello World');
+            featureAsJson.name.should.equal('Hello World');
 
-            assert.equal(featureAsJson.scenarios.length, 1);
-            assert.equal(featureAsJson.scenario_outlines.length, 0);
+            featureAsJson.scenarios.should.have.length(1);
+            featureAsJson.scenario_outlines.should.be.empty;
 
             assert.equal(firstScenario.name, 'Look Ma');
             assert.equal(firstScenario.steps.length, 3);
