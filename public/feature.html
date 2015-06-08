@@ -1,0 +1,36 @@
+<h3 class="featurebook-feature-name">Feature: {{feature.name}}</h3>
+
+<div class="featurebook-feature-description" ng-bind-html="feature.descriptionAsHtml"></div>
+
+<div class="featurebook-background" ng-show="{{feature.background}}">
+    <h3>Background</h3>
+
+    <div class="featurebook-step" ng-repeat="step in feature.background.steps">
+        <span class="featurebook-keyword">{{step.keyword}}</span> {{step.name}}
+    </div>
+</div>
+
+<div class="featurebook-scenario" ng-repeat="scenario in feature.scenarios">
+    <h3>Scenario: {{scenario.name}}</h3>
+
+    <div class="featurebook-step" ng-repeat="step in scenario.steps">
+        <span class="featurebook-keyword">{{step.keyword}}</span> {{step.name}}
+    </div>
+</div>
+
+<div class="featurebook-scenario" ng-repeat="outline in feature.scenario_outlines">
+    <h3>Scenario Outline: {{outline.name}}</h3>
+
+    <div class="featurebook-step" ng-repeat="step in outline.steps">
+        <span class="featurebook-keyword">{{step.keyword}}</span> {{step.name}}
+    </div>
+
+    <div class="featurebook-examples">
+        <h3>Examples</h3>
+        <table>
+            <tr ng-repeat="row in outline.examples">
+                <td ng-repeat="cell in row">{{cell}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
