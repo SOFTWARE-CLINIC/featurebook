@@ -15,10 +15,10 @@
     function config($routeProvider) {
         $routeProvider
             .when('/home', {
-                templateUrl: 'home.html'
+                templateUrl: 'views/home.html'
             })
             .when('/feature/:path', {
-                templateUrl: 'feature.html',
+                templateUrl: 'views/feature.html',
                 controller: 'FeatureController',
                 resolve: {
                     feature: featureResolver
