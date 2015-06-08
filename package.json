@@ -6,7 +6,7 @@
     "featurebook": "./bin/featurebook.js"
   },
   "scripts": {
-    "test": "mocha --reporter spec --timeout 15000"
+    "test": "mocha --reporter spec --timeout 15000 && karma start test/public/karma.conf.js"
   },
   "keywords": [
     "gherkin",
@@ -40,6 +40,9 @@
   },
   "devDependencies": {
     "chai": "^3.0.0",
-    "concat-stream": "^1.4.8"
+    "concat-stream": "^1.4.8",
+    "karma": "^0.12.25",
+    "karma-jasmine": "^0.3.2",
+    "karma-phantomjs-launcher": "^0.1.4"
   }
 }
