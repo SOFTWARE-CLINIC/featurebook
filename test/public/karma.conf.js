@@ -13,7 +13,6 @@ module.exports = function (config) {
             'karma-jasmine',
             'karma-phantomjs-launcher'
         ],
-        reporters: ['dots'],
         singleRun: true,
         logLevel: config.LOG_INFO
     });

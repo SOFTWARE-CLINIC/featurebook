@@ -1,4 +1,4 @@
-var walker = require('../lib/dir-walker'),
+var walker = require('../../lib/dir-walker'),
     assert = require('assert'),
     should = require('chai').should(),
     path = require('path');

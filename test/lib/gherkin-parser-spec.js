@@ -1,4 +1,4 @@
-var gherkin = require('../lib/gherkin-parser'),
+var gherkin = require('../../lib/gherkin-parser'),
     assert = require('assert'),
     should = require('chai').should();
 

@@ -6,7 +6,7 @@
     "featurebook": "./bin/featurebook.js"
   },
   "scripts": {
-    "test": "mocha --reporter spec --timeout 15000 && karma start test/public/karma.conf.js"
+    "test": "mocha --reporter spec --timeout 15000 test/lib && karma start test/public/karma.conf.js"
   },
   "keywords": [
     "gherkin",

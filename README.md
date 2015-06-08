@@ -47,6 +47,20 @@ Or simply build the static website using:
 $ featurebook build --output-dir ~/book
 ```
 
+## Running Tests
+
+```shell
+$ npm install -g mocha karma-cli
+```
+
+```shell
+$ mocha --reporter spec --timeout 1500 test/lib
+```
+
+```shell
+$ karma start test/public/karma.conf.js
+```
+
 ## License
 
 Code is under the [Apache Licence, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
