@@ -4,4 +4,4 @@ node_js:
   - "0.11"
   - "0.10"
 before_script:
-  - 'npm install -g bower mocha karma-cli && cd public && bower install'
+  - 'npm install -g bower mocha karma-cli && cd public && bower install && cd ..'
