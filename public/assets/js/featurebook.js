@@ -96,7 +96,7 @@ function createFeatureElement(feature, container) {
         .addClass('featurebook-feature-name')
         .appendTo(container);
 
-    createDescriptionElement(feature.description)
+    createDescriptionElement(feature.descriptionAsHtml)
         .appendTo(container);
 
     if (feature.background) {
@@ -116,7 +116,7 @@ function createFeatureElement(feature, container) {
 
     function createDescriptionElement(description) {
         return $('<div/>')
-            .text(description)
+            .html(description)
             .addClass('featurebook-feature-description');
     }
 
