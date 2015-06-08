@@ -1,28 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="scFeatureBook">
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>FeatureBook</title>
-    <link href="assets/css/featurebook.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="assets/css/featurebook.css">
 </head>
-<body>
+<body ng-controller="FeatureBookController">
 
 <div class="featurebook">
-    <!-- displays the title of this book -->
-    <h1 class="featurebook-title"></h1>
 
-    <!-- displays all features as a tree -->
-    <aside class="featurebook-features-tree"></aside>
+    <h1 class="featurebook-title">{{summary.title}} {{summary.version}}</h1>
 
-    <!-- displays currently selected feature -->
-    <main class="featurebook-feature">
-        Select a feature to display.
-    </main>
+    <aside class="featurebook-features-tree">
+        <feature-tree ng-model="featuresTree"></feature-tree>
+    </aside>
+
+    <main class="featurebook-feature" ng-view></main>
 
 </div>
 
-<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-route.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-resource.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-sanitize.min.js"></script>
+
 <script src="assets/js/featurebook.js"></script>
+
 </body>
 </html>
