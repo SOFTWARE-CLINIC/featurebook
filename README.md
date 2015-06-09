@@ -7,8 +7,9 @@ FeatureBook
 [![License](http://img.shields.io/:license-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 FeatureBook is a command line tool (and [Node.js](https://nodejs.org) library) for generating beautiful system
-specifications from [Gherkin](https://github.com/cucumber/cucumber/wiki/Gherkin) source files. Here is an
-[example](https://github.com/SOFTWARE-CLINIC/featurebook-example) system specification.
+specifications from [Gherkin](https://github.com/cucumber/cucumber/wiki/Gherkin) source files.
+
+Here is an [example](https://github.com/SOFTWARE-CLINIC/featurebook-example) system specification.
 
 ![Demo](/README/featurebook_demo.png)
 
@@ -50,11 +51,15 @@ $ featurebook build --output-dir ~/book
 ## Running Tests
 
 ```shell
-$ npm install -g mocha karma-cli
+$ npm install -g bower mocha karma-cli
 ```
 
 ```shell
 $ mocha --reporter spec --timeout 1500 test/lib
+```
+
+```shell
+$ cd public && bower install && cd ..
 ```
 
 ```shell

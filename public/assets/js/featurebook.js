@@ -4,6 +4,7 @@
 
     angular.module('scFeatureBook', ['ngRoute', 'ngSanitize'])
         .config(config)
+        .factory('featureBookService', featureBookServiceFactory)
         .controller('FeatureBookController', FeatureBookController)
         .controller('FeatureController', FeatureController)
         .directive('featureTree', featureTreeDirectiveFactory)
@@ -28,10 +29,36 @@
                 redirectTo: '/home'
             });
 
-        featureResolver.$inject = ['$route', '$http'];
+        featureResolver.$inject = ['$route', 'featureBookService'];
 
-        function featureResolver($route, $http) {
-            return $http.get('api/rest/feature/parsed/' + encodeURIComponent($route.current.params.path));
+        function featureResolver($route, featureBookService) {
+            return featureBookService.findByPath($route.current.params.path);
+        }
+    }
+
+    featureBookServiceFactory.$inject = ['$http'];
+
+    function featureBookServiceFactory($http) {
+        return {
+            summary: summary,
+            findAll: findAll,
+            findByPath: findByPath
+        };
+
+        function summary() {
+            return $http.get('api/rest/summary').then(function (response) {
+                return response.data;
+            });
+        }
+
+        function findAll() {
+            return $http.get('api/rest/feature/tree').then(function (response) {
+                return [response.data];
+            });
+        }
+
+        function findByPath(featurePath) {
+            return $http.get('api/rest/feature/parsed/' + encodeURIComponent(featurePath));
         }
     }
 
@@ -61,17 +88,17 @@
         };
     }
 
-    FeatureBookController.$inject = ['$scope', '$http', '$window'];
+    FeatureBookController.$inject = ['$scope', '$window', 'featureBookService'];
 
-    function FeatureBookController($scope, $http, $window) {
-        $http.get('api/rest/summary').success(function (summary) {
+    function FeatureBookController($scope, $window, featureBookService) {
+        featureBookService.summary().then(function (summary) {
             $scope.summary = summary;
             $window.document.title = 'Feature Book: ' + summary.title;
         });
 
-        $http.get('api/rest/feature/tree').success(function (featuresTree) {
-            $scope.featuresTree = [featuresTree];
-        });
+        featureBookService.findAll().then(function (featuresTree) {
+            $scope.featuresTree = featuresTree;
+        })
     }
 
     FeatureController.$inject = ['$scope', '$route'];
