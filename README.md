@@ -2,6 +2,7 @@ FeatureBook
 ===========
 
 [![Build Status](https://travis-ci.org/SOFTWARE-CLINIC/featurebook.svg)](https://travis-ci.org/SOFTWARE-CLINIC/featurebook)
+[![npm version](https://badge.fury.io/js/featurebook.svg)](http://badge.fury.io/js/featurebook)
 [![dependencies](https://david-dm.org/SOFTWARE-CLINIC/featurebook.svg)](https://david-dm.org/SOFTWARE-CLINIC/featurebook)
 [![devDependencies](https://david-dm.org/SOFTWARE-CLINIC/featurebook/dev-status.svg)](https://david-dm.org/SOFTWARE-CLINIC/featurebook#info=devDependencies)
 [![License](http://img.shields.io/:license-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
@@ -28,21 +29,6 @@ FeatureBook can be installed from [npm](https://www.npmjs.com) using:
 ```shell
 $ npm install featurebook -g
 ```
-
-> To be perfectly frank, the `featurebook` package has not been published to [npm](https://www.npmjs.com/) yet.
-> You can still use it though by [symlink](https://docs.npmjs.com/cli/link)ing the latest development snapshot:
-> 
-> ```shell
-> $ git clone https://github.com/SOFTWARE-CLINIC/featurebook.git
-> $ cd featurebook
-> $ sudo npm link
-> ```
->
-> To unlink the package:
->
-> ```shell
-> $ npm r featurebook -g
-> ```
 
 You can serve the current directory as a system specification using:
 
@@ -105,6 +91,7 @@ To publish to the public registry:
 
 ```shell
 $ git checkout tags/v0.0.7
+$ cd public && bower install && cd ..
 $ npm publish
 ```
 
