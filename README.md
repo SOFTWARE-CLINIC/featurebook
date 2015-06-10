@@ -10,6 +10,7 @@ FeatureBook
 * [Usage](#usage)
 * [Running Tests](#running-tests)
 * [Releasing](#releasing)
+* [License](#license)
 
 ## Introduction
 
