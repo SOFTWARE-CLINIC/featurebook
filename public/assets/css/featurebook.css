@@ -11,6 +11,10 @@ body {
     margin: 20px;
 }
 
+table {
+    border-collapse: collapse;
+}
+
 .featurebook {
     margin: 0 auto;
     max-width: 1140px;
@@ -62,6 +66,16 @@ body {
 
 .featurebook-examples {
     padding: 20px 20px 0px 20px;
+}
+
+.featurebook-examples tr {
+    border-left: 3px solid darkorange;
+}
+
+.featurebook-examples td {
+    border-right: 3px solid darkorange;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 .featurebook-step {
