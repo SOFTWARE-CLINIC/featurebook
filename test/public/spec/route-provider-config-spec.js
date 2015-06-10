@@ -25,12 +25,24 @@ describe('featurebook', function () {
         expect($route.current.controller).toBeUndefined();
     });
 
-    it('should configure route for `/feature/:path`', function () {
+    it('should configure route for `/feature/my.feature`', function () {
         spyOn(featureBookService, 'findByPath').and.returnValue({name: 'Test feature'});
-        $location.path('/feature/my_feature.feature');
+        $location.path('/feature/my.feature');
         $rootScope.$digest();
 
         expect($route.current.templateUrl).toBe('views/feature.html');
+        expect($route.current.pathParams.path).toEqual('my.feature');
+        expect($route.current.controller).toBe('FeatureController');
+        expect($route.current.locals.feature).toEqual({name: 'Test feature'});
+    });
+
+    it('should configure route for `/feature/a/sub/folder/for/my.feature`', function () {
+        spyOn(featureBookService, 'findByPath').and.returnValue({name: 'Test feature'});
+        $location.path('/feature/a/sub/folder/for/my.feature');
+        $rootScope.$digest();
+
+        expect($route.current.templateUrl).toBe('views/feature.html');
+        expect($route.current.pathParams.path).toEqual('a/sub/folder/for/my.feature');
         expect($route.current.controller).toBe('FeatureController');
         expect($route.current.locals.feature).toEqual({name: 'Test feature'});
     });

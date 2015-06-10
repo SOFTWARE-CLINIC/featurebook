@@ -18,7 +18,7 @@
             .when('/home', {
                 templateUrl: 'views/home.html'
             })
-            .when('/feature/:path', {
+            .when('/feature/:path*', {
                 templateUrl: 'views/feature.html',
                 controller: 'FeatureController',
                 resolve: {
@@ -32,7 +32,7 @@
         featureResolver.$inject = ['$route', 'featureBookService'];
 
         function featureResolver($route, featureBookService) {
-            return featureBookService.findByPath($route.current.params.path);
+            return featureBookService.findByPath($route.current.pathParams.path);
         }
     }
 
