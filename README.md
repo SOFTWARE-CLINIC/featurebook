@@ -91,7 +91,6 @@ To publish to the public registry:
 
 ```shell
 $ git checkout tags/v0.0.7
-$ cd public && bower install && cd ..
 $ npm publish
 ```
 

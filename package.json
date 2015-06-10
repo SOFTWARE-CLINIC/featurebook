@@ -5,6 +5,7 @@
   "bin": {
     "featurebook": "./bin/featurebook.js"
   },
+  "preferGlobal": true,
   "scripts": {
     "test": "mocha --reporter spec --timeout 15000 test/lib && karma start test/public/karma.conf.js"
   },
