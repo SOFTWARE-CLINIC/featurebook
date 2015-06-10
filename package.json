@@ -6,8 +6,7 @@
     "featurebook": "./bin/featurebook.js"
   },
   "scripts": {
-    "test": "mocha --reporter spec --timeout 15000 test/lib && karma start test/public/karma.conf.js",
-    "postinstall": "cd public && ./node_modules/bower/bin/bower install"
+    "test": "mocha --reporter spec --timeout 15000 test/lib && karma start test/public/karma.conf.js"
   },
   "keywords": [
     "gherkin",
@@ -37,8 +36,7 @@
     "commander": "^2.8.1",
     "express": "^4.12.4",
     "gherkin": "^2.12.2",
-    "marked": "^0.3.3",
-    "bower": "^1.4.1"
+    "marked": "^0.3.3"
   },
   "devDependencies": {
     "chai": "^3.0.0",
@@ -46,6 +44,6 @@
     "karma": "^0.12.25",
     "karma-ng-html2js-preprocessor": "^0.1.2",
     "karma-jasmine": "^0.3.2",
-    "karma-phantomjs-launcher": "^0.1.4"
+    "karma-phantomjs-launcher": "^0.2.0"
   }
 }
