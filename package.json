@@ -7,7 +7,7 @@
   },
   "scripts": {
     "test": "mocha --reporter spec --timeout 15000 test/lib && karma start test/public/karma.conf.js",
-    "prepublish": "cd public && bower install"
+    "postinstall": "cd public && bower install"
   },
   "keywords": [
     "gherkin",
