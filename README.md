@@ -12,7 +12,7 @@ FeatureBook
 
 * [Introduction](#introduction)
 * [Usage](#usage)
-* [Book Format](#book-format)
+* [Specification Format](#specification-format)
 * [Running Tests](#running-tests)
 * [Releasing](#releasing)
 * [License](#license)
@@ -46,16 +46,39 @@ Or simply build the static website using:
 $ featurebook build --output-dir ~/book
 ```
 
-## Book Format
+## Specification Format
 
-A system specification is a directory containing Gherkin source files, the `assets` subdirectory containing images and
-videos that you can refer to within a feature description, and an optional `featurebook.json` descriptor.
+A system specification is a directory containing:
+
+* Gherkin source files
+* The `assets` subdirectory for images and videos that you can refer to from within a Gherkin source file
+* An optional `featurebook.json` descriptor
+
+```
+my_specification
+|-- assets
+|   |-- images
+|   |   |-- picture_is_worth_1000_words.png
+|   |   `-- two_pictures_are_worth_2000_words.png
+|   `-- videos
+|       |-- video_is_worth_2000_words.mp4
+|       `-- two_videos_are_worth_4000_words.mp4
+|-- webapp
+|   `-- admin
+|       |-- users
+|       |   |-- list_users.feature
+|       |   `-- register_user.feature
+|       `-- projects
+|           |-- list_projects.feature
+|           |-- create_project.feature
+|           `-- clone_project.feature
+`-- featurebook.json
+```
 
 There are a few conventions:
 
-* Single Gherkin source file contains a description of a single feature;
-* Source files have `.feature` extension;
-
+* Single Gherkin source file contains a description of a single feature
+* Source files have `.feature` extension
 
 A Gherkin source file usually looks like this:
 
@@ -68,8 +91,6 @@ Feature: Some terse yet descriptive text of what is desired
 
   ![Picture from brainstorming sessions](/assets/images/picture_is_worth_1000_words.png)
 
-  [![Video from our last demo](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
-
   Scenario: Some determinable business situation
     Given some precondition
       And some other precondition
@@ -80,23 +101,27 @@ Feature: Some terse yet descriptive text of what is desired
       And something else we can check happens too
 
   Scenario: A different situation
+    ...
 ```
 
-Note that you can use [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown) to describe
-your features and scenarios.
+Note that you can use [Markdown](http://en.wikipedia.org/wiki/Markdown) to describe your features and scenarios.
 
 ### featurebook.json
 
-The `featurebook.json` contains metadata about the system specification such as: title, version, and authors:
+The `featurebook.json` contains metadata about your system specification such as: title, version, and authors:
 
 ```javascript
 {
   "title": "My System Specification",
   "version": "1.0.0",
   "authors": [],
-  "language": "en|pl"
+  "language": "pl"
 }
 ```
+
+Gherkin's grammar exists in different flavours for many [spoken languages](https://github.com/cucumber/cucumber/wiki/Spoken-languages).
+To specify and use the keywords in your own language, set the `language` property to the corresponding language
+[code](https://github.com/cucumber/gherkin/blob/master/lib/gherkin/i18n.json).
 
 ## Running Tests
 
@@ -118,10 +143,11 @@ $ karma start test/public/karma.conf.js
 
 ## Releasing
 
-Select a branch that contains the code you want to release. Usually, you'll want to release against the [master](https://github.com/SOFTWARE-CLINIC/featurebook/tree/master) branch,
-unless you're releasing a beta version.
+Select a branch that contains the code you want to release. Usually, you'll want to release against the
+[master](https://github.com/SOFTWARE-CLINIC/featurebook/tree/master) branch, unless you're releasing a beta version.
 
-Let's assume that the latest version of the `featurebook` package is `0.0.6` (see the `version` property in [package.json](/package.json)).
+Let's assume that the latest version of the `featurebook` package is `0.0.6` (see the `version` property in
+[package.json](/package.json)).
 
 ```shell
 $ git clone https://github.com/SOFTWARE-CLINIC/featurebook.git && cd featurebook
@@ -134,7 +160,8 @@ $ npm version patch|minor|major -m "[npm] prepare release %s"
 v0.0.7
 ```
 
-Note that this command will also create a version commit and tag named `v0.0.7`, and fail if the cloned repository is not clean.
+Note that this command will also create a version commit and tag named `v0.0.7`, and fail if the cloned repository is
+not clean.
 
 To push the commit and the `v0.0.7` tag to the `origin` repository:
 
