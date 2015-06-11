@@ -10,3 +10,7 @@ dependencies:
         pwd: .
     - bower prune && bower install:
         pwd: public
+
+notify:
+  webhooks:
+    - url: https://webhooks.gitter.im/e/cc4907f60f994e415879
