@@ -79,7 +79,7 @@
     function featureDirectiveFactory($compile) {
         return {
             restrict: 'E',
-            template: '<li><a href="#feature/{{feature.path | encodeURIComponent}}">{{feature.name}}</a></li>',
+            template: '<li><a href="#feature/{{feature.path | encodeURIComponent}}">{{feature.name}} XXX</a></li>',
             link: function (scope, elm, attrs) {
                 if (scope.feature.items.length > 0) {
                     elm.append($compile('<feature-tree ng-model="feature.items"></feature-tree>')(scope));
