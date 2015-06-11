@@ -88,11 +88,12 @@ A Gherkin source file usually looks like this:
 ```gherkin
 Feature: Some terse yet descriptive text of what is desired
 
-  Textual description of the business value of this feature
+  Textual *description* of the business value of this feature
   Business rules that govern the scope of the feature
-  Any additional information and ~~formatting~~ that will make the feature easier to read and **understand**
+  Any additional information and ~~formatting~~ that will make
+  the feature easier to read and **understand**
 
-  ![Picture from brainstorming sessions](/assets/images/picture_is_worth_1000_words.png)
+  ![Picture alt text](/assets/images/picture_is_worth_1000_words.png)
 
   Scenario: Some determinable business situation
     Given some precondition

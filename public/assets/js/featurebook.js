@@ -79,10 +79,13 @@
     function featureDirectiveFactory($compile) {
         return {
             restrict: 'E',
-            template: '<li><a href="#feature/{{feature.path | encodeURIComponent}}">{{feature.name}}</a></li>',
-            link: function (scope, elm, attrs) {
+            template: '<li>'
+            + '<a ng-if="feature.type === \'file\'" href="#feature/{{feature.path | encodeURIComponent}}">{{feature.name}}</a>'
+            + '<div ng-if="feature.type === \'folder\'">{{feature.name}}</div>'
+            + '</li>',
+            link: function (scope, element) {
                 if (scope.feature.items.length > 0) {
-                    elm.append($compile('<feature-tree ng-model="feature.items"></feature-tree>')(scope));
+                    element.append($compile('<feature-tree ng-model="feature.items"></feature-tree>')(scope));
                 }
             }
         };
