@@ -6,7 +6,8 @@
     <h3>Background</h3>
 
     <div class="featurebook-step" ng-repeat="step in feature.background.steps">
-        <span class="featurebook-keyword">{{step.keyword}}</span> {{step.name}}
+        <div class="featurebook-keyword">{{step.keyword}}</div>
+        <div class="featurebook-step-name">{{step.name}}</div>
     </div>
 </div>
 
@@ -14,7 +15,8 @@
     <h3>Scenario: {{scenario.name}}</h3>
 
     <div class="featurebook-step" ng-repeat="step in scenario.steps">
-        <span class="featurebook-keyword">{{step.keyword}}</span> {{step.name}}
+        <div class="featurebook-keyword">{{step.keyword}}</div>
+        <div class="featurebook-step-name">{{step.name}}</div>
     </div>
 </div>
 
@@ -22,7 +24,8 @@
     <h3>Scenario Outline: {{outline.name}}</h3>
 
     <div class="featurebook-step" ng-repeat="step in outline.steps">
-        <span class="featurebook-keyword">{{step.keyword}}</span> {{step.name}}
+        <div class="featurebook-keyword">{{step.keyword}}</div>
+        <div class="featurebook-step-name">{{step.name}}</div>
     </div>
 
     <div class="featurebook-examples">

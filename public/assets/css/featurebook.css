@@ -43,6 +43,7 @@ table {
     float: left;
     width: 63%;
     margin-left: 2%;
+    margin-bottom: 2%;
     background: #373743;
     padding: 20px;
 }
@@ -53,6 +54,15 @@ table {
 
 .featurebook-feature-description {
     padding-left: 40px;
+}
+
+.featurebook-feature-description p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.featurebook-feature-description img {
+    max-width: 100%;
 }
 
 .featurebook-feature-name {
@@ -85,6 +95,16 @@ table {
 .featurebook-keyword {
     color: darkorange;
     font-weight: bolder;
+    display: inline-block;
+    text-align: right;
+    margin-right: 0;
+    width: 15%;
+    vertical-align: top;
+}
+
+.featurebook-step-name {
+    display: inline-block;
+    width: 84%;
 }
 
 .featurebook-var {

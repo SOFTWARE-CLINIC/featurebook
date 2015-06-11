@@ -9,6 +9,7 @@ FeatureBook
 
 * [Introduction](#introduction)
 * [Usage](#usage)
+* [Book Format](#book-format)
 * [Running Tests](#running-tests)
 * [Releasing](#releasing)
 * [License](#license)
@@ -40,6 +41,58 @@ Or simply build the static website using:
 
 ```shell
 $ featurebook build --output-dir ~/book
+```
+
+## Book Format
+
+A system specification is a directory containing Gherkin source files, the `assets` subdirectory containing images and
+videos that you can refer to within a feature description, and an optional `featurebook.json` descriptor.
+
+There are a few conventions:
+
+* Single Gherkin source file contains a description of a single feature;
+* Source files have `.feature` extension;
+
+
+A Gherkin source file usually looks like this:
+
+```gherkin
+Feature: Some terse yet descriptive text of what is desired
+
+  Textual description of the business value of this feature
+  Business rules that govern the scope of the feature
+  Any additional information and **formatting** that will make the feature easier to read and __understand__
+
+  ![Picture from brainstorming sessions](/assets/images/picture_is_worth_1000_words.png)
+
+  [![Video from our last demo](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+
+  Scenario: Some determinable business situation
+    Given some precondition
+      And some other precondition
+     When some action by the actor
+      And some other action
+      And yet another action
+     Then some testable outcome is achieved
+      And something else we can check happens too
+
+  Scenario: A different situation
+```
+
+Note that you can use [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown) to describe
+your features and scenarios.
+
+### featurebook.json
+
+The `featurebook.json` contains metadata about the system specification such as: title, version, and authors:
+
+```javascript
+{
+  "title": "My System Specification",
+  "version": "1.0.0",
+  "authors": [],
+  "language": "en|pl"
+}
 ```
 
 ## Running Tests
