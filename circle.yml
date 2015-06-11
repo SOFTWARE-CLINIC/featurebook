@@ -1,3 +1,12 @@
 machine:
   node:
-    version: 0.11.8
+    version: v0.10.33
+
+dependencies:
+  cache_directories:
+    - node_modules
+  override:
+    - npm prune && npm install:
+        pwd: .
+    - bower prune && bower install:
+        pwd: public
