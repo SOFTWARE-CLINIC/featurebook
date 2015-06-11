@@ -31,8 +31,8 @@
     <div class="featurebook-examples">
         <h3>Examples</h3>
         <table>
-            <tr ng-repeat="row in outline.examples">
-                <td ng-repeat="cell in row">{{cell}}</td>
+            <tr ng-repeat="row in outline.examples track by $index">
+                <td ng-repeat="cell in row track by $index">{{cell}}</td>
             </tr>
         </table>
     </div>

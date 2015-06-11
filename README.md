@@ -3,10 +3,11 @@ FeatureBook
 
 [![Build Status](https://travis-ci.org/SOFTWARE-CLINIC/featurebook.svg)](https://travis-ci.org/SOFTWARE-CLINIC/featurebook)
 [![CircleCI](https://img.shields.io/circleci/project/SOFTWARE-CLINIC/featurebook/master.svg?style=shield)](https://circleci.com/gh/SOFTWARE-CLINIC/featurebook)
-[![GitHub issues](https://img.shields.io/github/issues/SOFTWARE-CLINIC/featurebook.svg)](https://github.com/SOFTWARE-CLINIC/featurebook/issues)
 [![npm version](https://badge.fury.io/js/featurebook.svg)](http://badge.fury.io/js/featurebook)
+[![GitHub issues](https://img.shields.io/github/issues/SOFTWARE-CLINIC/featurebook.svg)](https://github.com/SOFTWARE-CLINIC/featurebook/issues)
 [![dependencies](https://david-dm.org/SOFTWARE-CLINIC/featurebook.svg)](https://david-dm.org/SOFTWARE-CLINIC/featurebook)
 [![devDependencies](https://david-dm.org/SOFTWARE-CLINIC/featurebook/dev-status.svg)](https://david-dm.org/SOFTWARE-CLINIC/featurebook#info=devDependencies)
+
 [![Join the chat at https://gitter.im/SOFTWARE-CLINIC/featurebook](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/SOFTWARE-CLINIC/featurebook?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![License](http://img.shields.io/:license-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
@@ -51,7 +52,7 @@ $ featurebook build --output-dir ~/book
 A system specification is a directory containing:
 
 * Gherkin source files
-* The `assets` subdirectory for images and videos that you can refer to from within a Gherkin source file
+* The `assets` subdirectory for images and videos that you can refer to from within the Gherkin source files
 * An optional `featurebook.json` descriptor
 
 ```
@@ -120,7 +121,7 @@ The `featurebook.json` contains metadata about your system specification such as
 ```
 
 Gherkin's grammar exists in different flavours for many [spoken languages](https://github.com/cucumber/cucumber/wiki/Spoken-languages).
-To specify and use the keywords in your own language, set the `language` property to the corresponding language
+To specify and use the keywords in your own language, you must set the `language` property to the corresponding language
 [code](https://github.com/cucumber/gherkin/blob/master/lib/gherkin/i18n.json).
 
 ## Running Tests
