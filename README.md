@@ -4,11 +4,11 @@ FeatureBook
 [![Build Status](https://travis-ci.org/SOFTWARE-CLINIC/featurebook.svg)](https://travis-ci.org/SOFTWARE-CLINIC/featurebook)
 [![CircleCI](https://img.shields.io/circleci/project/SOFTWARE-CLINIC/featurebook/master.svg?style=shield)](https://circleci.com/gh/SOFTWARE-CLINIC/featurebook)
 [![npm version](https://badge.fury.io/js/featurebook.svg)](http://badge.fury.io/js/featurebook)
-[![GitHub issues](https://img.shields.io/github/issues/SOFTWARE-CLINIC/featurebook.svg)](https://github.com/SOFTWARE-CLINIC/featurebook/issues)
 [![dependencies](https://david-dm.org/SOFTWARE-CLINIC/featurebook.svg)](https://david-dm.org/SOFTWARE-CLINIC/featurebook)
 [![devDependencies](https://david-dm.org/SOFTWARE-CLINIC/featurebook/dev-status.svg)](https://david-dm.org/SOFTWARE-CLINIC/featurebook#info=devDependencies)
 
 [![Join the chat at https://gitter.im/SOFTWARE-CLINIC/featurebook](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/SOFTWARE-CLINIC/featurebook?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![GitHub issues](https://img.shields.io/github/issues/SOFTWARE-CLINIC/featurebook.svg)](https://github.com/SOFTWARE-CLINIC/featurebook/issues)
 [![License](http://img.shields.io/:license-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 * [Introduction](#introduction)
@@ -80,6 +80,8 @@ There are a few conventions:
 
 * Single Gherkin source file contains a description of a single feature
 * Source files have `.feature` extension
+* A feature name displayed in the navigation tree is inferred from the corresponding Gherkin source file name, i.e. it's
+  a titleized base file name. For example, `list_users.feature` becomes `List Users`.
 
 A Gherkin source file usually looks like this:
 
@@ -88,7 +90,7 @@ Feature: Some terse yet descriptive text of what is desired
 
   Textual description of the business value of this feature
   Business rules that govern the scope of the feature
-  Any additional information and **formatting** that will make the feature easier to read and __understand__
+  Any additional information and ~~formatting~~ that will make the feature easier to read and **understand**
 
   ![Picture from brainstorming sessions](/assets/images/picture_is_worth_1000_words.png)
 
@@ -115,7 +117,14 @@ The `featurebook.json` contains metadata about your system specification such as
 {
   "title": "My System Specification",
   "version": "1.0.0",
-  "authors": [],
+  "authors": [
+    {
+      "firstName": "Henryk",
+      "lastName": "Sienkiewicz",
+      "email": "hsienkiewicz@gmail.com",
+      "twitter", "hsienkiewicz"
+    }
+  ],
   "language": "pl"
 }
 ```
