@@ -7,6 +7,7 @@ FeatureBook
 [![npm version](https://badge.fury.io/js/featurebook.svg)](http://badge.fury.io/js/featurebook)
 [![dependencies](https://david-dm.org/SOFTWARE-CLINIC/featurebook.svg)](https://david-dm.org/SOFTWARE-CLINIC/featurebook)
 [![devDependencies](https://david-dm.org/SOFTWARE-CLINIC/featurebook/dev-status.svg)](https://david-dm.org/SOFTWARE-CLINIC/featurebook#info=devDependencies)
+[![Chat](http://img.shields.io/badge/tau-labs/featurebook-blue.svg)](https://gitter.im/tau-labs/featurebook)
 [![License](http://img.shields.io/:license-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 * [Introduction](#introduction)
