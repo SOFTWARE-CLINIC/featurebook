@@ -1,0 +1,16 @@
+machine:
+  node:
+    version: v0.10.33
+
+dependencies:
+  cache_directories:
+    - node_modules
+  override:
+    - npm prune && npm install:
+        pwd: .
+    - bower prune && bower install:
+        pwd: public
+
+notify:
+  webhooks:
+    - url: https://webhooks.gitter.im/e/cc4907f60f994e415879
