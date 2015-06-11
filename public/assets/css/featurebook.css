@@ -39,6 +39,10 @@ table {
     color: darkorange;
 }
 
+.featurebook-features-tree ul {
+    padding-left: 2em;
+}
+
 .featurebook-feature {
     float: left;
     width: 63%;
