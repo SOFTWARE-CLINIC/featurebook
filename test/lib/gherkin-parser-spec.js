@@ -92,6 +92,10 @@ describe('gherkin-parser', function () {
             firstScenario.steps[1].args[1].should.have.members(['Juliusz', 'Slowacki', 'jslowacki@gmail.com']);
         });
 
+        it('should parse a simple feature with tags', function () {
+            var feature = gherkin.parse('test/resources/simple_feature_with_tags.feature');
+        });
+
     });
 
     function assertStepEqual(actualStep, keyword, name) {
