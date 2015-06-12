@@ -29,19 +29,19 @@ Here is an [example](https://github.com/SOFTWARE-CLINIC/featurebook-example) sys
 
 ## Usage
 
-FeatureBook can be installed from [npm](https://www.npmjs.com) using:
+FeatureBook can be installed from [npm](https://www.npmjs.com):
 
 ```shell
 $ npm install featurebook -g
 ```
 
-You can serve the current directory as a system specification using:
+You can serve the current directory as a system specification:
 
 ```shell
 $ featurebook serve --port 3000
 ```
 
-Or simply build the static website using:
+Or simply build the static website:
 
 ```shell
 $ featurebook build --output-dir ~/book
@@ -49,7 +49,7 @@ $ featurebook build --output-dir ~/book
 
 To list all available commands and options:
 
-```shell
+```
 $ featurebook --help
 
   Usage: featurebook [options] [command]
@@ -68,7 +68,7 @@ $ featurebook --help
 
 Or just display help for a given command:
 
-```shell
+```
 $ featurebook serve --help
 
   Usage: serve [options] [source-dir]
@@ -172,6 +172,7 @@ To specify and use the keywords in your own language, you must set the `language
 
 ```shell
 $ npm install -g bower mocha karma-cli
+$ npm install
 ```
 
 ```shell
@@ -212,7 +213,7 @@ To push the commit and the `v0.0.7` tag to the `origin` repository:
 
 ```shell
 $ git push -u origin master
-$ git push origin v0.0.7
+$ git push -u origin v0.0.7
 ```
 
 To publish to the public registry:

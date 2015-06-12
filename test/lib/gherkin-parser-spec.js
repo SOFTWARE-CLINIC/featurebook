@@ -76,6 +76,22 @@ describe('gherkin-parser', function () {
             assertStepEqual(firstScenario.steps[4], 'Wtedy', 'zalogujesz się jako administrator');
         });
 
+        it('should parse a simple feature with multiline table argument', function () {
+            var feature = gherkin.parse('test/resources/simple_feature_with_multiline_table_argument.feature'),
+                firstScenario = feature.scenarios[0];
+
+            feature.name.should.equal('Metadata');
+
+            firstScenario.name.should.equal('Provide information about authors and contributors');
+
+            firstScenario.steps[0].args[0].should.have.members(['firstName', 'lastName', 'email']);
+            firstScenario.steps[0].args[1].should.have.members(['Henryk', 'Sienkiewicz', 'hsienkiewicz@gmail.com']);
+            firstScenario.steps[0].args[2].should.have.members(['Eliza', 'Orzeszkowa', 'eorzeszkowa@gmail.com']);
+
+            firstScenario.steps[1].args[0].should.have.members(['firstName', 'lastName', 'email']);
+            firstScenario.steps[1].args[1].should.have.members(['Juliusz', 'Slowacki', 'jslowacki@gmail.com']);
+        });
+
     });
 
     function assertStepEqual(actualStep, keyword, name) {

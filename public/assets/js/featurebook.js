@@ -9,6 +9,8 @@
         .controller('FeatureController', FeatureController)
         .directive('featureTree', featureTreeDirectiveFactory)
         .directive('feature', featureDirectiveFactory)
+        .directive('step', stepDirectiveFactory)
+        .directive('examples', examplesDirectiveFactory)
         .filter('encodeURIComponent', encodeURIComponentFilter);
 
     config.$inject = ['$routeProvider'];
@@ -83,10 +85,32 @@
             + '<a ng-if="feature.type === \'file\'" href="#feature/{{feature.path | encodeURIComponent}}">{{feature.name}}</a>'
             + '<div ng-if="feature.type === \'folder\'">{{feature.name}}</div>'
             + '</li>',
-            link: function (scope, element) {
+            link: function featureDirectiveLinkFunction(scope, element) {
                 if (scope.feature.items.length > 0) {
                     element.append($compile('<feature-tree ng-model="feature.items"></feature-tree>')(scope));
                 }
+            }
+        };
+    }
+
+    function stepDirectiveFactory() {
+        return {
+            restrict: 'E',
+            templateUrl: 'views/step.html',
+            replace: true,
+            scope: {
+                step: '=ngModel'
+            }
+        };
+    }
+
+    function examplesDirectiveFactory() {
+        return {
+            restrict: 'E',
+            templateUrl: 'views/examples.html',
+            replace: true,
+            scope: {
+                examples: '=ngModel'
             }
         };
     }
@@ -96,7 +120,7 @@
     function FeatureBookController($scope, $window, featureBookService) {
         featureBookService.summary().then(function (summary) {
             $scope.summary = summary;
-            $window.document.title = 'Feature Book: ' + summary.title;
+            $window.document.title = summary.title + ' ' + (summary.version || '');
         });
 
         featureBookService.findAll().then(function (featuresTree) {
