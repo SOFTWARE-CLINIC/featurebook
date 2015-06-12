@@ -47,6 +47,42 @@ Or simply build the static website using:
 $ featurebook build --output-dir ~/book
 ```
 
+To list all available commands and options:
+
+```shell
+$ featurebook --help
+```
+```
+  Usage: featurebook [options] [command]
+
+
+  Commands:
+
+    serve [options] [source-dir]  serve [source-dir] as a system specification
+    build [options] [source-dir]  build a static website from [source-dir]
+
+  Options:
+
+    -h, --help     output usage information
+    -V, --version  output the version number
+```
+
+Or just display help for a given command:
+
+```shell
+$ featurebook serve --help
+```
+```
+  Usage: serve [options] [source-dir]
+
+  serve [source-dir] as a system specification
+
+  Options:
+
+    -h, --help         output usage information
+    -p, --port <port>  port on which to listen to (defaults to 3000)
+```
+
 ## Specification Format
 
 A system specification is a directory containing:
