@@ -55,7 +55,7 @@
 
         function findAll() {
             return $http.get('api/rest/feature/tree').then(function (response) {
-                return [response.data];
+                return response.data.items;
             });
         }
 

@@ -146,18 +146,25 @@ Note that you can use [Markdown](http://en.wikipedia.org/wiki/Markdown) to descr
 
 ### featurebook.json
 
-The `featurebook.json` contains metadata about your system specification such as: title, version, and authors:
+The `featurebook.json` contains system specification metadata such as: title, version, authors, and contributors:
 
 ```javascript
 {
+  "modelVersion": "1.0.0",
   "title": "My System Specification",
   "version": "1.0.0",
   "authors": [
     {
       "firstName": "Henryk",
       "lastName": "Sienkiewicz",
-      "email": "hsienkiewicz@gmail.com",
-      "twitter", "hsienkiewicz"
+      "email": "hsienkiewicz@gmail.com"
+    }
+  ],
+  "contributors": [
+    {
+      "firstName": "Eliza",
+      "lastName": "Orzeszkowa",
+      "email": "eorzeszkowa@gmail.com"
     }
   ],
   "language": "pl"
