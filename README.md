@@ -51,8 +51,7 @@ To list all available commands and options:
 
 ```shell
 $ featurebook --help
-```
-```
+
   Usage: featurebook [options] [command]
 
 
@@ -71,8 +70,7 @@ Or just display help for a given command:
 
 ```shell
 $ featurebook serve --help
-```
-```
+
   Usage: serve [options] [source-dir]
 
   serve [source-dir] as a system specification
