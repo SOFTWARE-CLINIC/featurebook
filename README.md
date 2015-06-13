@@ -50,36 +50,14 @@ $ featurebook build --output-dir ~/book
 
 To list all available commands and options:
 
-```
+```shell
 $ featurebook --help
-
-  Usage: featurebook [options] [command]
-
-
-  Commands:
-
-    serve [options] [source-dir]  serve [source-dir] as a system specification
-    build [options] [source-dir]  build a static website from [source-dir]
-
-  Options:
-
-    -h, --help     output usage information
-    -V, --version  output the version number
 ```
 
 Or just display help for a given command:
 
-```
+```shell
 $ featurebook serve --help
-
-  Usage: serve [options] [source-dir]
-
-  serve [source-dir] as a system specification
-
-  Options:
-
-    -h, --help         output usage information
-    -p, --port <port>  port on which to listen to (defaults to 3000)
 ```
 
 ## Specification Format
@@ -260,7 +238,7 @@ origin  https://github.com/banczi/featurebook.git (push)
 
 To configure upstream remote repository:
 
-```
+```shell
 $ git remote add upstream https://github.com/SOFTWARE-CLINIC/featurebook.git
 ```
 
@@ -296,36 +274,14 @@ Note that commits to `master` will be stored in a local branch, `upstream/master
 Merge the changes from `upstream/master` into your local `master` branch. This brings your fork's `master` branch into
 sync with the upstream repository, without losing your local changes.
 
-```
+```shell
 $ git merge upstream/master
-Updating d6425c4..287f5e7
-Fast-forward
- README.md                                                           | 63 ++++++++++++++++++++++++++++++++++++++++++---------
- bin/featurebook.js                                                  |  2 +-
- lib/dir-walker.js                                                   | 17 +++++++++-----
- lib/gherkin-parser.js                                               | 67 +++++++++++++++++++++++++++++++++++++++----------------
- lib/serve-command.js                                                | 10 ++++++++-
- package.json                                                        |  5 +++--
- public/assets/css/featurebook.css                                   |  5 +++++
- public/assets/js/featurebook.js                                     | 37 +++++++++++++++++++++++++-----
- public/views/examples.html                                          |  5 +++++
- public/views/feature.html                                           | 21 ++++-------------
- public/views/step.html                                              |  6 +++++
- test/lib/dir-walker-spec.js                                         | 30 +++++++++++++++++++------
- test/lib/gherkin-parser-spec.js                                     | 20 +++++++++++++++++
- test/resources/simple_feature_with_multiline_table_argument.feature | 18 +++++++++++++++
- test/resources/simple_feature_with_tags.feature                     | 19 ++++++++++++++++
- 15 files changed, 257 insertions(+), 68 deletions(-)
- create mode 100644 public/views/examples.html
- create mode 100644 public/views/step.html
- create mode 100644 test/resources/simple_feature_with_multiline_table_argument.feature
- create mode 100644 test/resources/simple_feature_with_tags.feature
 ```
 
 Syncing your fork only updates your local copy of the repository. To update your fork on GitHub, you **must** push your
 changes.
 
-```
+```shell
 $ git push -u origin master
 ```
 
