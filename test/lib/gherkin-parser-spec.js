@@ -4,10 +4,10 @@ var gherkin = require('../../lib/gherkin-parser'),
 
 describe('gherkin-parser', function () {
 
-    describe('#parse', function () {
+    describe('#parseSync', function () {
 
         it('should parse a simple feature with a single scenario', function () {
-            var featureAsJson = gherkin.parse('test/resources/hello_world.feature'),
+            var featureAsJson = gherkin.parseSync('test/resources/hello_world.feature'),
                 firstScenario = featureAsJson.scenarios[0];
 
             featureAsJson.name.should.equal('Hello World');
@@ -24,7 +24,7 @@ describe('gherkin-parser', function () {
         });
 
         it('should parse a simple feature with a single scenario outline', function () {
-            var feature = gherkin.parse('test/resources/eating_cucumbers.feature'),
+            var feature = gherkin.parseSync('test/resources/eating_cucumbers.feature'),
                 firstScenarioOutline = feature.scenario_outlines[0];
 
             feature.name.should.equal('Eating cucumbers');
@@ -45,7 +45,7 @@ describe('gherkin-parser', function () {
         });
 
         it('should parse a simple feature with the background', function () {
-            var feature = gherkin.parse('test/resources/simple_feature_with_background.feature');
+            var feature = gherkin.parseSync('test/resources/simple_feature_with_background.feature');
             var backgroundSteps = feature.background.steps;
             var firstScenarioSteps = feature.scenarios[0].steps;
 
@@ -62,7 +62,7 @@ describe('gherkin-parser', function () {
         });
 
         it('should parse a simple feature written in Polish', function () {
-            var feature = gherkin.parse('test/resources/simple_feature_written_in_polish.feature', 'pl'),
+            var feature = gherkin.parseSync('test/resources/simple_feature_written_in_polish.feature', 'pl'),
                 firstScenario = feature.scenarios[0];
 
             feature.name.should.equal('Logowanie do aplikacji');
@@ -77,7 +77,7 @@ describe('gherkin-parser', function () {
         });
 
         it('should parse a simple feature with multiline table argument', function () {
-            var feature = gherkin.parse('test/resources/simple_feature_with_multiline_table_argument.feature'),
+            var feature = gherkin.parseSync('test/resources/simple_feature_with_multiline_table_argument.feature'),
                 firstScenario = feature.scenarios[0];
 
             feature.name.should.equal('Metadata');
@@ -93,7 +93,14 @@ describe('gherkin-parser', function () {
         });
 
         it('should parse a simple feature with tags', function () {
-            var feature = gherkin.parse('test/resources/simple_feature_with_tags.feature');
+            var feature = gherkin.parseSync('test/resources/simple_feature_with_tags.feature');
+
+            feature.tags.should.have.members(['@FeatureTag1', '@FeatureTag2']);
+
+            feature.scenarios[0].tags.should.have.members(['@Scenario1Tag1', '@Scenario1Tag2', '@Scenario1Tag3']);
+            feature.scenarios[1].tags.should.have.members(['@Scenario2Tag1']);
+
+            feature.scenario_outlines[0].tags.should.have.members(['@ScenarioOutlineTag1']);
         });
 
     });

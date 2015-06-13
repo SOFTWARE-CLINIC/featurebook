@@ -1,3 +1,4 @@
+<div class="featurebook-tag" ng-repeat="tag in feature.tags">{{tag}}</div>
 <h3 class="featurebook-feature-name">Feature: {{feature.name}}</h3>
 
 <div class="featurebook-feature-description" ng-bind-html="feature.descriptionAsHtml"></div>
@@ -9,6 +10,7 @@
 </div>
 
 <div class="featurebook-scenario" ng-repeat="scenario in feature.scenarios">
+    <div class="featurebook-tag" ng-repeat="tag in scenario.tags">{{tag}}</div>
     <h3>Scenario: {{scenario.name}}</h3>
 
     <step class="featurebook-step" ng-model="step" ng-repeat="step in scenario.steps"></step>

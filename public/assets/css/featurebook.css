@@ -52,10 +52,6 @@ table {
     padding: 20px;
 }
 
-.featurebook-feature h3 {
-
-}
-
 .featurebook-feature-description {
     padding-left: 40px;
 }
@@ -82,12 +78,12 @@ table {
     padding: 20px 20px 0px 20px;
 }
 
-.featurebook-examples tr {
-    border-left: 3px solid darkorange;
+.featurebook-examples tr, .featurebook-step tr {
+    border-left: 2px dotted darkorange;
 }
 
-.featurebook-examples td {
-    border-right: 3px solid darkorange;
+.featurebook-examples td, .featurebook-step td {
+    border-right: 2px dotted darkorange;
     padding-left: 1em;
     padding-right: 1em;
 }
@@ -104,6 +100,12 @@ table {
     margin-right: 0;
     width: 15%;
     vertical-align: top;
+}
+
+.featurebook-tag {
+    display: inline-block;
+    margin-right: 0.5em;
+    color: #ffff00;
 }
 
 .featurebook-step-name {
