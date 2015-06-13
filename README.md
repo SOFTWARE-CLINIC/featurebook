@@ -16,6 +16,7 @@ FeatureBook
 * [Specification Format](#specification-format)
 * [Running Tests](#running-tests)
 * [Releasing](#releasing)
+* [Contributing](#contributing)
 * [License](#license)
 
 ## Introduction
@@ -86,11 +87,10 @@ $ featurebook serve --help
 A system specification is a directory containing:
 
 * Gherkin source files
-* The `assets` subdirectory for images and videos that you can refer to from within the Gherkin source files
+* The `assets` directory for images and videos that you can refer to from within the Gherkin source files
 * An optional `featurebook.json` descriptor
 
 ```
-my_specification
 |-- assets
 |   |-- images
 |   |   |-- picture_is_worth_1000_words.png
@@ -228,6 +228,104 @@ To publish to the public registry:
 ```shell
 $ git checkout tags/v0.0.7
 $ npm publish
+```
+
+## Contributing
+
+You wanna contribute to FeatureBook? That is truly great! Here are some tips to get you started.
+
+First off, you need to [fork](https://help.github.com/articles/fork-a-repo/) the
+[original](https://github.com/SOFTWARE-CLINIC/featurebook.git) FeatureBook repository. Forking the repository allows
+you to freely experiment with changes without affecting the original project.
+
+Once it's done, you can use the forked repository to propose changes or fix bugs by changing code and submitting a pull
+request to the project owners. If we like it, we might pull your fix into the original repository.
+
+### Keeping your fork synced
+
+It's a good practice to regularly sync your fork with the *upstream* repository (upstream is a fancy name for the
+original repository). Before you can sync, you must configure a remote that points to the upstream repository.
+
+#### Configuring upstream remotes
+
+I assume that you already have the local clone of your fork. Type `git remote -v` to see the currently configured remote
+repositories for your fork:
+
+```
+$ git remote -v
+origin  https://github.com/banczi/featurebook.git (fetch)
+origin  https://github.com/banczi/featurebook.git (push)
+```
+
+To configure upstream remote repository:
+
+```
+$ git remote add upstream https://github.com/SOFTWARE-CLINIC/featurebook.git
+```
+
+To verify the new upstream repository:
+
+```
+$ git remote -v
+origin    https://github.com/banczi/featurebook.git (fetch)
+origin    https://github.com/banczi/featurebook.git (push)
+upstream  https://github.com/SOFTWARE-CLINIC/featurebook.git (fetch)
+upstream  https://github.com/SOFTWARE-CLINIC/featurebook.git (push)
+```
+
+Now, you can keep your fork synced with the upstream repository with a few Git commands.
+
+#### Syncing a fork
+
+To fetch the branches and their respective commits:
+
+```
+$ git fetch upstream
+remote: Counting objects: 77, done.
+remote: Compressing objects: 100% (71/71), done.
+remote: Total 77 (delta 30), reused 1 (delta 0), pack-reused 0
+Unpacking objects: 100% (77/77), done.
+From https://github.com/SOFTWARE-CLINIC/featurebook
+ * [new branch]      master     -> upstream/master
+ * [new tag]         v0.0.8     -> v0.0.8
+```
+
+Note that commits to `master` will be stored in a local branch, `upstream/master`.
+
+Merge the changes from `upstream/master` into your local `master` branch. This brings your fork's `master` branch into
+sync with the upstream repository, without losing your local changes.
+
+```
+$ git merge upstream/master
+Updating d6425c4..287f5e7
+Fast-forward
+ README.md                                                           | 63 ++++++++++++++++++++++++++++++++++++++++++---------
+ bin/featurebook.js                                                  |  2 +-
+ lib/dir-walker.js                                                   | 17 +++++++++-----
+ lib/gherkin-parser.js                                               | 67 +++++++++++++++++++++++++++++++++++++++----------------
+ lib/serve-command.js                                                | 10 ++++++++-
+ package.json                                                        |  5 +++--
+ public/assets/css/featurebook.css                                   |  5 +++++
+ public/assets/js/featurebook.js                                     | 37 +++++++++++++++++++++++++-----
+ public/views/examples.html                                          |  5 +++++
+ public/views/feature.html                                           | 21 ++++-------------
+ public/views/step.html                                              |  6 +++++
+ test/lib/dir-walker-spec.js                                         | 30 +++++++++++++++++++------
+ test/lib/gherkin-parser-spec.js                                     | 20 +++++++++++++++++
+ test/resources/simple_feature_with_multiline_table_argument.feature | 18 +++++++++++++++
+ test/resources/simple_feature_with_tags.feature                     | 19 ++++++++++++++++
+ 15 files changed, 257 insertions(+), 68 deletions(-)
+ create mode 100644 public/views/examples.html
+ create mode 100644 public/views/step.html
+ create mode 100644 test/resources/simple_feature_with_multiline_table_argument.feature
+ create mode 100644 test/resources/simple_feature_with_tags.feature
+```
+
+Syncing your fork only updates your local copy of the repository. To update your fork on GitHub, you **must** push your
+changes.
+
+```
+$ git push -u origin master
 ```
 
 ## License
