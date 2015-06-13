@@ -243,10 +243,11 @@ request to the project owners. If we like it, we might pull your fix into the or
 
 ### Keeping your fork synced
 
-It's a good practice to regularly sync your fork with the *upstream* repository (upstream is a fancy name for the
-original repository). Before you can sync, you must configure a remote that points to the upstream repository.
+It's a good practice to regularly sync your fork with the **upstream** repository (upstream repository or simply
+upstream is a fancy name for the original repository). Before you can sync, you must configure a remote that points to
+the upstream.
 
-#### Configuring upstream remotes
+#### Configuring upstream remote
 
 I assume that you already have the local clone of your fork. Type `git remote -v` to see the currently configured remote
 repositories for your fork:
