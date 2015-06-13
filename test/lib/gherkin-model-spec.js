@@ -1,4 +1,4 @@
-var gherkin = require('../../lib/gherkin-parser'),
+var gherkin = require('../../lib/gherkin-model'),
     assert = require('assert'),
     should = require('chai').should();
 
@@ -7,13 +7,13 @@ describe('gherkin-parser', function () {
     describe('#parseSync', function () {
 
         it('should parse a simple feature with a single scenario', function () {
-            var featureAsJson = gherkin.parseSync('test/resources/hello_world.feature'),
-                firstScenario = featureAsJson.scenarios[0];
+            var feature = gherkin.fromFileSync('test/resources/hello_world.feature'),
+                firstScenario = feature.scenarios[0];
 
-            featureAsJson.name.should.equal('Hello World');
+            feature.name.should.equal('Hello World');
 
-            featureAsJson.scenarios.should.have.length(1);
-            featureAsJson.scenario_outlines.should.be.empty;
+            feature.scenarios.should.have.length(1);
+            feature.scenario_outlines.should.be.empty;
 
             assert.equal(firstScenario.name, 'Look Ma');
             assert.equal(firstScenario.steps.length, 3);
@@ -24,7 +24,7 @@ describe('gherkin-parser', function () {
         });
 
         it('should parse a simple feature with a single scenario outline', function () {
-            var feature = gherkin.parseSync('test/resources/eating_cucumbers.feature'),
+            var feature = gherkin.fromFileSync('test/resources/eating_cucumbers.feature'),
                 firstScenarioOutline = feature.scenario_outlines[0];
 
             feature.name.should.equal('Eating cucumbers');
@@ -45,7 +45,7 @@ describe('gherkin-parser', function () {
         });
 
         it('should parse a simple feature with the background', function () {
-            var feature = gherkin.parseSync('test/resources/simple_feature_with_background.feature');
+            var feature = gherkin.fromFileSync('test/resources/simple_feature_with_background.feature');
             var backgroundSteps = feature.background.steps;
             var firstScenarioSteps = feature.scenarios[0].steps;
 
@@ -62,7 +62,7 @@ describe('gherkin-parser', function () {
         });
 
         it('should parse a simple feature written in Polish', function () {
-            var feature = gherkin.parseSync('test/resources/simple_feature_written_in_polish.feature', 'pl'),
+            var feature = gherkin.fromFileSync('test/resources/simple_feature_written_in_polish.feature', 'pl'),
                 firstScenario = feature.scenarios[0];
 
             feature.name.should.equal('Logowanie do aplikacji');
@@ -77,7 +77,7 @@ describe('gherkin-parser', function () {
         });
 
         it('should parse a simple feature with multiline table argument', function () {
-            var feature = gherkin.parseSync('test/resources/simple_feature_with_multiline_table_argument.feature'),
+            var feature = gherkin.fromFileSync('test/resources/simple_feature_with_multiline_table_arg.feature'),
                 firstScenario = feature.scenarios[0];
 
             feature.name.should.equal('Metadata');
@@ -93,7 +93,7 @@ describe('gherkin-parser', function () {
         });
 
         it('should parse a simple feature with tags', function () {
-            var feature = gherkin.parseSync('test/resources/simple_feature_with_tags.feature');
+            var feature = gherkin.fromFileSync('test/resources/simple_feature_with_tags.feature');
 
             feature.tags.should.have.members(['@FeatureTag1', '@FeatureTag2']);
 
@@ -101,6 +101,24 @@ describe('gherkin-parser', function () {
             feature.scenarios[1].tags.should.have.members(['@Scenario2Tag1']);
 
             feature.scenario_outlines[0].tags.should.have.members(['@ScenarioOutlineTag1']);
+        });
+
+        it('should parse a simple feature with scenario outline and multiline table argument', function () {
+            var feature = gherkin.fromFileSync('test/resources/simple_feature_with_scenario_outline_and_multiline_table_arg.feature'),
+                firstScenarioOutline = feature.scenario_outlines[0],
+                firstStep = firstScenarioOutline.steps[0];
+
+            feature.name.should.equal('Simple feature with scenario outline and multiline table argument');
+
+            assertStepEqual(firstStep, 'Given', 'the machine has the following choices');
+
+            firstStep.args[0].should.have.members(['brand']);
+            firstStep.args[1].should.have.members(['cola']);
+            firstStep.args[2].should.have.members(['sprite']);
+
+            firstScenarioOutline.examples[0].should.have.members(['choice', 'empty', 'brand']);
+            firstScenarioOutline.examples[1].should.have.members(['cola', 'not empty', 'cola']);
+            firstScenarioOutline.examples[2].should.have.members(['sprite', 'not empty', 'sprite']);
         });
 
     });
