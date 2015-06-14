@@ -16,7 +16,7 @@ program
 
 program
   .command('build [source-dir]')
-  .option('-o, --output-dir <output-dir>', 'Directory where the static website will be generated (defaults to dist)')
+  .option('-o, --output-dir <output-dir>', 'directory where the static website will be generated (defaults to dist)')
   .description('build a static website from [source-dir]')
   .action(build);
 
