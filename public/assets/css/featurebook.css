@@ -20,6 +20,26 @@ table {
     max-width: 1140px;
 }
 
+.featurebook-summary {
+    margin-bottom: 0.5em;
+
+}
+
+.featurebook-title {
+    font-size: xx-large;
+    font-weight: bolder;
+    color: #ffffff;
+}
+
+.featurebook-authors a {
+    color: orange;
+
+}
+
+.featurebook-contributors a {
+    color: #ffff00;
+}
+
 .featurebook-features-tree {
     float: left;
     width: 35%;

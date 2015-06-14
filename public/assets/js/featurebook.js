@@ -9,9 +9,7 @@
         .controller('FeatureController', FeatureController)
         .directive('featureTree', featureTreeDirectiveFactory)
         .directive('feature', featureDirectiveFactory)
-        .directive('step', stepDirectiveFactory)
-        .directive('examples', examplesDirectiveFactory)
-        .filter('encodeURIComponent', encodeURIComponentFilter);
+        .directive('step', stepDirectiveFactory);
 
     config.$inject = ['$routeProvider'];
 
@@ -82,8 +80,8 @@
         return {
             restrict: 'E',
             template: '<li>'
-            + '<a ng-if="feature.type === \'file\'" href="#feature/{{feature.path | encodeURIComponent}}">{{feature.name}}</a>'
-            + '<div ng-if="feature.type === \'folder\'">{{feature.name}}</div>'
+            + '<a ng-if="feature.type === \'file\'" href="#feature/{{feature.path | encodeURIComponent}}">{{feature.name | titleize}}</a>'
+            + '<div ng-if="feature.type === \'folder\'">{{feature.name | titleize}}</div>'
             + '</li>',
             link: function featureDirectiveLinkFunction(scope, element) {
                 if (scope.feature.items.length > 0) {
@@ -100,17 +98,6 @@
             replace: true,
             scope: {
                 step: '=ngModel'
-            }
-        };
-    }
-
-    function examplesDirectiveFactory() {
-        return {
-            restrict: 'E',
-            templateUrl: 'views/examples.html',
-            replace: true,
-            scope: {
-                examples: '=ngModel'
             }
         };
     }
@@ -132,10 +119,6 @@
 
     function FeatureController($scope, $route) {
         $scope.feature = $route.current.locals.feature.data;
-    }
-
-    function encodeURIComponentFilter() {
-        return window.encodeURIComponent;
     }
 
 })();
