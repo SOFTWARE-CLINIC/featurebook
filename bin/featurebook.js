@@ -11,13 +11,13 @@ program
 program
   .command('serve [source-dir]')
   .option('-p, --port <port>', 'port on which to listen to (defaults to 3000)', parseInt)
-  .description('serve [source-dir] as a system specification')
+  .description('serve source-dir as a system specification')
   .action(serve);
 
 program
   .command('build [source-dir]')
   .option('-o, --output-dir <output-dir>', 'directory where the static website will be generated (defaults to dist)')
-  .description('build a static website from [source-dir]')
+  .description('build a static website from source-dir')
   .action(build);
 
 program.parse(process.argv);

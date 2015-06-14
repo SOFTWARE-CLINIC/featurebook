@@ -1,0 +1,8 @@
+<table>
+    <tr ng-repeat="row in examples track by $index" ng-if="$index === 0">
+        <th ng-repeat="cell in row track by $index">{{cell}}</th>
+    </tr>
+    <tr ng-repeat="row in examples track by $index" ng-if="$index > 0">
+        <td ng-repeat="cell in row track by $index">{{cell}}</td>
+    </tr>
+</table>

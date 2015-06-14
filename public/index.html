@@ -10,7 +10,16 @@
 
 <div class="featurebook">
 
-    <h1 class="featurebook-title">{{summary.title}} {{summary.version}}</h1>
+    <div class="featurebook-summary">
+        <div class="featurebook-title">{{summary.title}} {{summary.version}}</div>
+
+        <div class="featurebook-authors">
+            <person ng-model="author" ng-repeat="author in summary.authors"></person>
+        </div>
+        <div class="featurebook-contributors">
+            <person ng-model="contributor" ng-repeat="contributor in summary.contributors"></person>
+        </div>
+    </div>
 
     <aside class="featurebook-features-tree">
         <feature-tree ng-model="featuresTree"></feature-tree>
@@ -25,6 +34,10 @@
 <script src="vendor/angular-sanitize/angular-sanitize.min.js"></script>
 
 <script src="assets/js/featurebook.js"></script>
+<script src="assets/js/person.directive.js"></script>
+<script src="assets/js/examples.directive.js"></script>
+<script src="assets/js/encode-uri-component.filter.js"></script>
+<script src="assets/js/titleize.filter.js"></script>
 
 </body>
 </html>

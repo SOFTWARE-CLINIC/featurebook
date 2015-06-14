@@ -9,7 +9,7 @@
         .controller('FeatureController', FeatureController)
         .directive('featureTree', featureTreeDirectiveFactory)
         .directive('feature', featureDirectiveFactory)
-        .filter('encodeURIComponent', encodeURIComponentFilter);
+        .directive('step', stepDirectiveFactory);
 
     config.$inject = ['$routeProvider'];
 
@@ -53,7 +53,7 @@
 
         function findAll() {
             return $http.get('api/rest/feature/tree').then(function (response) {
-                return [response.data];
+                return response.data.items;
             });
         }
 
@@ -79,11 +79,25 @@
     function featureDirectiveFactory($compile) {
         return {
             restrict: 'E',
-            template: '<li><a href="#feature/{{feature.path | encodeURIComponent}}">{{feature.name}}</a></li>',
-            link: function (scope, elm, attrs) {
+            template: '<li>'
+            + '<a ng-if="feature.type === \'file\'" href="#feature/{{feature.path | encodeURIComponent}}">{{feature.name | titleize}}</a>'
+            + '<div ng-if="feature.type === \'folder\'">{{feature.name | titleize}}</div>'
+            + '</li>',
+            link: function featureDirectiveLinkFunction(scope, element) {
                 if (scope.feature.items.length > 0) {
-                    elm.append($compile('<feature-tree ng-model="feature.items"></feature-tree>')(scope));
+                    element.append($compile('<feature-tree ng-model="feature.items"></feature-tree>')(scope));
                 }
+            }
+        };
+    }
+
+    function stepDirectiveFactory() {
+        return {
+            restrict: 'E',
+            templateUrl: 'views/step.html',
+            replace: true,
+            scope: {
+                step: '=ngModel'
             }
         };
     }
@@ -93,7 +107,7 @@
     function FeatureBookController($scope, $window, featureBookService) {
         featureBookService.summary().then(function (summary) {
             $scope.summary = summary;
-            $window.document.title = 'Feature Book: ' + summary.title;
+            $window.document.title = summary.title + ' ' + (summary.version || '');
         });
 
         featureBookService.findAll().then(function (featuresTree) {
@@ -105,10 +119,6 @@
 
     function FeatureController($scope, $route) {
         $scope.feature = $route.current.locals.feature.data;
-    }
-
-    function encodeURIComponentFilter() {
-        return window.encodeURIComponent;
     }
 
 })();

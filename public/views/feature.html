@@ -1,39 +1,28 @@
-<h3 class="featurebook-feature-name">Feature: {{feature.name}}</h3>
+<div class="featurebook-tag" ng-repeat="tag in feature.tags">{{tag}}</div>
+<div class="featurebook-feature-name">Feature: {{feature.name}}</div>
 
 <div class="featurebook-feature-description" ng-bind-html="feature.descriptionAsHtml"></div>
 
 <div class="featurebook-background" ng-show="{{feature.background}}">
-    <h3>Background</h3>
+    <div class="featurebook-background-name">Background</div>
 
-    <div class="featurebook-step" ng-repeat="step in feature.background.steps">
-        <div class="featurebook-keyword">{{step.keyword}}</div>
-        <div class="featurebook-step-name">{{step.name}}</div>
-    </div>
+    <step class="featurebook-step" ng-model="step" ng-repeat="step in feature.background.steps"></step>
 </div>
 
 <div class="featurebook-scenario" ng-repeat="scenario in feature.scenarios">
-    <h3>Scenario: {{scenario.name}}</h3>
+    <div class="featurebook-tag" ng-repeat="tag in scenario.tags">{{tag}}</div>
+    <div class="featurebook-scenario-name">Scenario: {{scenario.name}}</div>
 
-    <div class="featurebook-step" ng-repeat="step in scenario.steps">
-        <div class="featurebook-keyword">{{step.keyword}}</div>
-        <div class="featurebook-step-name">{{step.name}}</div>
-    </div>
+    <step class="featurebook-step" ng-model="step" ng-repeat="step in scenario.steps"></step>
 </div>
 
 <div class="featurebook-scenario" ng-repeat="outline in feature.scenario_outlines">
     <h3>Scenario Outline: {{outline.name}}</h3>
 
-    <div class="featurebook-step" ng-repeat="step in outline.steps">
-        <div class="featurebook-keyword">{{step.keyword}}</div>
-        <div class="featurebook-step-name">{{step.name}}</div>
-    </div>
+    <step class="featurebook-step" ng-model="step" ng-repeat="step in outline.steps"></step>
 
     <div class="featurebook-examples">
         <h3>Examples</h3>
-        <table>
-            <tr ng-repeat="row in outline.examples track by $index">
-                <td ng-repeat="cell in row track by $index">{{cell}}</td>
-            </tr>
-        </table>
+        <examples ng-model="outline.examples"></examples>
     </div>
 </div>

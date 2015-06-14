@@ -16,6 +16,7 @@ FeatureBook
 * [Specification Format](#specification-format)
 * [Running Tests](#running-tests)
 * [Releasing](#releasing)
+* [Contributing](#contributing)
 * [License](#license)
 
 ## Introduction
@@ -29,22 +30,34 @@ Here is an [example](https://github.com/SOFTWARE-CLINIC/featurebook-example) sys
 
 ## Usage
 
-FeatureBook can be installed from [npm](https://www.npmjs.com) using:
+FeatureBook can be installed from [npm](https://www.npmjs.com):
 
 ```shell
 $ npm install featurebook -g
 ```
 
-You can serve the current directory as a system specification using:
+You can serve the current directory as a system specification:
 
 ```shell
 $ featurebook serve --port 3000
 ```
 
-Or simply build the static website using:
+Or simply build the static website:
 
 ```shell
 $ featurebook build --output-dir ~/book
+```
+
+To list all available commands and options:
+
+```shell
+$ featurebook --help
+```
+
+Or just display help for a given command:
+
+```shell
+$ featurebook serve --help
 ```
 
 ## Specification Format
@@ -52,11 +65,10 @@ $ featurebook build --output-dir ~/book
 A system specification is a directory containing:
 
 * Gherkin source files
-* The `assets` subdirectory for images and videos that you can refer to from within the Gherkin source files
+* The `assets` directory for images and videos that you can refer to from within the Gherkin source files
 * An optional `featurebook.json` descriptor
 
 ```
-my_specification
 |-- assets
 |   |-- images
 |   |   |-- picture_is_worth_1000_words.png
@@ -88,11 +100,12 @@ A Gherkin source file usually looks like this:
 ```gherkin
 Feature: Some terse yet descriptive text of what is desired
 
-  Textual description of the business value of this feature
+  Textual *description* of the business value of this feature
   Business rules that govern the scope of the feature
-  Any additional information and ~~formatting~~ that will make the feature easier to read and **understand**
+  Any additional information and ~~formatting~~ that will make
+  the feature easier to read and **understand**
 
-  ![Picture from brainstorming sessions](/assets/images/picture_is_worth_1000_words.png)
+  ![Picture alt text](/assets/images/picture_is_worth_1000_words.png)
 
   Scenario: Some determinable business situation
     Given some precondition
@@ -111,18 +124,25 @@ Note that you can use [Markdown](http://en.wikipedia.org/wiki/Markdown) to descr
 
 ### featurebook.json
 
-The `featurebook.json` contains metadata about your system specification such as: title, version, and authors:
+The `featurebook.json` contains system specification metadata such as: title, version, authors, and contributors:
 
 ```javascript
 {
+  "modelVersion": "1.0.0",
   "title": "My System Specification",
   "version": "1.0.0",
   "authors": [
     {
       "firstName": "Henryk",
       "lastName": "Sienkiewicz",
-      "email": "hsienkiewicz@gmail.com",
-      "twitter", "hsienkiewicz"
+      "email": "hsienkiewicz@gmail.com"
+    }
+  ],
+  "contributors": [
+    {
+      "firstName": "Eliza",
+      "lastName": "Orzeszkowa",
+      "email": "eorzeszkowa@gmail.com"
     }
   ],
   "language": "pl"
@@ -137,6 +157,7 @@ To specify and use the keywords in your own language, you must set the `language
 
 ```shell
 $ npm install -g bower mocha karma-cli
+$ npm install
 ```
 
 ```shell
@@ -177,7 +198,7 @@ To push the commit and the `v0.0.7` tag to the `origin` repository:
 
 ```shell
 $ git push -u origin master
-$ git push origin v0.0.7
+$ git push -u origin v0.0.7
 ```
 
 To publish to the public registry:
@@ -185,6 +206,83 @@ To publish to the public registry:
 ```shell
 $ git checkout tags/v0.0.7
 $ npm publish
+```
+
+## Contributing
+
+You wanna contribute to FeatureBook? That is truly great! Here are some tips to get you started.
+
+First off, you need to [fork](https://help.github.com/articles/fork-a-repo/) the
+[original](https://github.com/SOFTWARE-CLINIC/featurebook.git) FeatureBook repository. Forking the repository allows
+you to freely experiment with changes without affecting the original project.
+
+Once it's done, you can use the forked repository to propose changes or fix bugs by changing code and submitting a pull
+request to the project owners. If we like it, we might pull your fix into the original repository.
+
+### Keeping your fork synced
+
+It's a good practice to regularly sync your fork with the **upstream** repository (upstream repository or simply
+upstream is a fancy name for the original repository). Before you can sync, you must configure a remote that points to
+the upstream.
+
+#### Configuring upstream remote
+
+I assume that you already have the local clone of your fork. Type `git remote -v` to see the currently configured remote
+repositories for your fork:
+
+```
+$ git remote -v
+origin  https://github.com/banczi/featurebook.git (fetch)
+origin  https://github.com/banczi/featurebook.git (push)
+```
+
+To configure upstream remote repository:
+
+```shell
+$ git remote add upstream https://github.com/SOFTWARE-CLINIC/featurebook.git
+```
+
+To verify the new upstream repository:
+
+```
+$ git remote -v
+origin    https://github.com/banczi/featurebook.git (fetch)
+origin    https://github.com/banczi/featurebook.git (push)
+upstream  https://github.com/SOFTWARE-CLINIC/featurebook.git (fetch)
+upstream  https://github.com/SOFTWARE-CLINIC/featurebook.git (push)
+```
+
+Now, you can keep your fork synced with the upstream repository with a few Git commands.
+
+#### Syncing a fork
+
+To fetch the branches and their respective commits:
+
+```
+$ git fetch upstream
+remote: Counting objects: 77, done.
+remote: Compressing objects: 100% (71/71), done.
+remote: Total 77 (delta 30), reused 1 (delta 0), pack-reused 0
+Unpacking objects: 100% (77/77), done.
+From https://github.com/SOFTWARE-CLINIC/featurebook
+ * [new branch]      master     -> upstream/master
+ * [new tag]         v0.0.8     -> v0.0.8
+```
+
+Note that commits to `master` will be stored in a local branch, `upstream/master`.
+
+Merge the changes from `upstream/master` into your local `master` branch. This brings your fork's `master` branch into
+sync with the upstream repository, without losing your local changes.
+
+```shell
+$ git merge upstream/master
+```
+
+Syncing your fork only updates your local copy of the repository. To update your fork on GitHub, you **must** push your
+changes.
+
+```shell
+$ git push -u origin master
 ```
 
 ## License
