@@ -1,17 +1,17 @@
 <div class="featurebook-tag" ng-repeat="tag in feature.tags">{{tag}}</div>
-<h3 class="featurebook-feature-name">Feature: {{feature.name}}</h3>
+<div class="featurebook-feature-name">Feature: {{feature.name}}</div>
 
 <div class="featurebook-feature-description" ng-bind-html="feature.descriptionAsHtml"></div>
 
 <div class="featurebook-background" ng-show="{{feature.background}}">
-    <h3>Background</h3>
+    <div class="featurebook-background-name">Background</div>
 
     <step class="featurebook-step" ng-model="step" ng-repeat="step in feature.background.steps"></step>
 </div>
 
 <div class="featurebook-scenario" ng-repeat="scenario in feature.scenarios">
     <div class="featurebook-tag" ng-repeat="tag in scenario.tags">{{tag}}</div>
-    <h3>Scenario: {{scenario.name}}</h3>
+    <div class="featurebook-scenario-name">Scenario: {{scenario.name}}</div>
 
     <step class="featurebook-step" ng-model="step" ng-repeat="step in scenario.steps"></step>
 </div>

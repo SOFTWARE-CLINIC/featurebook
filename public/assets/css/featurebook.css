@@ -86,8 +86,18 @@ table {
 }
 
 .featurebook-feature-name {
-    padding: 0 20px;
     font-size: x-large;
+    color: #ffffff;
+}
+
+.featurebook-background-name {
+    font-size: large;
+    color: #ffffff;
+}
+
+.featurebook-scenario-name {
+    font-size: large;
+    color: #ffffff;
 }
 
 .featurebook-background, .featurebook-scenario, .featurebook-scenario-outline {
@@ -106,6 +116,11 @@ table {
     border-right: 2px dotted darkorange;
     padding-left: 1em;
     padding-right: 1em;
+}
+
+.featurebook-examples th, .featurebook-step th {
+    border-right: 2px dotted darkorange;
+    color: violet;
 }
 
 .featurebook-step {
