@@ -2,9 +2,9 @@ var gherkin = require('../../lib/gherkin-model'),
     assert = require('assert'),
     should = require('chai').should();
 
-describe('gherkin-parser', function () {
+describe('gherkin-model', function () {
 
-    describe('#parseSync', function () {
+    describe('#fromFileSync', function () {
 
         it('should parse a simple feature with a single scenario', function () {
             var feature = gherkin.fromFileSync('test/resources/hello_world.feature'),

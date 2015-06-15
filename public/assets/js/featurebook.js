@@ -4,12 +4,10 @@
 
     angular.module('scFeatureBook', ['ngRoute', 'ngSanitize'])
         .config(config)
-        .factory('featureBookService', featureBookServiceFactory)
         .controller('FeatureBookController', FeatureBookController)
         .controller('FeatureController', FeatureController)
         .directive('featureTree', featureTreeDirectiveFactory)
-        .directive('feature', featureDirectiveFactory)
-        .directive('step', stepDirectiveFactory);
+        .directive('feature', featureDirectiveFactory);
 
     config.$inject = ['$routeProvider'];
 
@@ -33,32 +31,6 @@
 
         function featureResolver($route, featureBookService) {
             return featureBookService.findByPath($route.current.pathParams.path);
-        }
-    }
-
-    featureBookServiceFactory.$inject = ['$http'];
-
-    function featureBookServiceFactory($http) {
-        return {
-            summary: summary,
-            findAll: findAll,
-            findByPath: findByPath
-        };
-
-        function summary() {
-            return $http.get('api/rest/summary').then(function (response) {
-                return response.data;
-            });
-        }
-
-        function findAll() {
-            return $http.get('api/rest/feature/tree').then(function (response) {
-                return response.data.items;
-            });
-        }
-
-        function findByPath(featurePath) {
-            return $http.get('api/rest/feature/parsed/' + encodeURIComponent(featurePath));
         }
     }
 
@@ -87,17 +59,6 @@
                 if (scope.feature.items.length > 0) {
                     element.append($compile('<feature-tree ng-model="feature.items"></feature-tree>')(scope));
                 }
-            }
-        };
-    }
-
-    function stepDirectiveFactory() {
-        return {
-            restrict: 'E',
-            templateUrl: 'views/step.html',
-            replace: true,
-            scope: {
-                step: '=ngModel'
             }
         };
     }

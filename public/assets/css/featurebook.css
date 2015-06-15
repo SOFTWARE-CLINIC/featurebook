@@ -121,6 +121,8 @@ table {
 .featurebook-examples th, .featurebook-step th {
     border-right: 2px dotted darkorange;
     color: violet;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 .featurebook-step {
