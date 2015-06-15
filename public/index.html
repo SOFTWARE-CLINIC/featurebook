@@ -5,10 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>FeatureBook</title>
     <link rel="stylesheet" href="assets/css/featurebook.css">
-</head>
-<body ng-controller="FeatureBookController">
 
-<div class="featurebook">
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="vendor/angular-route/angular-route.min.js"></script>
+    <script src="vendor/angular-sanitize/angular-sanitize.min.js"></script>
+
+    <script src="assets/js/featurebook.js"></script>
+    <script src="assets/js/feature-book.service.js"></script>
+    <script src="assets/js/person.directive.js"></script>
+    <script src="assets/js/feature-tree.directive.js"></script>
+    <script src="assets/js/feature-node.directive.js"></script>
+    <script src="assets/js/step.directive.js"></script>
+    <script src="assets/js/examples.directive.js"></script>
+    <script src="assets/js/encode-uri-component.filter.js"></script>
+    <script src="assets/js/titleize.filter.js"></script>
+</head>
+<body>
+
+<div class="featurebook" ng-controller="FeatureBookController" ng-cloak>
 
     <div class="featurebook-summary">
         <div class="featurebook-title">{{summary.title}} {{summary.version}}</div>
@@ -28,20 +42,6 @@
     <main class="featurebook-feature" ng-view></main>
 
 </div>
-
-<script src="vendor/angular/angular.min.js"></script>
-<script src="vendor/angular-route/angular-route.min.js"></script>
-<script src="vendor/angular-sanitize/angular-sanitize.min.js"></script>
-
-<script src="assets/js/featurebook.js"></script>
-<script src="assets/js/feature-book.service.js"></script>
-<script src="assets/js/person.directive.js"></script>
-<script src="assets/js/feature-tree.directive.js"></script>
-<script src="assets/js/feature-node.directive.js"></script>
-<script src="assets/js/step.directive.js"></script>
-<script src="assets/js/examples.directive.js"></script>
-<script src="assets/js/encode-uri-component.filter.js"></script>
-<script src="assets/js/titleize.filter.js"></script>
 
 </body>
 </html>
