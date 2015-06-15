@@ -1,0 +1,8 @@
+<li>
+    <a ng-if="feature.type === 'file'"
+       ng-class="{active : isActive(feature)}"
+       href="#feature/{{feature.path | encodeURIComponent}}">{{feature.name | titleize}}
+    </a>
+
+    <div ng-if="feature.type === 'folder'">{{feature.name | titleize}}</div>
+</li>

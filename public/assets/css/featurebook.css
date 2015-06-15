@@ -53,6 +53,7 @@ table {
 
 .featurebook-features-tree a {
     color: white;
+    text-decoration: none;
 }
 
 .featurebook-features-tree a:hover {

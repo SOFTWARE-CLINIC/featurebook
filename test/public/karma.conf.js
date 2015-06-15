@@ -13,6 +13,8 @@ module.exports = function (config) {
             'public/assets/js/featurebook.js',
             'public/assets/js/feature-book.service.js',
             'public/assets/js/person.directive.js',
+            'public/assets/js/feature-tree.directive.js',
+            'public/assets/js/feature-node.directive.js',
             'public/assets/js/step.directive.js',
             'public/assets/js/examples.directive.js',
             'public/assets/js/encode-uri-component.filter.js',
