@@ -42,12 +42,14 @@ nightmare and complete mess to read and understand.
 
 FeatureBook is here to help you creating living documentation from Gherkin source files (suitable for DEV or QA guys)
 and publish it in a format accessible for people who may not know how to work with source control systems or who are not
-interested in seeing all of the source code.
+interested in seeing all of the source code. We bring the fun back into writing documentation!
 
 What's more, the authors of FeatureBook are ready to help you writing system specification for real-life complex systems
-and applications. If it's not a top secret mission critical system, feel free to submit and issue where we can discuss
-the details publicly. Otherwise let's meet in person in Warsaw, Poland. If you buy tickets and we like the destination,
-we'll fly over and do the training for you and your team! The outcome would be a FeatureBook tailored for your system.
+and applications. If it's not a top secret mission critical beast, feel free to submit and issue where we can discuss
+the details publicly. Otherwise let's meet in person in [Warsaw](https://www.google.pl/maps/place/Warsaw/@52.2329379,21.0611941,11z/data=!3m1!4b1!4m2!3m1!1s0x471ecc669a869f01:0x72f0be2a88ead3fc?hl=en).
+If you buy the tickets and we like the destination, we'll fly over and do the training for you and your team! The
+outcome would be a FeatureBook tailored for your system. Forget about a bunch of hello world examples presented in a
+super boring fashion that cost thousands bucks.
 
 ## Usage
 
