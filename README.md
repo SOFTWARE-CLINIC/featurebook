@@ -45,7 +45,7 @@ and publish it in a format accessible for people who may not know how to work wi
 interested in seeing all of the source code. We bring the fun back into writing documentation!
 
 What's more, the authors of FeatureBook are ready to help you writing system specification for real-life complex systems
-and applications. If it's not a top secret mission critical beast, feel free to submit and issue where we can discuss
+and applications. If it's not a top secret mission critical beast, feel free to submit an issue where we can discuss
 the details publicly. Otherwise let's meet in person in [Warsaw](https://www.google.pl/maps/place/Warsaw/@52.2329379,21.0611941,11z/data=!3m1!4b1!4m2!3m1!1s0x471ecc669a869f01:0x72f0be2a88ead3fc?hl=en).
 If you buy the tickets and we like the destination, we'll fly over and do the training for you and your team!
 (Especially we're looking forward to seeing Albania one day.) The outcome would be a FeatureBook tailored for your
