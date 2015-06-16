@@ -12,6 +12,7 @@ FeatureBook
 [![License](http://img.shields.io/:license-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 * [Introduction](#introduction)
+* [Rationale](#rationale)
 * [Usage](#usage)
 * [Specification Format](#specification-format)
 * [Running Tests](#running-tests)
@@ -27,6 +28,20 @@ specifications from [Gherkin](https://github.com/cucumber/cucumber/wiki/Gherkin)
 Here is an [example](https://github.com/SOFTWARE-CLINIC/featurebook-example) system specification.
 
 ![Demo](/README/featurebook_demo.png)
+
+## Rationale
+
+Even in 2015, there are development teams that don't know how to apply [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development))
+or some other Agile methodology in day-to-day business. Believe it or not but that's the matter of fact. Doing a daily
+meeting at 9:00 or 10:00 a.m., doesn't really mean that you're in the Agile mode! With business analysts or other
+business folks it's even worse. Most of them haven't heard the buzzwords Scrum or Agile. Therefore, it's not surprising
+that so many people undervalue specifying unambiguously what the system is supposed to do. Instead, we got 200 pages
+Microsoft Word documents that, after a short while, become a maintenance nightmare and complete mess to read and
+understand.
+
+FeatureBook is here to help you creating living documentation from Gherkin source files (suitable for DEV or QA guys)
+and publish it in a format accessible for people who may not know how to work with source control systems or who are not
+interested in seeing all of the source code.
 
 ## Usage
 
