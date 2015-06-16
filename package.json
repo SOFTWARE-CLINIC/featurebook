@@ -11,16 +11,18 @@
   },
   "keywords": [
     "gherkin",
+    "cucumber",
     "bdd",
     "feature",
     "specification",
+    "documentation",
     "browser",
+    "viewer",
     "cute",
     "beautiful",
     "markdown",
     "albania",
-    "gang",
-    "+355"
+    "gang"
   ],
   "author": {
     "name": "Daniel Pacak",

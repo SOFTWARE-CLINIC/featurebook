@@ -31,17 +31,23 @@ Here is an [example](https://github.com/SOFTWARE-CLINIC/featurebook-example) sys
 
 ## Rationale
 
-Even in 2015, there are development teams that don't know how to apply [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development))
-or some other Agile methodology in day-to-day business. Believe it or not but that's the matter of fact. Doing a daily
-meeting at 9:00 or 10:00 a.m., doesn't really mean that you're in the Agile mode! With business analysts or other
-business folks it's even worse. Most of them haven't heard the buzzwords Scrum or Agile. Therefore, it's not surprising
-that so many people undervalue specifying unambiguously what the system is supposed to do. Instead, we got 200 pages
-Microsoft Word documents that, after a short while, become a maintenance nightmare and complete mess to read and
-understand.
+Even in 2015, there are development teams that don't know how to apply
+[Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)) or some other
+[Agile methodology](https://en.wikipedia.org/wiki/Agile_software_development) in day-to-day business. Believe it or not
+but that's the matter of fact. Doing just a daily meeting at 9 or 10 a.m. doesn't really mean that you're in the Agile
+mode! With business analysts or other business folks it's even worse. Most of them haven't heard the buzzwords Scrum or
+Agile. Therefore, it's not surprising that so many people undervalue specifying unambiguously what the system is
+supposed to do. Instead, we are given 200 pages Microsoft Word documents that, after a short while, become a maintenance
+nightmare and complete mess to read and understand.
 
 FeatureBook is here to help you creating living documentation from Gherkin source files (suitable for DEV or QA guys)
 and publish it in a format accessible for people who may not know how to work with source control systems or who are not
 interested in seeing all of the source code.
+
+What's more, the authors of FeatureBook are ready to help you writing system specification for real-life complex systems
+and applications. If it's not a top secret mission critical system, feel free to submit and issue where we can discuss
+the details publicly. Otherwise let's meet in person in Warsaw, Poland. If you buy tickets and we like the destination,
+we'll fly over and do the training for you and your team! The outcome would be a FeatureBook tailored for your system.
 
 ## Usage
 
