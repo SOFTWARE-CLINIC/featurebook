@@ -45,7 +45,8 @@
     "express": "^4.12.4",
     "gherkin": "^2.12.2",
     "marked": "^0.3.3",
-    "pdfkit": "^0.7.1"
+    "pdfkit": "^0.7.1",
+    "opener": "^1.4.1"
   },
   "devDependencies": {
     "chai": "^3.0.0",
