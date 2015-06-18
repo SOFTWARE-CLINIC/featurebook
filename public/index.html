@@ -10,8 +10,11 @@
     <script src="vendor/angular-route/angular-route.min.js"></script>
     <script src="vendor/angular-sanitize/angular-sanitize.min.js"></script>
 
-    <script src="assets/js/featurebook.js"></script>
-    <script src="assets/js/feature-book.service.js"></script>
+    <script src="assets/js/featurebook.module.js"></script>
+    <script src="assets/js/home.controller.js"></script>
+    <script src="assets/js/featurebook.controller.js"></script>
+    <script src="assets/js/feature.controller.js"></script>
+    <script src="assets/js/featurebook.service.js"></script>
     <script src="assets/js/person.directive.js"></script>
     <script src="assets/js/feature-tree.directive.js"></script>
     <script src="assets/js/feature-node.directive.js"></script>
@@ -24,14 +27,16 @@
 
 <div class="featurebook" ng-controller="FeatureBookController" ng-cloak>
 
-    <div class="featurebook-summary">
-        <div class="featurebook-title">{{summary.title}} {{summary.version}}</div>
+    <div class="featurebook-metadata">
+        <div class="featurebook-title">
+            <a ng-href="#/home">{{metadata.title}} {{metadata.version}}</a>
+        </div>
 
         <div class="featurebook-authors">
-            <person ng-model="author" ng-repeat="author in summary.authors"></person>
+            <person ng-model="author" ng-repeat="author in metadata.authors"></person>
         </div>
         <div class="featurebook-contributors">
-            <person ng-model="contributor" ng-repeat="contributor in summary.contributors"></person>
+            <person ng-model="contributor" ng-repeat="contributor in metadata.contributors"></person>
         </div>
     </div>
 

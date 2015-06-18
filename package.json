@@ -13,6 +13,7 @@
     "gherkin",
     "cucumber",
     "bdd",
+    "attd",
     "feature",
     "specification",
     "documentation",

@@ -20,9 +20,8 @@ table {
     max-width: 1140px;
 }
 
-.featurebook-summary {
+.featurebook-metadata {
     margin-bottom: 0.5em;
-
 }
 
 .featurebook-title {
@@ -31,9 +30,13 @@ table {
     color: #ffffff;
 }
 
+.featurebook-title a {
+    color: white;
+    text-decoration: none;
+}
+
 .featurebook-authors a {
     color: orange;
-
 }
 
 .featurebook-contributors a {

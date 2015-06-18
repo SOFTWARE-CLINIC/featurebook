@@ -17,12 +17,13 @@ describe('featurebook', function () {
 
     it('should configure route for `/home`', function () {
         expect($route.current).toBeUndefined();
+        spyOn(featureBookService, 'summary').and.returnValue('<div>summary</div>');
 
         $location.path('/home');
         $rootScope.$digest();
 
         expect($route.current.templateUrl).toBe('views/home.html');
-        expect($route.current.controller).toBeUndefined();
+        expect($route.current.controller).toBe('HomeController');
     });
 
     it('should configure route for `/feature/my.feature`', function () {
@@ -48,11 +49,12 @@ describe('featurebook', function () {
     });
 
     it('should redirect to `/home` otherwise', function () {
+        spyOn(featureBookService, 'summary').and.returnValue('<div>summary</div>div>');
         $location.path('/somewhere');
         $rootScope.$digest();
 
         expect($route.current.templateUrl).toBe('views/home.html');
-        expect($route.current.controller).toBeUndefined();
+        expect($route.current.controller).toBe('HomeController');
     });
 
 });

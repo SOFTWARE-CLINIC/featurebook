@@ -12,7 +12,7 @@ describe('featureBookService', function () {
         });
     });
 
-    describe('#summary', function () {
+    describe('#metadata', function () {
     });
 
     describe('#findAll', function () {

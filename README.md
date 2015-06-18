@@ -14,8 +14,8 @@ FeatureBook
 * [Introduction](#introduction)
 * [Rationale](#rationale)
 * [Usage](#usage)
-* [Specification Format](#specification-format)
-* [Running Tests](#running-tests)
+* [Specification format](#specification-format)
+* [Running tests](#running-tests)
 * [Releasing](#releasing)
 * [Contributing](#contributing)
 * [License](#license)
@@ -68,7 +68,7 @@ $ featurebook serve --port 3000
 Or simply build the static website:
 
 ```shell
-$ featurebook build --output-dir ~/book
+$ featurebook build --output-dir ~/book --format=pdf
 ```
 
 To list all available commands and options:
@@ -83,12 +83,13 @@ Or just display help for a given command:
 $ featurebook serve --help
 ```
 
-## Specification Format
+## Specification format
 
 A system specification is a directory containing:
 
 * Gherkin source files
 * The `assets` directory for images and videos that you can refer to from within the Gherkin source files
+* An optional `SUMMARY.MD` descriptor
 * An optional `featurebook.json` descriptor
 
 ```
@@ -108,6 +109,7 @@ A system specification is a directory containing:
 |           |-- list_projects.feature
 |           |-- create_project.feature
 |           `-- clone_project.feature
+|-- SUMMARY.md
 `-- featurebook.json
 ```
 
@@ -176,7 +178,33 @@ Gherkin's grammar exists in different flavours for many [spoken languages](https
 To specify and use the keywords in your own language, you must set the `language` property to the corresponding language
 [code](https://github.com/cucumber/gherkin/blob/master/lib/gherkin/i18n.json).
 
-## Running Tests
+### SUMMARY.md
+
+Typically, this should be the introduction to your specification where you can:
+
+* give a general overview of the system being specified
+* provide description that is pertinent to all features and scenarios
+* keep a list of notable changes and reviews
+
+```
+Summary
+=======
+
+This is a great thirst-quencherer. Buy drinks or get them for free.
+
+*This is part of a demo project to show how to use ATTD/BDD at a client site.
+This is not to be used commercially, nor is the software very valuable, except
+for demonstration purposes.*
+
+## Change log
+
+| Version | Date       | Description  | Authors            |
+| ------- | ---------- | ------------ | ------------------ |
+| 2.0     | 13-09-2012 | First review | Eliza Orzeszkowa   |
+| 1.0     | 15-07-2012 | First draft  | Henryk Sienkiewicz |
+```
+
+## Running tests
 
 ```shell
 $ npm install -g bower mocha karma-cli

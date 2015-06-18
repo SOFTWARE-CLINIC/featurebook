@@ -10,8 +10,10 @@ module.exports = function (config) {
 
             'public/views/**/*.html',
 
-            'public/assets/js/featurebook.js',
-            'public/assets/js/feature-book.service.js',
+            'public/assets/js/featurebook.module.js',
+            'public/assets/js/home.controller.js',
+            'public/assets/js/featurebook.controller.js',
+            'public/assets/js/featurebook.service.js',
             'public/assets/js/person.directive.js',
             'public/assets/js/feature-tree.directive.js',
             'public/assets/js/feature-node.directive.js',
