@@ -17,7 +17,8 @@
 </div>
 
 <div class="featurebook-scenario" ng-repeat="outline in feature.scenario_outlines">
-    <h3>Scenario Outline: {{outline.name}}</h3>
+    <div class="featurebook-tag" ng-repeat="tag in outline.tags">{{tag}}</div>
+    <div class="featurebook-scenario-name">Scenario Outline: {{outline.name}}</div>
 
     <step class="featurebook-step" ng-model="step" ng-repeat="step in outline.steps"></step>
 
