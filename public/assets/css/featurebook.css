@@ -104,6 +104,10 @@ table {
     color: #ffffff;
 }
 
+.featurebook-scenario-description {
+    padding-left: 40px;
+}
+
 .featurebook-background, .featurebook-scenario, .featurebook-scenario-outline {
     padding: 20px 20px 0px 40px;
 }

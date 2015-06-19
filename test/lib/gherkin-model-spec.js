@@ -62,7 +62,7 @@ describe('gherkin-model', function () {
         });
 
         it('should parse a simple feature written in Polish', function () {
-            var feature = gherkin.fromFileSync('test/resources/simple_feature_written_in_polish.feature', 'pl'),
+            var feature = gherkin.fromFileSync('test/resources/simple_feature_written_in_polish.feature', {language: 'pl'}),
                 firstScenario = feature.scenarios[0];
 
             feature.name.should.equal('Logowanie do aplikacji');

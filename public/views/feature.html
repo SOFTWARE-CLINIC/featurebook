@@ -1,7 +1,6 @@
 <div class="featurebook-tag" ng-repeat="tag in feature.tags">{{tag}}</div>
 <div class="featurebook-feature-name">Feature: {{feature.name}}</div>
-
-<div class="featurebook-feature-description" ng-bind-html="feature.descriptionAsHtml"></div>
+<div class="featurebook-feature-description" ng-bind-html="feature.description"></div>
 
 <div class="featurebook-background" ng-show="{{feature.background}}">
     <div class="featurebook-background-name">Background: {{feature.background.name}}</div>
@@ -12,6 +11,7 @@
 <div class="featurebook-scenario" ng-repeat="scenario in feature.scenarios">
     <div class="featurebook-tag" ng-repeat="tag in scenario.tags">{{tag}}</div>
     <div class="featurebook-scenario-name">Scenario: {{scenario.name}}</div>
+    <div class="featurebook-scenario-description" ng-bind-html="scenario.description"></div>
 
     <step class="featurebook-step" ng-model="step" ng-repeat="step in scenario.steps"></step>
 </div>
@@ -19,9 +19,9 @@
 <div class="featurebook-scenario" ng-repeat="outline in feature.scenario_outlines">
     <div class="featurebook-tag" ng-repeat="tag in outline.tags">{{tag}}</div>
     <div class="featurebook-scenario-name">Scenario Outline: {{outline.name}}</div>
+    <div class="featurebook-scenario-description" ng-bind-html="outline.description"></div>
 
     <step class="featurebook-step" ng-model="step" ng-repeat="step in outline.steps"></step>
-
     <div class="featurebook-examples">
         <h3>Examples</h3>
         <examples ng-model="outline.examples"></examples>
