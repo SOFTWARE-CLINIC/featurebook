@@ -1,6 +1,6 @@
 {
   "name": "featurebook",
-  "version": "0.0.7",
+  "version": "0.0.12",
   "description": "A command line tool (and Node.js library) for generating beautiful system specifications from Gherkin source files.",
   "bin": {
     "featurebook": "./bin/featurebook.js"
@@ -11,11 +11,19 @@
   },
   "keywords": [
     "gherkin",
+    "cucumber",
+    "bdd",
+    "attd",
     "feature",
     "specification",
+    "documentation",
     "browser",
+    "viewer",
     "cute",
-    "beautiful"
+    "beautiful",
+    "markdown",
+    "albania",
+    "gang"
   ],
   "author": {
     "name": "Daniel Pacak",
@@ -37,14 +45,16 @@
     "commander": "^2.8.1",
     "express": "^4.12.4",
     "gherkin": "^2.12.2",
-    "marked": "^0.3.3"
+    "marked": "^0.3.3",
+    "pdfkit": "^0.7.1",
+    "opener": "^1.4.1"
   },
   "devDependencies": {
     "chai": "^3.0.0",
     "concat-stream": "^1.4.8",
     "karma": "^0.12.25",
-    "karma-ng-html2js-preprocessor": "^0.1.2",
     "karma-jasmine": "^0.3.2",
+    "karma-ng-html2js-preprocessor": "^0.1.2",
     "karma-phantomjs-launcher": "^0.2.0"
   }
 }

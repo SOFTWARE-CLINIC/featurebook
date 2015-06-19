@@ -7,8 +7,21 @@ module.exports = function (config) {
             'public/bower_components/angular-route/angular-route.min.js',
             'public/bower_components/angular-sanitize/angular-sanitize.min.js',
             'public/bower_components/angular-mocks/angular-mocks.js',
+
             'public/views/**/*.html',
-            'public/assets/js/featurebook.js',
+
+            'public/assets/js/featurebook.module.js',
+            'public/assets/js/home.controller.js',
+            'public/assets/js/featurebook.controller.js',
+            'public/assets/js/featurebook.service.js',
+            'public/assets/js/person.directive.js',
+            'public/assets/js/feature-tree.directive.js',
+            'public/assets/js/feature-node.directive.js',
+            'public/assets/js/step.directive.js',
+            'public/assets/js/examples.directive.js',
+            'public/assets/js/encode-uri-component.filter.js',
+            'public/assets/js/titleize.filter.js',
+
             'test/public/spec/**/*.js'
         ],
         browsers: [

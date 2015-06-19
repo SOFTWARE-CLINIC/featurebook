@@ -5,12 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>FeatureBook</title>
     <link rel="stylesheet" href="assets/css/featurebook.css">
+
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="vendor/angular-route/angular-route.min.js"></script>
+    <script src="vendor/angular-sanitize/angular-sanitize.min.js"></script>
+
+    <script src="assets/js/featurebook.module.js"></script>
+    <script src="assets/js/home.controller.js"></script>
+    <script src="assets/js/featurebook.controller.js"></script>
+    <script src="assets/js/feature.controller.js"></script>
+    <script src="assets/js/featurebook.service.js"></script>
+    <script src="assets/js/person.directive.js"></script>
+    <script src="assets/js/feature-tree.directive.js"></script>
+    <script src="assets/js/feature-node.directive.js"></script>
+    <script src="assets/js/step.directive.js"></script>
+    <script src="assets/js/examples.directive.js"></script>
+    <script src="assets/js/encode-uri-component.filter.js"></script>
+    <script src="assets/js/titleize.filter.js"></script>
 </head>
-<body ng-controller="FeatureBookController">
+<body>
 
-<div class="featurebook">
+<div class="featurebook" ng-controller="FeatureBookController" ng-cloak>
 
-    <h1 class="featurebook-title">{{summary.title}} {{summary.version}}</h1>
+    <div class="featurebook-metadata">
+        <div class="featurebook-title">
+            <a ng-href="#/home">{{metadata.title}} {{metadata.version}}</a>
+        </div>
+
+        <div class="featurebook-authors">
+            <person ng-model="author" ng-repeat="author in metadata.authors"></person>
+        </div>
+        <div class="featurebook-contributors">
+            <person ng-model="contributor" ng-repeat="contributor in metadata.contributors"></person>
+        </div>
+    </div>
 
     <aside class="featurebook-features-tree">
         <feature-tree ng-model="featuresTree"></feature-tree>
@@ -19,12 +47,6 @@
     <main class="featurebook-feature" ng-view></main>
 
 </div>
-
-<script src="vendor/angular/angular.min.js"></script>
-<script src="vendor/angular-route/angular-route.min.js"></script>
-<script src="vendor/angular-sanitize/angular-sanitize.min.js"></script>
-
-<script src="assets/js/featurebook.js"></script>
 
 </body>
 </html>

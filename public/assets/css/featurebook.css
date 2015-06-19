@@ -20,6 +20,29 @@ table {
     max-width: 1140px;
 }
 
+.featurebook-metadata {
+    margin-bottom: 0.5em;
+}
+
+.featurebook-title {
+    font-size: xx-large;
+    font-weight: bolder;
+    color: #ffffff;
+}
+
+.featurebook-title a {
+    color: white;
+    text-decoration: none;
+}
+
+.featurebook-authors a {
+    color: orange;
+}
+
+.featurebook-contributors a {
+    color: #ffff00;
+}
+
 .featurebook-features-tree {
     float: left;
     width: 35%;
@@ -33,31 +56,52 @@ table {
 
 .featurebook-features-tree a {
     color: white;
+    text-decoration: none;
 }
 
 .featurebook-features-tree a:hover {
     color: darkorange;
 }
 
+.featurebook-features-tree ul {
+    padding-left: 2em;
+}
+
 .featurebook-feature {
     float: left;
     width: 63%;
     margin-left: 2%;
+    margin-bottom: 2%;
     background: #373743;
     padding: 20px;
-}
-
-.featurebook-feature h3 {
-
 }
 
 .featurebook-feature-description {
     padding-left: 40px;
 }
 
+.featurebook-feature-description p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.featurebook-feature-description img {
+    max-width: 100%;
+}
+
 .featurebook-feature-name {
-    padding: 0 20px;
     font-size: x-large;
+    color: #ffffff;
+}
+
+.featurebook-background-name {
+    font-size: large;
+    color: #ffffff;
+}
+
+.featurebook-scenario-name {
+    font-size: large;
+    color: #ffffff;
 }
 
 .featurebook-background, .featurebook-scenario, .featurebook-scenario-outline {
@@ -68,12 +112,19 @@ table {
     padding: 20px 20px 0px 20px;
 }
 
-.featurebook-examples tr {
-    border-left: 3px solid darkorange;
+.featurebook-examples tr, .featurebook-step tr {
+    border-left: 2px dotted darkorange;
 }
 
-.featurebook-examples td {
-    border-right: 3px solid darkorange;
+.featurebook-examples td, .featurebook-step td {
+    border-right: 2px dotted darkorange;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.featurebook-examples th, .featurebook-step th {
+    border-right: 2px dotted darkorange;
+    color: violet;
     padding-left: 1em;
     padding-right: 1em;
 }
@@ -85,6 +136,23 @@ table {
 .featurebook-keyword {
     color: darkorange;
     font-weight: bolder;
+    display: inline-block;
+    text-align: right;
+    margin-right: 0;
+    width: 15%;
+    vertical-align: top;
+}
+
+.featurebook-tag {
+    display: inline-block;
+    margin-right: 0.5em;
+    color: #ffff00;
+}
+
+.featurebook-step-name {
+    display: inline-block;
+    width: 84%;
+    padding-left: 0.5em;
 }
 
 .featurebook-var {
