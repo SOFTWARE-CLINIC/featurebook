@@ -4,7 +4,7 @@
 <div class="featurebook-feature-description" ng-bind-html="feature.descriptionAsHtml"></div>
 
 <div class="featurebook-background" ng-show="{{feature.background}}">
-    <div class="featurebook-background-name">Background</div>
+    <div class="featurebook-background-name">Background: {{feature.background.name}}</div>
 
     <step class="featurebook-step" ng-model="step" ng-repeat="step in feature.background.steps"></step>
 </div>
