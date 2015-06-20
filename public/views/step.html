@@ -2,6 +2,6 @@
     <div class="featurebook-keyword">{{step.keyword}}</div>
     <div class="featurebook-step-name">{{step.name}}
         <pre ng-if="hasDocString()" class="featurebook-doc-string">{{step.docString}}</pre>
-        <examples ng-if="hasDataTable()" ng-model="step.dataTable"></examples>
+        <gherkin-data-table ng-if="hasDataTable()" ng-model="step.dataTable"></gherkin-data-table>
     </div>
 </div>

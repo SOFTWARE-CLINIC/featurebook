@@ -10,17 +10,17 @@ module.exports = function (config) {
 
             'public/views/**/*.html',
 
-            'public/assets/js/featurebook.module.js',
-            'public/assets/js/home.controller.js',
-            'public/assets/js/featurebook.controller.js',
-            'public/assets/js/featurebook.service.js',
-            'public/assets/js/person.directive.js',
-            'public/assets/js/feature-tree.directive.js',
-            'public/assets/js/feature-node.directive.js',
-            'public/assets/js/step.directive.js',
-            'public/assets/js/examples.directive.js',
-            'public/assets/js/encode-uri-component.filter.js',
-            'public/assets/js/titleize.filter.js',
+            'public/scripts/featurebook.module.js',
+            'public/scripts/home.controller.js',
+            'public/scripts/featurebook.controller.js',
+            'public/scripts/featurebook.service.js',
+            'public/scripts/person.directive.js',
+            'public/scripts/feature-tree.directive.js',
+            'public/scripts/feature-node.directive.js',
+            'public/scripts/step.directive.js',
+            'public/scripts/gherkin-data-table.directive.js',
+            'public/scripts/encode-uri-component.filter.js',
+            'public/scripts/titleize.filter.js',
 
             'test/public/spec/**/*.js'
         ],
