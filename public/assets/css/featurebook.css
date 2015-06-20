@@ -104,6 +104,11 @@ table {
     color: #ffffff;
 }
 
+.featurebook-examples-name {
+    font-size: large;
+    color: #ffffff;
+}
+
 .featurebook-scenario-description {
     padding-left: 40px;
 }
@@ -135,7 +140,6 @@ table {
 
 .featurebook-doc-string {
     color: darkolivegreen;
-    font-size: 95%;
 }
 
 .featurebook-step {

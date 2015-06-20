@@ -38,10 +38,10 @@ describe('gherkin-model', function () {
             assertStepEqual(firstScenarioOutline.steps[1], 'When', 'I eat <eat> cucumbers');
             assertStepEqual(firstScenarioOutline.steps[2], 'Then', 'I should have <left> cucumbers');
 
-            assert.equal(firstScenarioOutline.examples.length, 3);
-            assertRowEqual(firstScenarioOutline.examples[0], ['start', 'eat', 'left']);
-            assertRowEqual(firstScenarioOutline.examples[1], [12, 5, 7]);
-            assertRowEqual(firstScenarioOutline.examples[2], [20, 5, 15]);
+            assert.equal(firstScenarioOutline.examples.dataTable.length, 3);
+            assertRowEqual(firstScenarioOutline.examples.dataTable[0], ['start', 'eat', 'left']);
+            assertRowEqual(firstScenarioOutline.examples.dataTable[1], [12, 5, 7]);
+            assertRowEqual(firstScenarioOutline.examples.dataTable[2], [20, 5, 15]);
         });
 
         it('should parse a simple feature with the background', function () {
@@ -126,9 +126,9 @@ describe('gherkin-model', function () {
             firstStep.dataTable[1].should.have.members(['cola']);
             firstStep.dataTable[2].should.have.members(['sprite']);
 
-            firstScenarioOutline.examples[0].should.have.members(['choice', 'empty', 'brand']);
-            firstScenarioOutline.examples[1].should.have.members(['cola', 'not empty', 'cola']);
-            firstScenarioOutline.examples[2].should.have.members(['sprite', 'not empty', 'sprite']);
+            firstScenarioOutline.examples.dataTable[0].should.have.members(['choice', 'empty', 'brand']);
+            firstScenarioOutline.examples.dataTable[1].should.have.members(['cola', 'not empty', 'cola']);
+            firstScenarioOutline.examples.dataTable[2].should.have.members(['sprite', 'not empty', 'sprite']);
         });
 
     });
