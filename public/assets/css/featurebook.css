@@ -133,6 +133,11 @@ table {
     padding-right: 1em;
 }
 
+.featurebook-doc-string {
+    color: darkolivegreen;
+    font-size: 95%;
+}
+
 .featurebook-step {
     padding-left: 20px;
 }

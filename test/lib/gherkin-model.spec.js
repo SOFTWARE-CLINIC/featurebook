@@ -76,20 +76,30 @@ describe('gherkin-model', function () {
             assertStepEqual(firstScenario.steps[4], 'Wtedy', 'zalogujesz się jako administrator');
         });
 
-        it('should parse a simple feature with multiline table argument', function () {
-            var feature = gherkin.fromFileSync('test/resources/simple_feature_with_multiline_table_arg.feature'),
+        it('should parse a simple feature with data tables', function () {
+            var feature = gherkin.fromFileSync('test/resources/simple_feature_with_data_tables.feature'),
                 firstScenario = feature.scenarios[0];
 
             feature.name.should.equal('Metadata');
 
             firstScenario.name.should.equal('Provide information about authors and contributors');
 
-            firstScenario.steps[0].args[0].should.have.members(['firstName', 'lastName', 'email']);
-            firstScenario.steps[0].args[1].should.have.members(['Henryk', 'Sienkiewicz', 'hsienkiewicz@gmail.com']);
-            firstScenario.steps[0].args[2].should.have.members(['Eliza', 'Orzeszkowa', 'eorzeszkowa@gmail.com']);
+            firstScenario.steps[0].dataTable[0].should.have.members(['firstName', 'lastName', 'email']);
+            firstScenario.steps[0].dataTable[1].should.have.members(['Henryk', 'Sienkiewicz', 'hsienkiewicz@gmail.com']);
+            firstScenario.steps[0].dataTable[2].should.have.members(['Eliza', 'Orzeszkowa', 'eorzeszkowa@gmail.com']);
 
-            firstScenario.steps[1].args[0].should.have.members(['firstName', 'lastName', 'email']);
-            firstScenario.steps[1].args[1].should.have.members(['Juliusz', 'Slowacki', 'jslowacki@gmail.com']);
+            firstScenario.steps[1].dataTable[0].should.have.members(['firstName', 'lastName', 'email']);
+            firstScenario.steps[1].dataTable[1].should.have.members(['Juliusz', 'Slowacki', 'jslowacki@gmail.com']);
+        });
+
+        it('should parse a simple feature with doc strings', function () {
+            var feature = gherkin.fromFileSync('test/resources/simple_feature_with_doc_strings.feature'),
+                firstScenario = feature.scenarios[0];
+
+            firstScenario.steps[0].docString.should.equal(
+                'Some Title, Eh?\n===============\nHere is the first paragraph of my blog post.\nLorem ipsum dolor sit amet, consectetur adipiscing elit.');
+
+            firstScenario.steps[1].docString.should.equal('This is awesome dude!');
         });
 
         it('should parse a simple feature with tags', function () {
@@ -103,8 +113,8 @@ describe('gherkin-model', function () {
             feature.scenario_outlines[0].tags.should.have.members(['@ScenarioOutlineTag1']);
         });
 
-        it('should parse a simple feature with scenario outline and multiline table argument', function () {
-            var feature = gherkin.fromFileSync('test/resources/simple_feature_with_scenario_outline_and_multiline_table_arg.feature'),
+        it('should parse a simple feature with scenario outline and data table', function () {
+            var feature = gherkin.fromFileSync('test/resources/simple_feature_with_scenario_outline_and_data_table.feature'),
                 firstScenarioOutline = feature.scenario_outlines[0],
                 firstStep = firstScenarioOutline.steps[0];
 
@@ -112,9 +122,9 @@ describe('gherkin-model', function () {
 
             assertStepEqual(firstStep, 'Given', 'the machine has the following choices');
 
-            firstStep.args[0].should.have.members(['brand']);
-            firstStep.args[1].should.have.members(['cola']);
-            firstStep.args[2].should.have.members(['sprite']);
+            firstStep.dataTable[0].should.have.members(['brand']);
+            firstStep.dataTable[1].should.have.members(['cola']);
+            firstStep.dataTable[2].should.have.members(['sprite']);
 
             firstScenarioOutline.examples[0].should.have.members(['choice', 'empty', 'brand']);
             firstScenarioOutline.examples[1].should.have.members(['cola', 'not empty', 'cola']);
