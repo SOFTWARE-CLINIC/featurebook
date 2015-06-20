@@ -2,6 +2,7 @@
 
 (function () {
 
+    /* global angular */
     angular.module('scFeatureBook')
         .directive('step', stepDirectiveFactory);
 

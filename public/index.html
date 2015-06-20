@@ -33,10 +33,14 @@
         </div>
 
         <div class="featurebook-authors">
-            <person ng-model="author" ng-repeat="author in metadata.authors"></person>
+            <span ng-repeat="author in metadata.authors">
+                <person ng-model="author"></person>
+            </span>
         </div>
         <div class="featurebook-contributors">
-            <person ng-model="contributor" ng-repeat="contributor in metadata.contributors"></person>
+            <span ng-repeat="contributor in metadata.contributors">
+                <person ng-model="contributor"></person>
+            </span>
         </div>
     </div>
 

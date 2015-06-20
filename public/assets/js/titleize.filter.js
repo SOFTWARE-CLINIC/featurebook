@@ -2,6 +2,7 @@
 
 (function () {
 
+    /* global angular */
     angular.module('scFeatureBook')
         .filter('titleize', titleizeFilter);
 
@@ -11,7 +12,7 @@
             var uppercased = withoutUnderscores.charAt(0).toUpperCase() + withoutUnderscores.slice(1);
             var withoutFeature = uppercased.replace(/.feature/g, '');
             return withoutFeature;
-        }
+        };
     }
 
 })();
