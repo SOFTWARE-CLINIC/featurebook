@@ -1,0 +1,18 @@
+<div class="featurebook-scenario">
+    <div class="featurebook-tag" ng-repeat="tag in scenario.tags">{{tag}}</div>
+    <div class="featurebook-scenario-name">{{scenario.keyword}}: {{scenario.name}}</div>
+    <div class="featurebook-scenario-description"
+         ng-if="scenario.description"
+         ng-bind-html="scenario.description"></div>
+
+    <gherkin-step ng-model="step" ng-repeat="step in scenario.steps"></gherkin-step>
+
+    <div class="featurebook-examples" ng-if="isOutline()">
+        <div class="featurebook-examples-name">{{scenario.examples.keyword}}: {{scenario.examples.name}}</div>
+        <div class="featurebook-examples-description"
+             ng-if="scenario.examples.description"
+             ng-bind-html="scenario.examples.description"></div>
+
+        <gherkin-data-table ng-model="scenario.examples.dataTable"></gherkin-data-table>
+    </div>
+</div>

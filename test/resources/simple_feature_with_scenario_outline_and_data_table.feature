@@ -1,4 +1,4 @@
-Feature: Simple feature with scenario outline and multiline table argument
+Feature: Simple feature with scenario outline and data table
 
   To make sure we can parse such a feature.
 

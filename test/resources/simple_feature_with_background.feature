@@ -2,7 +2,10 @@ Feature: Simple feature with background
 
   A simple feature to make sure we can parse the `Background` keyword.
 
-  Background:
+  Background: a background can have name
+
+  As well as description
+
     Given background step 1
     And background step 2
     And background step 3

@@ -13,7 +13,6 @@ describe('gherkin-model', function () {
             feature.name.should.equal('Hello World');
 
             feature.scenarios.should.have.length(1);
-            feature.scenario_outlines.should.be.empty;
 
             assert.equal(firstScenario.name, 'Look Ma');
             assert.equal(firstScenario.steps.length, 3);
@@ -25,11 +24,11 @@ describe('gherkin-model', function () {
 
         it('should parse a simple feature with a single scenario outline', function () {
             var feature = gherkin.fromFileSync('test/resources/eating_cucumbers.feature'),
-                firstScenarioOutline = feature.scenario_outlines[0];
+                firstScenarioOutline = feature.scenarios[0];
 
             feature.name.should.equal('Eating cucumbers');
-            feature.scenarios.should.have.length(0);
-            feature.scenario_outlines.should.have.length(1);
+            feature.scenarios.should.have.length(1);
+            //feature.scenario_outlines.should.have.length(1);
 
             assert.equal(firstScenarioOutline.name, 'Eat');
             assert.equal(firstScenarioOutline.steps.length, 3);
@@ -50,6 +49,9 @@ describe('gherkin-model', function () {
             var firstScenarioSteps = feature.scenarios[0].steps;
 
             feature.name.should.equal('Simple feature with background');
+
+            feature.background.name.should.equal('a background can have name');
+            feature.background.description.should.equal('\nAs well as description');
             feature.background.steps.should.have.length(3);
 
             assertStepEqual(backgroundSteps[0], 'Given', 'background step 1');
@@ -67,7 +69,6 @@ describe('gherkin-model', function () {
 
             feature.name.should.equal('Logowanie do aplikacji');
             feature.scenarios.should.have.length(1);
-            feature.scenario_outlines.should.have.length(0);
 
             assertStepEqual(firstScenario.steps[0], 'Mając', 'otwartą stronę "/login.com"');
             assertStepEqual(firstScenario.steps[1], 'Kiedy', 'wpiszesz "admin" jako nazwę');
@@ -109,16 +110,15 @@ describe('gherkin-model', function () {
 
             feature.scenarios[0].tags.should.have.members(['@Scenario1Tag1', '@Scenario1Tag2', '@Scenario1Tag3']);
             feature.scenarios[1].tags.should.have.members(['@Scenario2Tag1']);
-
-            feature.scenario_outlines[0].tags.should.have.members(['@ScenarioOutlineTag1']);
+            feature.scenarios[2].tags.should.have.members(['@ScenarioOutlineTag1']);
         });
 
         it('should parse a simple feature with scenario outline and data table', function () {
             var feature = gherkin.fromFileSync('test/resources/simple_feature_with_scenario_outline_and_data_table.feature'),
-                firstScenarioOutline = feature.scenario_outlines[0],
+                firstScenarioOutline = feature.scenarios[0],
                 firstStep = firstScenarioOutline.steps[0];
 
-            feature.name.should.equal('Simple feature with scenario outline and multiline table argument');
+            feature.name.should.equal('Simple feature with scenario outline and data table');
 
             assertStepEqual(firstStep, 'Given', 'the machine has the following choices');
 
@@ -129,6 +129,16 @@ describe('gherkin-model', function () {
             firstScenarioOutline.examples.dataTable[0].should.have.members(['choice', 'empty', 'brand']);
             firstScenarioOutline.examples.dataTable[1].should.have.members(['cola', 'not empty', 'cola']);
             firstScenarioOutline.examples.dataTable[2].should.have.members(['sprite', 'not empty', 'sprite']);
+        });
+
+        it('should preserve order when parsing scenarios and scenario outlines', function () {
+            var feature = gherkin.fromFileSync('test/resources/simple_feature_with_scenarios_and_scenario_outlines.feature');
+            console.log(feature);
+
+            feature.scenarios[0].name.should.equal('first outline');
+            feature.scenarios[1].name.should.equal('first scenario');
+            feature.scenarios[2].name.should.equal('second outline');
+            feature.scenarios[3].name.should.equal('second scenario');
         });
 
     });
