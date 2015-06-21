@@ -22,6 +22,7 @@ module.exports = function (config) {
             'public/scripts/gherkin-data-table.directive.js',
             'public/scripts/encode-uri-component.filter.js',
             'public/scripts/titleize.filter.js',
+            'public/scripts/highlight-gherkin-variables.filter.js',
 
             'test/public/spec/**/*.js'
         ],

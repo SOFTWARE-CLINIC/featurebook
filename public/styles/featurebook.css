@@ -133,6 +133,7 @@ table {
 
 .featurebook-examples th, .featurebook-step th {
     border-right: 2px dotted darkorange;
+    font-weight: normal;
     color: violet;
     padding-left: 1em;
     padding-right: 1em;
@@ -169,8 +170,8 @@ table {
 }
 
 .featurebook-var {
-    color: blueviolet;
-    font-weight: bolder;
+    color: violet;
+    font-weight: normal;
 }
 
 h1, h2, h3 {
