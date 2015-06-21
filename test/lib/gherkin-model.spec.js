@@ -28,7 +28,6 @@ describe('gherkin-model', function () {
 
             feature.name.should.equal('Eating cucumbers');
             feature.scenarios.should.have.length(1);
-            //feature.scenario_outlines.should.have.length(1);
 
             assert.equal(firstScenarioOutline.name, 'Eat');
             assert.equal(firstScenarioOutline.steps.length, 3);
@@ -133,7 +132,6 @@ describe('gherkin-model', function () {
 
         it('should preserve order when parsing scenarios and scenario outlines', function () {
             var feature = gherkin.fromFileSync('test/resources/simple_feature_with_scenarios_and_scenario_outlines.feature');
-            console.log(feature);
 
             feature.scenarios[0].name.should.equal('first outline');
             feature.scenarios[1].name.should.equal('first scenario');
