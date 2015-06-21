@@ -17,7 +17,7 @@ module.exports = function (config) {
             'public/scripts/person.directive.js',
             'public/scripts/feature-tree.directive.js',
             'public/scripts/feature-node.directive.js',
-            'public/scripts/step.directive.js',
+            'public/scripts/gherkin-step.directive.js',
             'public/scripts/gherkin-data-table.directive.js',
             'public/scripts/encode-uri-component.filter.js',
             'public/scripts/titleize.filter.js',

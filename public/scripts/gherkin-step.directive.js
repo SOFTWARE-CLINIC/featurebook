@@ -4,12 +4,12 @@
 
     /* global angular */
     angular.module('scFeatureBook')
-        .directive('step', stepDirectiveFactory);
+        .directive('gherkinStep', gherkinStepDirectiveFactory);
 
-    function stepDirectiveFactory() {
+    function gherkinStepDirectiveFactory() {
         return {
             restrict: 'E',
-            templateUrl: 'views/step.html',
+            templateUrl: 'views/gherkin-step.html',
             replace: true,
             scope: {
                 step: '=ngModel'
