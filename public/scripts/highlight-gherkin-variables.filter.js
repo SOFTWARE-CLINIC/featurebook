@@ -15,9 +15,9 @@
             return $sce.trustAsHtml(input.replace(variableRegex, formatVariable));
 
             function formatVariable(variable) {
-                return '<span class="featurebook-var">'
-                    + variable.replace('<', '&lt;').replace('>', '&gt;')
-                    + '</span>';
+                return '<span class="featurebook-var">' +
+                    variable.replace('<', '&lt;').replace('>', '&gt;') +
+                    '</span>';
             }
         };
     }
