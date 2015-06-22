@@ -96,6 +96,8 @@ describe('gherkin-model', function () {
             var feature = gherkin.fromFileSync('test/resources/simple_feature_with_doc_strings.feature'),
                 firstScenario = feature.scenarios[0];
 
+            feature.background.steps[0].docString.should.equal('Awesome Blog\n============\nWelcome to Awesome Blog!');
+
             firstScenario.steps[0].docString.should.equal(
                 'Some Title, Eh?\n===============\nHere is the first paragraph of my blog post.\nLorem ipsum dolor sit amet, consectetur adipiscing elit.');
 

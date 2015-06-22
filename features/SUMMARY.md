@@ -1,0 +1,2 @@
+FeatureBook is a command line tool (and [Node.js](https://nodejs.org) library) for generating beautiful system
+specifications from [Gherkin](https://github.com/cucumber/cucumber/wiki/Gherkin) source files.

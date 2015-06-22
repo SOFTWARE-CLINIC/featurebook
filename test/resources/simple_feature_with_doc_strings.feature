@@ -1,5 +1,13 @@
 Feature: Simple feature with doc string
 
+  Background:
+    Given the home page with Markdown body
+    """
+    Awesome Blog
+    ============
+    Welcome to Awesome Blog!
+    """
+
   Scenario: Some scenario
 
     Given a blog post named "Random" with Markdown body

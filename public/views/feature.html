@@ -1,6 +1,6 @@
 <div class="featurebook-tag" ng-repeat="tag in feature.tags">{{tag}}</div>
 <div class="featurebook-feature-name">{{feature.keyword}}: {{feature.name}}</div>
-<div class="featurebook-feature-description" ng-bind-html="feature.description"></div>
+<div class="featurebook-feature-description featurebook-markdown" ng-bind-html="feature.description"></div>
 
 <div class="featurebook-background" ng-show="{{feature.background}}">
     <div class="featurebook-background-name">{{feature.background.keyword}}: {{feature.background.name}}</div>

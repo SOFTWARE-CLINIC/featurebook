@@ -1,0 +1,18 @@
+{
+  "title": "FeatureBook",
+  "version": "1.0.x",
+  "authors": [
+    {
+      "firstName": "Daniel",
+      "lastName": "Pacak",
+      "email": "pacak.daniel@gmail.com"
+    }
+  ],
+  "contributors": [
+    {
+      "firstName": "Krzysztof",
+      "lastName": "Zarębski",
+      "email": "zarebski@gmail.com"
+    }
+  ]
+}
