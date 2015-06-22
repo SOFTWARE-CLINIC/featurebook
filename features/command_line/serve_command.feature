@@ -1,6 +1,6 @@
 Feature: `serve` command
 
-  Use the `serve` command to serve a directory as a system specification.
+  Use the `serve` command to serve a [directory](format/directory.feature) as a system specification.
 
   Background:
     Given a directory with Gherkin source files

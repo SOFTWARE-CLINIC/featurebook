@@ -1,6 +1,6 @@
 var markdown = require('../../lib/markdown-parser');
 
-describe('markdown-parser', function () {
+describe.only('markdown-parser', function () {
 
     describe('#parse', function () {
 
@@ -12,6 +12,16 @@ describe('markdown-parser', function () {
         it('should parse an inline-style link', function () {
             markdown.parse('[An inline-style link](https://www.google.com)')
                 .should.equal('<p><a href="https://www.google.com">An inline-style link</a></p>\n');
+        });
+
+        it('should parse an inline-style link to another feature (without / prefix)', function() {
+            markdown.parse('This is an [amazing feature](amazing.feature) dude.')
+                .should.equal('<p>This is an <a href="/#/feature/amazing.feature">amazing feature</a> dude.</p>\n');
+        });
+
+        it('should parse an inline-style link to another feature (with / prefix)', function() {
+            markdown.parse('This is an [amazing feature](/amazing.feature) dude.')
+                .should.equal('<p>This is an <a href="/#/feature/amazing.feature">amazing feature</a> dude.</p>\n');
         });
 
         it('should parse an inline-style image with relative URL (with `/` prefix)', function () {
