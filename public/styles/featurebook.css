@@ -147,6 +147,11 @@ table {
     padding-left: 20px;
 }
 
+.featurebook-step pre {
+    overflow-x: auto;
+    padding-bottom: 0.5em;
+}
+
 .featurebook-keyword {
     color: darkorange;
     font-weight: bolder;
