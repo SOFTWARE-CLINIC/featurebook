@@ -27,7 +27,9 @@ specifications from [Gherkin](https://github.com/cucumber/cucumber/wiki/Gherkin)
 
 Here is an [example](https://github.com/SOFTWARE-CLINIC/featurebook-examples).
 
-![Demo](/README/featurebook_demo.png)
+![Screenshot 1](/README/featurebook_screenshot_1.png)
+
+![Screenshot 2](/README/featurebook_screenshot_2.png)
 
 ## Usage
 

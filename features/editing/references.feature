@@ -1,4 +1,4 @@
-Feature: Navigation
+Feature: References
 
   Scenario Outline: Add a reference to another feature
     Given the description of <keyword> with Markdown:
