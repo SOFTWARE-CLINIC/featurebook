@@ -26,25 +26,25 @@ describe('featurebook', function () {
         expect($route.current.controller).toBe('HomeController');
     });
 
-    it('should configure route for `/feature/my.feature`', function () {
-        spyOn(featureBookService, 'findByPath').and.returnValue({name: 'Test feature'});
-        $location.path('/feature/my.feature');
+    it('should configure route for `/viewer/my.feature`', function () {
+        spyOn(featureBookService, 'getModelByPath').and.returnValue({name: 'Test feature'});
+        $location.path('/viewer/my.feature');
         $rootScope.$digest();
 
-        expect($route.current.templateUrl).toBe('views/feature.html');
+        expect($route.current.templateUrl).toBe('views/feature-viewer.html');
         expect($route.current.pathParams.path).toEqual('my.feature');
-        expect($route.current.controller).toBe('FeatureController');
+        expect($route.current.controller).toBe('FeatureViewerController');
         expect($route.current.locals.feature).toEqual({name: 'Test feature'});
     });
 
-    it('should configure route for `/feature/a/sub/folder/for/my.feature`', function () {
-        spyOn(featureBookService, 'findByPath').and.returnValue({name: 'Test feature'});
-        $location.path('/feature/a/sub/folder/for/my.feature');
+    it('should configure route for `/viewer/a/sub/folder/for/my.feature`', function () {
+        spyOn(featureBookService, 'getModelByPath').and.returnValue({name: 'Test feature'});
+        $location.path('/viewer/a/sub/folder/for/my.feature');
         $rootScope.$digest();
 
-        expect($route.current.templateUrl).toBe('views/feature.html');
+        expect($route.current.templateUrl).toBe('views/feature-viewer.html');
         expect($route.current.pathParams.path).toEqual('a/sub/folder/for/my.feature');
-        expect($route.current.controller).toBe('FeatureController');
+        expect($route.current.controller).toBe('FeatureViewerController');
         expect($route.current.locals.feature).toEqual({name: 'Test feature'});
     });
 

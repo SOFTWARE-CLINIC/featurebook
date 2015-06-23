@@ -37,7 +37,7 @@ describe('directory-walker', function () {
     function assertNodeEqual(actualNode, expectedName, expectedType, expectedPath, expectedItemsLength) {
         assert.equal(actualNode.name, expectedName, 'invalid node name');
         assert.equal(actualNode.type, expectedType, 'invalid node type');
-        assert.equal(actualNode.path, path.normalize(expectedPath), 'invalid relative path');
+        assert.equal(actualNode.path, expectedPath, 'invalid relative path');
         actualNode.items.should.have.length(expectedItemsLength || 0);
     }
 

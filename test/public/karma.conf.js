@@ -8,6 +8,9 @@ module.exports = function (config) {
             'public/bower_components/angular-sanitize/angular-sanitize.min.js',
             'public/bower_components/angular-mocks/angular-mocks.js',
 
+            'public/bower_components/ace-builds/src-min-noconflict/ace.js',
+            'public/bower_components/angular-ui-ace/ui-ace.js',
+
             'public/views/**/*.html',
 
             'public/scripts/featurebook.module.js',

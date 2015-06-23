@@ -183,6 +183,15 @@ table {
     color: white;
 }
 
+.featurebook-editor {
+    height: 600px;
+    font-size: 20px;
+}
+
+.featurebook-cursor-pointer {
+    cursor: pointer;
+}
+
 h1, h2, h3 {
     color: #FFFFFF;
 }

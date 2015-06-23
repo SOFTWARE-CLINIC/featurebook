@@ -4,7 +4,8 @@
   "dependencies": {
     "angular": "^1.4.0",
     "angular-route": "^1.4.0",
-    "angular-sanitize": "^1.4.0"
+    "angular-sanitize": "^1.4.0",
+    "angular-ui-ace": "bower"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"

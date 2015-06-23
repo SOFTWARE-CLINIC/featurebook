@@ -13,7 +13,8 @@
             metadata: metadata,
             summary: summary,
             findAll: findAll,
-            findByPath: findByPath
+            getModelByPath: getModelByPath,
+            getContentByPath: getContentByPath
         };
 
         function metadata() {
@@ -34,8 +35,14 @@
             });
         }
 
-        function findByPath(featurePath) {
-            return $http.get('api/rest/feature/parsed/' + encodeURIComponent(featurePath)).then(function (response) {
+        function getModelByPath(path) {
+            return $http.get('api/rest/feature/parsed/' + encodeURIComponent(path)).then(function (response) {
+                return response.data;
+            });
+        }
+
+        function getContentByPath(path) {
+            return $http.get('api/rest/raw/' + encodeURIComponent(path)).then(function (response) {
                 return response.data;
             });
         }
