@@ -192,6 +192,10 @@ table {
     cursor: pointer;
 }
 
+.featurebook-pull-right {
+    float: right;
+}
+
 h1, h2, h3 {
     color: #FFFFFF;
 }
