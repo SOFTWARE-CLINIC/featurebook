@@ -6,9 +6,9 @@
     angular.module('scFeatureBook')
         .controller('FeatureEditorController', FeatureEditorController);
 
-    FeatureEditorController.$inject = ['$scope', '$route', '$location'];
+    FeatureEditorController.$inject = ['$scope', '$route', '$location', 'featureBookService'];
 
-    function FeatureEditorController($scope, $route, $location) {
+    function FeatureEditorController($scope, $route, $location, featureBookService) {
 
         $activate();
 
@@ -31,7 +31,7 @@
             }
 
             $scope.onSave = function onSave() {
-                alert('Sorry, I am not implemented yet!');
+                featureBookService.save($route.current.pathParams.path, $scope.content);
             };
 
             $scope.onCancel = function onClick() {

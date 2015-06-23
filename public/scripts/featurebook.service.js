@@ -14,7 +14,8 @@
             summary: summary,
             findAll: findAll,
             getModelByPath: getModelByPath,
-            getContentByPath: getContentByPath
+            getContentByPath: getContentByPath,
+            save: save
         };
 
         function metadata() {
@@ -44,6 +45,17 @@
         function getContentByPath(path) {
             return $http.get('api/rest/raw/' + encodeURIComponent(path)).then(function (response) {
                 return response.data;
+            });
+        }
+
+        function save(path, content) {
+            return $http({
+                method: 'POST',
+                url: '/api/rest/raw/' + encodeURIComponent(path),
+                data: content,
+                headers: {
+                    'Content-Type': 'text/plain'
+                }
             });
         }
     }

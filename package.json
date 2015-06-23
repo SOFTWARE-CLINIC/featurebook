@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "bash-color": "0.0.3",
+    "body-parser": "^1.13.1",
     "commander": "^2.8.1",
     "express": "^4.12.4",
     "gherkin": "^2.12.2",
