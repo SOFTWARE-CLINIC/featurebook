@@ -67,13 +67,17 @@ table {
     padding-left: 2em;
 }
 
-.featurebook-feature {
+.featurebook-container {
     float: left;
     width: 63%;
     margin-left: 2%;
     margin-bottom: 2%;
     background: #373743;
     padding: 20px;
+}
+
+.featurebook-feature {
+
 }
 
 .featurebook-feature-description {

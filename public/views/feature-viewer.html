@@ -1,16 +1,18 @@
-<div class="featurebook-tag" ng-repeat="tag in feature.tags">{{tag}}</div>
-<div class="featurebook-feature-name">{{feature.keyword}}: {{feature.name}}
-    <i ng-click="edit()" class="fa fa-pencil-square-o featurebook-pull-right featurebook-cursor-pointer"></i>
+<div class="featurebook-feature">
+    <div class="featurebook-tag" ng-repeat="tag in feature.tags">{{tag}}</div>
+    <div class="featurebook-feature-name">{{feature.keyword}}: {{feature.name}}
+        <i ng-click="edit()" class="fa fa-pencil-square-o featurebook-pull-right featurebook-cursor-pointer"></i>
+    </div>
+    <div class="featurebook-feature-description featurebook-markdown" ng-bind-html="feature.description"></div>
+
+    <div class="featurebook-background" ng-show="{{feature.background}}">
+        <div class="featurebook-background-name">{{feature.background.keyword}}: {{feature.background.name}}</div>
+        <div class="featurebook-background-description"
+             ng-if="feature.background.description"
+             ng-bind-html="feature.background.description"></div>
+
+        <gherkin-step ng-model="step" ng-repeat="step in feature.background.steps"></gherkin-step>
+    </div>
+
+    <gherkin-scenario ng-model="scenario" ng-repeat="scenario in feature.scenarios"></gherkin-scenario>
 </div>
-<div class="featurebook-feature-description featurebook-markdown" ng-bind-html="feature.description"></div>
-
-<div class="featurebook-background" ng-show="{{feature.background}}">
-    <div class="featurebook-background-name">{{feature.background.keyword}}: {{feature.background.name}}</div>
-    <div class="featurebook-background-description"
-         ng-if="feature.background.description"
-         ng-bind-html="feature.background.description"></div>
-
-    <gherkin-step ng-model="step" ng-repeat="step in feature.background.steps"></gherkin-step>
-</div>
-
-<gherkin-scenario ng-model="scenario" ng-repeat="scenario in feature.scenarios"></gherkin-scenario>
