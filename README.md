@@ -39,6 +39,12 @@ FeatureBook can be installed from [npm](https://www.npmjs.com):
 $ npm install featurebook -g
 ```
 
+If it's already installed, you only need to update it to the latest version:
+
+```shell
+$ npm update featurebook -g
+```
+
 You can serve the current directory as a system specification:
 
 ```shell
