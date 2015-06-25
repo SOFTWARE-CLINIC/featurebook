@@ -20,10 +20,11 @@ Feature: Directory
   |       |-- users
   |       |   |-- list_users.feature
   |       |   `-- register_user.feature
-  |       `-- projects
-  |           |-- list_projects.feature
-  |           |-- create_project.feature
-  |           `-- clone_project.feature
+  |       |-- projects
+  |       |   |-- list_projects.feature
+  |       |   |-- create_project.feature
+  |       |   `-- clone_project.feature
+  |       `-- SUMMARY.md
   |-- SUMMARY.md
   `-- featurebook.json
   ```
