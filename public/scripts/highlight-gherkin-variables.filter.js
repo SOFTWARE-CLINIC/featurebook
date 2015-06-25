@@ -12,13 +12,8 @@
 
     function highlightGherkinVariablesFilter($sce) {
         return function (input) {
-            return $sce.trustAsHtml(input.replace(variableRegex, formatVariable));
-
-            function formatVariable(variable) {
-                return '<span class="featurebook-var">' +
-                    variable.replace('<', '&lt;').replace('>', '&gt;') +
-                    '</span>';
-            }
+            return $sce.trustAsHtml(
+                input.replace(variableRegex, '<span class="featurebook-var">&lt;$1&gt;</span>'));
         };
     }
 
