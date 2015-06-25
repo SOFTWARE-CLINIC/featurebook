@@ -31,6 +31,8 @@ Here is an [example](https://github.com/SOFTWARE-CLINIC/featurebook-examples).
 
 ![Screenshot 2](/README/featurebook_screenshot_2.png)
 
+![Screenshot 3](/README/featurebook_screenshot_3.png)
+
 ## Usage
 
 FeatureBook can be installed from [npm](https://www.npmjs.com):
