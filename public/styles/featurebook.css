@@ -54,8 +54,13 @@ table {
     font-weight: bold;
 }
 
-.featurebook-features-tree a {
+.featurebook-node-file {
     color: white;
+    text-decoration: none;
+}
+
+.featurebook-node-directory {
+    color: #7BA1AD;
     text-decoration: none;
 }
 
@@ -190,6 +195,28 @@ table {
 
 .featurebook-markdown {
     text-align: justify;
+}
+
+.featurebook-markdown h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    margin-top: 0em;
+    margin-bottom: 0.5em;
+}
+
+.featurebook-markdown h1 {
+    font-size: x-large;
+}
+
+.featurebook-markdown h2 {
+    font-size: larger;
+}
+
+.featurebook-markdown h3 {
+    font-size: large;
+}
+
+.featurebook-markdown h4, h5, h6 {
+    font-size: inherit;
 }
 
 .featurebook-markdown a {

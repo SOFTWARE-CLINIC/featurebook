@@ -11,7 +11,7 @@
     function featureBookServiceFactory($http) {
         return {
             metadata: metadata,
-            summary: summary,
+            getSummaryByPath: getSummaryByPath,
             findAll: findAll,
             getModelByPath: getModelByPath,
             getContentByPath: getContentByPath,
@@ -20,12 +20,6 @@
 
         function metadata() {
             return $http.get('api/rest/metadata').then(function (response) {
-                return response.data;
-            });
-        }
-
-        function summary() {
-            return $http.get('api/rest/summary').then(function (response) {
                 return response.data;
             });
         }
@@ -45,6 +39,14 @@
         function getContentByPath(path) {
             return $http.get('api/rest/raw/' + encodeURIComponent(path)).then(function (response) {
                 return response.data;
+            });
+        }
+
+        function getSummaryByPath(path) {
+            return $http.get('api/rest/summary/' + (path ? encodeURIComponent(path) : '')).then(function (response) {
+                return response.data;
+            }, function (response) {
+                return null;
             });
         }
 

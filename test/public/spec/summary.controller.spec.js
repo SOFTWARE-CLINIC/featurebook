@@ -1,6 +1,6 @@
 'use strict';
 
-describe('FeatureViewerController', function () {
+describe('SummaryController', function () {
 
     var $controller;
 

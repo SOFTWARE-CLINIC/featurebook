@@ -10,13 +10,6 @@
 
     function config($routeProvider) {
         $routeProvider
-            .when('/home', {
-                templateUrl: 'views/home.html',
-                controller: 'HomeController',
-                resolve: {
-                    summary: summaryResolver
-                }
-            })
             .when('/viewer/:path*', {
                 templateUrl: 'views/feature-viewer.html',
                 controller: 'FeatureViewerController',
@@ -31,15 +24,16 @@
                     content: contentResolver
                 }
             })
+            .when('/summary/:path*?', {
+                templateUrl: 'views/summary.html',
+                controller: 'SummaryController',
+                resolve: {
+                    summary: summaryResolver
+                }
+            })
             .otherwise({
-                redirectTo: '/home'
+                redirectTo: '/summary/'
             });
-
-        summaryResolver.$inject = ['featureBookService'];
-
-        function summaryResolver(featureBookService) {
-            return featureBookService.summary();
-        }
 
         featureResolver.$inject = ['$route', 'featureBookService'];
 
@@ -51,6 +45,12 @@
 
         function contentResolver($route, featureBookService) {
             return featureBookService.getContentByPath($route.current.pathParams.path);
+        }
+
+        summaryResolver.$inject = ['$route', 'featureBookService'];
+
+        function summaryResolver($route, featureBookService) {
+            return featureBookService.getSummaryByPath($route.current.pathParams.path);
         }
     }
 

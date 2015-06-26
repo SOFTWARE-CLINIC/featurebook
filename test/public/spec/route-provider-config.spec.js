@@ -15,15 +15,15 @@ describe('featurebook', function () {
         });
     });
 
-    it('should configure route for `/home`', function () {
+    it('should configure route for `/summary/`', function () {
         expect($route.current).toBeUndefined();
-        spyOn(featureBookService, 'summary').and.returnValue('<div>summary</div>');
+        spyOn(featureBookService, 'getSummaryByPath').and.returnValue('<div>summary</div>');
 
-        $location.path('/home');
+        $location.path('/summary/');
         $rootScope.$digest();
 
-        expect($route.current.templateUrl).toBe('views/home.html');
-        expect($route.current.controller).toBe('HomeController');
+        expect($route.current.templateUrl).toBe('views/summary.html');
+        expect($route.current.controller).toBe('SummaryController');
     });
 
     it('should configure route for `/viewer/my.feature`', function () {
@@ -48,13 +48,13 @@ describe('featurebook', function () {
         expect($route.current.locals.feature).toEqual({name: 'Test feature'});
     });
 
-    it('should redirect to `/home` otherwise', function () {
-        spyOn(featureBookService, 'summary').and.returnValue('<div>summary</div>div>');
+    it('should redirect to `/summary/` otherwise', function () {
+        spyOn(featureBookService, 'getSummaryByPath').and.returnValue('<div>summary</div>div>');
         $location.path('/somewhere');
         $rootScope.$digest();
 
-        expect($route.current.templateUrl).toBe('views/home.html');
-        expect($route.current.controller).toBe('HomeController');
+        expect($route.current.templateUrl).toBe('views/summary.html');
+        expect($route.current.controller).toBe('SummaryController');
     });
 
 });
