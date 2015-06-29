@@ -1,5 +1,5 @@
 <div class="featurebook-feature">
-    <div class="featurebook-tag" ng-repeat="tag in feature.tags">{{tag}}</div>
+    <div class="featurebook-tag" ng-repeat="tag in feature.tags track by $index">{{tag}}</div>
     <div class="featurebook-feature-name">{{feature.keyword}}: {{feature.name}}
         <i ng-click="edit()" class="fa fa-pencil-square-o featurebook-pull-right featurebook-cursor-pointer"></i>
     </div>

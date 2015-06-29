@@ -7,12 +7,12 @@
 
     <gherkin-step ng-model="step" ng-repeat="step in scenario.steps"></gherkin-step>
 
-    <div class="featurebook-examples" ng-if="isOutline()">
-        <div class="featurebook-examples-name">{{scenario.examples.keyword}}: {{scenario.examples.name}}</div>
+    <div class="featurebook-examples" ng-repeat="example in scenario.examples">
+        <div class="featurebook-examples-name">{{example.keyword}}: {{example.name}}</div>
         <div class="featurebook-examples-description"
-             ng-if="scenario.examples.description"
-             ng-bind-html="scenario.examples.description"></div>
+             ng-if="example.description"
+             ng-bind-html="example.description"></div>
 
-        <gherkin-data-table class="featurebook-indent-1x" ng-model="scenario.examples.dataTable"></gherkin-data-table>
+        <gherkin-data-table class="featurebook-indent-1x" ng-model="example.dataTable"></gherkin-data-table>
     </div>
 </div>

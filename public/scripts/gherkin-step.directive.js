@@ -14,7 +14,7 @@
             scope: {
                 step: '=ngModel'
             },
-            link: function stepDirectiveLinkFunction(scope) {
+            link: function gherkinStepDirectiveLinkFunction(scope) {
                 scope.hasDataTable = function hasDataTable() {
                     var step = scope.step;
                     return step.dataTable && step.dataTable.length > 0;

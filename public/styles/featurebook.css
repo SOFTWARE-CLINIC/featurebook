@@ -133,6 +133,7 @@ table {
 .featurebook-examples {
     overflow-x: auto;
     padding-bottom: 0.5em;
+    margin-top: 0.5em;
 }
 
 .featurebook-examples tr, .featurebook-step tr {

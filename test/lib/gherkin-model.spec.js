@@ -1,6 +1,9 @@
 var gherkin = require('../../lib/gherkin-model'),
     assert = require('assert'),
-    should = require('chai').should();
+    chai = require('chai'),
+    should = chai.should();
+
+chai.use(require('./helpers/chai-gherkin-model'));
 
 describe('gherkin-model', function () {
 
@@ -36,10 +39,10 @@ describe('gherkin-model', function () {
             assertStepEqual(firstScenarioOutline.steps[1], 'When', 'I eat <eat> cucumbers');
             assertStepEqual(firstScenarioOutline.steps[2], 'Then', 'I should have <left> cucumbers');
 
-            assert.equal(firstScenarioOutline.examples.dataTable.length, 3);
-            assertRowEqual(firstScenarioOutline.examples.dataTable[0], ['start', 'eat', 'left']);
-            assertRowEqual(firstScenarioOutline.examples.dataTable[1], [12, 5, 7]);
-            assertRowEqual(firstScenarioOutline.examples.dataTable[2], [20, 5, 15]);
+            assert.equal(firstScenarioOutline.examples[0].dataTable.length, 3);
+            assertRowEqual(firstScenarioOutline.examples[0].dataTable[0], ['start', 'eat', 'left']);
+            assertRowEqual(firstScenarioOutline.examples[0].dataTable[1], [12, 5, 7]);
+            assertRowEqual(firstScenarioOutline.examples[0].dataTable[2], [20, 5, 15]);
         });
 
         it('should parse a simple feature with the background', function () {
@@ -127,9 +130,9 @@ describe('gherkin-model', function () {
             firstStep.dataTable[1].should.have.members(['cola']);
             firstStep.dataTable[2].should.have.members(['sprite']);
 
-            firstScenarioOutline.examples.dataTable[0].should.have.members(['choice', 'empty', 'brand']);
-            firstScenarioOutline.examples.dataTable[1].should.have.members(['cola', 'not empty', 'cola']);
-            firstScenarioOutline.examples.dataTable[2].should.have.members(['sprite', 'not empty', 'sprite']);
+            firstScenarioOutline.examples[0].dataTable[0].should.have.members(['choice', 'empty', 'brand']);
+            firstScenarioOutline.examples[0].dataTable[1].should.have.members(['cola', 'not empty', 'cola']);
+            firstScenarioOutline.examples[0].dataTable[2].should.have.members(['sprite', 'not empty', 'sprite']);
         });
 
         it('should preserve order when parsing scenarios and scenario outlines', function () {
@@ -139,6 +142,22 @@ describe('gherkin-model', function () {
             feature.scenarios[1].name.should.equal('first scenario');
             feature.scenarios[2].name.should.equal('second outline');
             feature.scenarios[3].name.should.equal('second scenario');
+        });
+
+        it('should parse a simple feature with scenario outline and two examples', function () {
+            var feature = gherkin.fromFileSync('test/resources/simple_feature_with_scenario_outline_and_two_examples.feature'),
+                firstScenario = feature.scenarios[0];
+
+            firstScenario.examples[0].name.should.equal('Successful withdrawal');
+            firstScenario.examples[0].dataTable[0].should.have.members(['Balance', 'Withdrawal', 'Outcome', 'Remaining']);
+            firstScenario.examples[0].dataTable[1].should.have.members(['$500', '$50', 'receive $50 cash', '$450']);
+            firstScenario.examples[0].dataTable[2].should.have.members(['$500', '$100', 'receive $100 cash', '$400']);
+
+
+            firstScenario.examples[1].name.should.equal('Attempt to withdraw too much');
+            firstScenario.examples[1].dataTable[0].should.have.members(['Balance', 'Withdrawal', 'Outcome', 'Remaining']);
+            firstScenario.examples[1].dataTable[1].should.have.members(['$100', '$200', 'see an error message', '$100']);
+            firstScenario.examples[1].dataTable[2].should.have.members(['$0', '$50', 'see an error message', '$0']);
         });
 
     });

@@ -13,11 +13,6 @@
             replace: true,
             scope: {
                 scenario: '=ngModel'
-            },
-            link: function stepDirectiveLinkFunction(scope) {
-                scope.isOutline = function isOutline() {
-                    return angular.isDefined(scope.scenario.examples);
-                };
             }
         };
     }
