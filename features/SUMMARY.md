@@ -1,4 +1,4 @@
-FeatureBook specification
+﻿FeatureBook specification
 =========================
 
 FeatureBook is a command line tool (and [Node.js](https://nodejs.org) library) for generating beautiful system

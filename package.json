@@ -50,6 +50,8 @@
     "gherkin": "^2.12.2",
     "lodash": "^3.9.3",
     "marked": "^0.3.3",
+    "mkdirp": "^0.5.1",
+    "officegen": "^0.2.9",
     "opener": "^1.4.1",
     "pdfkit": "^0.7.1"
   },
