@@ -16,7 +16,6 @@ FeatureBook
 * [Specification format](#specification-format)
 * [Rationale](#rationale)
 * [Running tests](#running-tests)
-* [Releasing](#releasing)
 * [Contributing](#contributing)
 * [License](#license)
 
@@ -231,42 +230,6 @@ $ cd public && bower install && cd ..
 
 ```shell
 $ karma start test/public/karma.conf.js
-```
-
-## Releasing
-
-Select a branch that contains the code you want to release. Usually, you'll want to release against the
-[master](https://github.com/SOFTWARE-CLINIC/featurebook/tree/master) branch, unless you're releasing a beta version.
-
-Let's assume that the latest version of the `featurebook` package is `0.0.6` (see the `version` property in
-[package.json](/package.json)).
-
-```shell
-$ git clone https://github.com/SOFTWARE-CLINIC/featurebook.git && cd featurebook
-```
-
-To bump the path|minor|major version number and write the new data back to [package.json](/package.json):
-
-```shell
-$ npm version patch|minor|major -m "[npm] prepare release %s"
-v0.0.7
-```
-
-Note that this command will also create a version commit and tag named `v0.0.7`, and fail if the cloned repository is
-not clean.
-
-To push the commit and the `v0.0.7` tag to the `origin` repository:
-
-```shell
-$ git push -u origin master
-$ git push -u origin v0.0.7
-```
-
-To publish to the public registry:
-
-```shell
-$ git checkout tags/v0.0.7
-$ npm publish
 ```
 
 ## Contributing
