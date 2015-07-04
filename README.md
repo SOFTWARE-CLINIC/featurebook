@@ -12,10 +12,10 @@ FeatureBook
 [![Join the chat at https://gitter.im/SOFTWARE-CLINIC/featurebook](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/SOFTWARE-CLINIC/featurebook?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 * [Introduction](#introduction)
+* [Rationale](#rationale)
 * [Usage](#usage)
 * [Specification format](#specification-format)
-* [Rationale](#rationale)
-* [Running tests](#running-tests)
+* [Development environment](#development-environment)
 * [Contributing](#contributing)
 * [License](#license)
 
@@ -31,6 +31,28 @@ Here is an [example](https://github.com/SOFTWARE-CLINIC/featurebook-examples).
 ![Screenshot 2](/README/featurebook_screenshot_2.png)
 
 ![Screenshot 3](/README/featurebook_screenshot_3.png)
+
+## Rationale
+
+Even in 2015, there are development teams that don't know how to apply
+[Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)) or some other
+[Agile methodology](https://en.wikipedia.org/wiki/Agile_software_development) in day-to-day business. Believe it or not
+but that's the matter of fact. Doing just daily meetings at 9 or 10 a.m. doesn't really mean that you're in the Agile
+mode! With business analysts or other business folks it's even worse. Most of them haven't heard the buzzwords Scrum or
+Agile. Therefore, it's not surprising that so many people undervalue specifying unambiguously what the system is
+supposed to do. Instead, we are given 200 pages Microsoft Word documents that, after a short while, become a maintenance
+nightmare and complete mess to read and understand.
+
+FeatureBook is here to help you creating living documentation from Gherkin source files (suitable for DEV or QA guys)
+and publish it in a format accessible for people who may not know how to work with source control systems or who are not
+interested in seeing all of the source code. We bring the fun back into writing documentation!
+
+What's more, the authors of FeatureBook are ready to help you writing system specification for real-life complex systems
+and applications. If it's not a top secret mission critical beast, feel free to submit an issue where we can discuss
+the details publicly. Otherwise let's meet in person in Warsaw, Poland.
+If you buy the tickets and we like the destination, we'll fly over and do the training for you and your team!
+(Especially we're looking forward to seeing Albania one day.) The outcome would be a FeatureBook tailored for your
+system. Forget about a bunch of hello world examples presented in a super boring fashion that cost thousands bucks.
 
 ## Usage
 
@@ -191,29 +213,9 @@ for demonstration purposes.*
 | 1.0     | 15-07-2012 | First draft  | Henryk Sienkiewicz |
 ```
 
-## Rationale
+## Development environment
 
-Even in 2015, there are development teams that don't know how to apply
-[Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)) or some other
-[Agile methodology](https://en.wikipedia.org/wiki/Agile_software_development) in day-to-day business. Believe it or not
-but that's the matter of fact. Doing just daily meetings at 9 or 10 a.m. doesn't really mean that you're in the Agile
-mode! With business analysts or other business folks it's even worse. Most of them haven't heard the buzzwords Scrum or
-Agile. Therefore, it's not surprising that so many people undervalue specifying unambiguously what the system is
-supposed to do. Instead, we are given 200 pages Microsoft Word documents that, after a short while, become a maintenance
-nightmare and complete mess to read and understand.
-
-FeatureBook is here to help you creating living documentation from Gherkin source files (suitable for DEV or QA guys)
-and publish it in a format accessible for people who may not know how to work with source control systems or who are not
-interested in seeing all of the source code. We bring the fun back into writing documentation!
-
-What's more, the authors of FeatureBook are ready to help you writing system specification for real-life complex systems
-and applications. If it's not a top secret mission critical beast, feel free to submit an issue where we can discuss
-the details publicly. Otherwise let's meet in person in [Warsaw](https://www.google.pl/maps/place/Warsaw/@52.2329379,21.0611941,11z/data=!3m1!4b1!4m2!3m1!1s0x471ecc669a869f01:0x72f0be2a88ead3fc?hl=en).
-If you buy the tickets and we like the destination, we'll fly over and do the training for you and your team!
-(Especially we're looking forward to seeing Albania one day.) The outcome would be a FeatureBook tailored for your
-system. Forget about a bunch of hello world examples presented in a super boring fashion that cost thousands bucks.
-
-## Running tests
+### Running tests
 
 ```shell
 $ npm install -g bower mocha karma-cli
@@ -234,80 +236,8 @@ $ karma start test/public/karma.conf.js
 
 ## Contributing
 
-You wanna contribute to FeatureBook? That is truly great! Here are some tips to get you started.
-
-First off, you need to [fork](https://help.github.com/articles/fork-a-repo/) the
-[original](https://github.com/SOFTWARE-CLINIC/featurebook.git) FeatureBook repository. Forking the repository allows
-you to freely experiment with changes without affecting the original project.
-
-Once it's done, you can use the forked repository to propose changes or fix bugs by changing code and submitting a pull
-request to the project owners. If we like it, we might pull your fix into the original repository.
-
-### Keeping your fork synced
-
-It's a good practice to regularly sync your fork with the **upstream** repository (upstream repository or simply
-upstream is a fancy name for the original repository). Before you can sync, you must configure a remote that points to
-the upstream.
-
-#### Configuring upstream remote
-
-I assume that you already have the local clone of your fork. Type `git remote -v` to see the currently configured remote
-repositories for your fork:
-
-```
-$ git remote -v
-origin  https://github.com/banczi/featurebook.git (fetch)
-origin  https://github.com/banczi/featurebook.git (push)
-```
-
-To configure upstream remote repository:
-
-```shell
-$ git remote add upstream https://github.com/SOFTWARE-CLINIC/featurebook.git
-```
-
-To verify the new upstream repository:
-
-```
-$ git remote -v
-origin    https://github.com/banczi/featurebook.git (fetch)
-origin    https://github.com/banczi/featurebook.git (push)
-upstream  https://github.com/SOFTWARE-CLINIC/featurebook.git (fetch)
-upstream  https://github.com/SOFTWARE-CLINIC/featurebook.git (push)
-```
-
-Now, you can keep your fork synced with the upstream repository with a few Git commands.
-
-#### Syncing a fork
-
-To fetch the branches and their respective commits:
-
-```
-$ git fetch upstream
-remote: Counting objects: 77, done.
-remote: Compressing objects: 100% (71/71), done.
-remote: Total 77 (delta 30), reused 1 (delta 0), pack-reused 0
-Unpacking objects: 100% (77/77), done.
-From https://github.com/SOFTWARE-CLINIC/featurebook
- * [new branch]      master     -> upstream/master
- * [new tag]         v0.0.8     -> v0.0.8
-```
-
-Note that commits to `master` will be stored in a local branch, `upstream/master`.
-
-Merge the changes from `upstream/master` into your local `master` branch. This brings your fork's `master` branch into
-sync with the upstream repository, without losing your local changes.
-
-```shell
-$ git merge upstream/master
-```
-
-Syncing your fork only updates your local copy of the repository. To update your fork on GitHub, you **must** push your
-changes.
-
-```shell
-$ git push -u origin master
-```
+You wanna contribute to FeatureBook? That is truly great!
+[Here](https://github.com/SOFTWARE-CLINIC/featurebook/wiki/Contributing) are some tips to get you started.
 
 ## License
 
