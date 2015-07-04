@@ -1,7 +1,8 @@
 sudo: false
 language: node_js
 node_js:
-  - "0.11"
   - "0.10"
+  - "0.11"
+  - "0.12"
 before_script:
-  - 'npm install -g bower mocha karma-cli && cd public && bower install && cd ..'
+  - 'npm install -g mocha karma-cli'
