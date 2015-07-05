@@ -6,5 +6,5 @@ Feature: `serve` command
     Given a directory with Gherkin source files
 
   Scenario: `--port` option
-    When I run `featurebook --port 4000`
+    When I run `featurebook serve --port 4000`
     Then I can access specification at "http://localhost:4000"
