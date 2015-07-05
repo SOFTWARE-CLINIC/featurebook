@@ -92,6 +92,10 @@ Or just display help for a given command:
 $ featurebook serve --help
 ```
 
+FeatureBook can be used with [Grunt](https://github.com/SOFTWARE-CLINIC/featurebook-grunt-example) or
+[Gulp](https://github.com/SOFTWARE-CLINIC/featurebook-gulp-example) to generate a system specification as part of your
+continuous integration process.
+
 ## Specification format
 
 A system specification is a directory containing:
