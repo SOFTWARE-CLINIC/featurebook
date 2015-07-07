@@ -20,6 +20,7 @@ describe('titleize filter', function () {
 
     it('should titleize Gherking source file', function () {
         expect(titleizeFilter('eating_cucumbers.feature')).toEqual('Eating cucumbers');
+        expect(titleizeFilter('using_featurebook_with_grunt.feature')).toEqual('Using featurebook with grunt');
     });
 
 });
