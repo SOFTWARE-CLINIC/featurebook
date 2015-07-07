@@ -6,10 +6,6 @@ Feature: Metadata
     Given a directory with Gherkin source files
     And  "featurebook.json" descriptor
 
-  Scenario: Specification's title defaults to the titleized directory name
-
-  # TODO Describe this scenario
-
   Scenario: Provide information about authors and contributors
     Given the "authors" property in "featurebook.json" contains the following authors
       | firstName | lastName    | email                  |

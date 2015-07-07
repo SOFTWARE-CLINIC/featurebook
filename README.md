@@ -30,8 +30,6 @@ Here is an [example](https://github.com/SOFTWARE-CLINIC/featurebook-examples).
 
 ![Screenshot 2](/README/featurebook_screenshot_2.png)
 
-![Screenshot 3](/README/featurebook_screenshot_3.png)
-
 ## Rationale
 
 Even in 2015, there are development teams that don't know how to apply
