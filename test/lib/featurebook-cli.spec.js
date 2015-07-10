@@ -7,7 +7,7 @@ describe.skip('featurebook-cli', function () {
   var executable;
 
   beforeEach(function () {
-    executable = path.join(__dirname, '..', 'bin', 'featurebook')
+    executable = path.join(__dirname, '..', 'bin', 'featurebook');
   });
 
   it('should output available commands', function (done) {

@@ -1,6 +1,5 @@
-'use strict';
-
 (function () {
+    'use strict';
 
     /* global angular */
     angular.module('scFeatureBook')
