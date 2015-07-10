@@ -26,14 +26,14 @@ program.parse(process.argv);
 displayHelpIfNoCommandWasProvided();
 
 function serve(sourceDir, options) {
-    featurebook.serve(
+    featurebook.commands.serve(
         sourceDir || process.cwd(),
         options.port || 3000
     );
 }
 
 function build(sourceDir, options) {
-    featurebook.build(
+    featurebook.commands.build(
         sourceDir || process.cwd(),
         options.format,
         options.outputDir || path.join(process.cwd(), 'dist'));

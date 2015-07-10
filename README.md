@@ -15,6 +15,7 @@ FeatureBook
 * [Rationale](#rationale)
 * [Usage](#usage)
 * [Specification format](#specification-format)
+* [Public API](#public-api)
 * [Development environment](#development-environment)
 * [Contributing](#contributing)
 * [License](#license)
@@ -214,6 +215,12 @@ for demonstration purposes.*
 | 2.0     | 13-09-2012 | First review | Eliza Orzeszkowa   |
 | 1.0     | 15-07-2012 | First draft  | Henryk Sienkiewicz |
 ```
+
+## Public API
+
+Most of the time, you will be using FeatureBook directly from command line. You can, however, call FeatureBook
+programmatically from your Node.js module. [Here](https://github.com/SOFTWARE-CLINIC/featurebook/wiki/Public-API) is the
+public API.
 
 ## Development environment
 
