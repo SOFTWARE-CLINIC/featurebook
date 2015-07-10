@@ -61,6 +61,7 @@
     "concat-stream": "^1.4.8",
     "gulp": "^3.9.0",
     "gulp-jshint": "^1.11.2",
+    "gulp-mocha": "^2.1.2",
     "jshint-stylish": "^2.0.1",
     "karma": "^0.12.25",
     "karma-jasmine": "^0.3.2",
