@@ -161,7 +161,12 @@ Note that you can use [Markdown](http://en.wikipedia.org/wiki/Markdown) to descr
 
 ### featurebook.json
 
-The `featurebook.json` contains system specification metadata such as: title, version, authors, and contributors:
+The `featurebook.json` contains system specification metadata such as: title, version, authors, and contributors.
+
+As you may know Gherkin's grammar exists in different flavours for many [spoken languages](https://github.com/cucumber/cucumber/wiki/Spoken-languages).
+To specify and use the keywords in your own language, you must set the `language` property to the corresponding language
+[code](https://github.com/cucumber/gherkin/blob/master/lib/gherkin/i18n.json). If the language is not specified it
+defaults to `en`.
 
 ```javascript
 {
@@ -185,10 +190,6 @@ The `featurebook.json` contains system specification metadata such as: title, ve
   "language": "pl"
 }
 ```
-
-Gherkin's grammar exists in different flavours for many [spoken languages](https://github.com/cucumber/cucumber/wiki/Spoken-languages).
-To specify and use the keywords in your own language, you must set the `language` property to the corresponding language
-[code](https://github.com/cucumber/gherkin/blob/master/lib/gherkin/i18n.json).
 
 ### SUMMARY.md
 
