@@ -73,10 +73,10 @@ You can serve the current directory as a system specification:
 $ featurebook serve --port 3000
 ```
 
-Or simply build the static website:
+Or simply build a PDF document:
 
 ```shell
-$ featurebook build --output-dir ~/book --format=html
+$ featurebook build --format=pdf
 ```
 
 To list all available commands and options:
