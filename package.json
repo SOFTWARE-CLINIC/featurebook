@@ -50,6 +50,7 @@
     "express": "^4.12.4",
     "gherkin": "^2.12.2",
     "lodash": "^3.9.3",
+    "markdown": "^0.5.0",
     "marked": "^0.3.3",
     "mkdirp": "^0.5.1",
     "officegen": "^0.2.9",
