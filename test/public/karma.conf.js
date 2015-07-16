@@ -44,7 +44,6 @@ module.exports = function (config) {
             stripPrefix: 'public/',
             moduleName: 'scFeatureBook.templates'
         },
-        singleRun: true,
         logLevel: config.LOG_INFO
     });
 };

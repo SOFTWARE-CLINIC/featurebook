@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     stylish = require('jshint-stylish'),
-    mocha = require('gulp-mocha');
+    mocha = require('gulp-mocha'),
+    Server = require('karma').Server;
 
 gulp.task('lint', ['lint:lib', 'lint:public']);
 gulp.task('lint:lib', ['lint:src:lib', 'lint:test:lib']);
@@ -31,11 +32,18 @@ gulp.task('lint:test:public', function () {
         .pipe(jshint.reporter(stylish));
 });
 
-gulp.task('test', ['test:lib']);
+gulp.task('test', ['test:lib', 'test:public']);
 
 gulp.task('test:lib', function () {
     return gulp.src('./test/lib/**/*.spec.js', {read: false})
         .pipe(mocha({
             reporter: 'spec'
         }));
+});
+
+gulp.task('test:public', function (done) {
+    new Server({
+        configFile: __dirname + '/test/public/karma.conf.js',
+        singleRun: true
+    }, done).start();
 });
