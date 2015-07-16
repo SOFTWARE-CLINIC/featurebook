@@ -228,12 +228,12 @@ public API.
 ### Running tests
 
 ```shell
-$ npm install -g bower mocha karma-cli
+$ npm install -g gulp bower
 $ npm install
 ```
 
 ```shell
-$ mocha --reporter spec --timeout 1500 test/lib
+$ gulp test:lib
 ```
 
 ```shell
@@ -241,7 +241,7 @@ $ cd public && bower install && cd ..
 ```
 
 ```shell
-$ karma start test/public/karma.conf.js
+$ gulp test:public
 ```
 
 ## Contributing
