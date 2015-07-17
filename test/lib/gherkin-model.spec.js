@@ -66,17 +66,17 @@ describe('gherkin-model', function () {
         });
 
         it('should parse a simple feature written in Polish', function () {
-            var feature = gherkin.fromFileSync('test/resources/simple_feature_written_in_polish.feature', {language: 'pl'}),
-                firstScenario = feature.scenarios[0];
+            var feature = gherkin.fromFileSync('test/resources/simple_feature_written_in_polish.feature'),
+                firstScenario = feature.scenarioDefinitions[0];
 
             feature.name.should.equal('Logowanie do aplikacji');
-            feature.scenarios.should.have.length(1);
+            feature.scenarioDefinitions.should.have.length(1);
 
-            assertStepEqual(firstScenario.steps[0], 'Mając', 'otwartą stronę "/login.com"');
-            assertStepEqual(firstScenario.steps[1], 'Kiedy', 'wpiszesz "admin" jako nazwę');
-            assertStepEqual(firstScenario.steps[2], 'I', 'wpiszesz "***" jako hasło');
-            assertStepEqual(firstScenario.steps[3], 'I', 'klikniesz przycisk "Loguj"');
-            assertStepEqual(firstScenario.steps[4], 'Wtedy', 'zalogujesz się jako administrator');
+            assertStepEqual(firstScenario.steps[0], 'Mając ', 'otwartą stronę "/login.com"');
+            assertStepEqual(firstScenario.steps[1], 'Kiedy ', 'wpiszesz "admin" jako nazwę');
+            assertStepEqual(firstScenario.steps[2], 'I ', 'wpiszesz "***" jako hasło');
+            assertStepEqual(firstScenario.steps[3], 'I ', 'klikniesz przycisk "Loguj"');
+            assertStepEqual(firstScenario.steps[4], 'Wtedy ', 'zalogujesz się jako administrator');
         });
 
         it('should parse a simple feature with data tables', function () {
@@ -97,24 +97,28 @@ describe('gherkin-model', function () {
 
         it('should parse a simple feature with doc strings', function () {
             var feature = gherkin.fromFileSync('test/resources/simple_feature_with_doc_strings.feature'),
-                firstScenario = feature.scenarios[0];
+                firstScenario = feature.scenarioDefinitions[0];
 
-            feature.background.steps[0].docString.should.equal('Awesome Blog\n============\nWelcome to Awesome Blog!');
+            feature.background.steps[0].argument.content.should.equal('Awesome Blog\n============\nWelcome to Awesome Blog!');
 
-            firstScenario.steps[0].docString.should.equal(
+            firstScenario.steps[0].argument.content.should.equal(
                 'Some Title, Eh?\n===============\nHere is the first paragraph of my blog post.\nLorem ipsum dolor sit amet, consectetur adipiscing elit.');
 
-            firstScenario.steps[1].docString.should.equal('This is awesome dude!');
+            firstScenario.steps[1].argument.content.should.equal('This is awesome dude!');
         });
 
         it('should parse a simple feature with tags', function () {
             var feature = gherkin.fromFileSync('test/resources/simple_feature_with_tags.feature');
 
-            feature.tags.should.have.members(['@FeatureTag1', '@FeatureTag2']);
+            feature.tags[0].name.should.equal('@FeatureTag1');
+            feature.tags[1].name.should.equal('@FeatureTag2');
 
-            feature.scenarios[0].tags.should.have.members(['@Scenario1Tag1', '@Scenario1Tag2', '@Scenario1Tag3']);
-            feature.scenarios[1].tags.should.have.members(['@Scenario2Tag1']);
-            feature.scenarios[2].tags.should.have.members(['@ScenarioOutlineTag1']);
+            feature.scenarioDefinitions[0].tags[0].name.should.equal('@Scenario1Tag1');
+            feature.scenarioDefinitions[0].tags[1].name.should.equal('@Scenario1Tag2');
+            feature.scenarioDefinitions[0].tags[2].name.should.equal('@Scenario1Tag3');
+
+            feature.scenarioDefinitions[1].tags[0].name.should.equal('@Scenario2Tag1');
+            feature.scenarioDefinitions[2].tags[0].name.should.equal('@ScenarioOutlineTag1');
         });
 
         it('should parse a simple feature with scenario outline and data table', function () {
