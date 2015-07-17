@@ -1,9 +1,9 @@
 <div class="featurebook-step">
     <div class="featurebook-keyword">{{step.keyword}}</div>
     <div class="featurebook-step-name">
-        <span ng-bind-html="step.name | highlightGherkinVariables"></span>
+        <span ng-bind-html="step.text | highlightGherkinVariables"></span>
 
-        <pre ng-if="hasDocString()" class="featurebook-doc-string">{{step.docString}}</pre>
-        <gherkin-data-table ng-if="hasDataTable()" ng-model="step.dataTable"></gherkin-data-table>
+        <pre ng-if="hasDocString()" class="featurebook-doc-string">{{step.argument.content}}</pre>
+        <gherkin-data-table ng-if="hasDataTable()" table-body="step.argument.rows"></gherkin-data-table>
     </div>
 </div>

@@ -11,33 +11,33 @@ describe('gherkin-model', function () {
 
         it('should parse a simple feature with a single scenario', function () {
             var feature = gherkin.fromFileSync('test/resources/hello_world.feature'),
-                firstScenario = feature.scenarios[0];
+                firstScenario = feature.scenarioDefinitions[0];
 
             feature.name.should.equal('Hello World');
 
-            feature.scenarios.should.have.length(1);
+            feature.scenarioDefinitions.should.have.length(1);
 
             assert.equal(firstScenario.name, 'Look Ma');
             assert.equal(firstScenario.steps.length, 3);
 
-            assertStepEqual(firstScenario.steps[0], 'Given', 'I am in a browser');
-            assertStepEqual(firstScenario.steps[1], 'When', 'I make a syntax error');
-            assertStepEqual(firstScenario.steps[2], 'Then', 'stuff should be red');
+            assertStepEqual(firstScenario.steps[0], 'Given ', 'I am in a browser');
+            assertStepEqual(firstScenario.steps[1], 'When ', 'I make a syntax error');
+            assertStepEqual(firstScenario.steps[2], 'Then ', 'stuff should be red');
         });
 
         it('should parse a simple feature with a single scenario outline', function () {
             var feature = gherkin.fromFileSync('test/resources/eating_cucumbers.feature'),
-                firstScenarioOutline = feature.scenarios[0];
+                firstScenarioOutline = feature.scenarioDefinitions[0];
 
             feature.name.should.equal('Eating cucumbers');
-            feature.scenarios.should.have.length(1);
+            feature.scenarioDefinitions.should.have.length(1);
 
             assert.equal(firstScenarioOutline.name, 'Eat');
             assert.equal(firstScenarioOutline.steps.length, 3);
 
-            assertStepEqual(firstScenarioOutline.steps[0], 'Given', 'there are <start> cucumbers');
-            assertStepEqual(firstScenarioOutline.steps[1], 'When', 'I eat <eat> cucumbers');
-            assertStepEqual(firstScenarioOutline.steps[2], 'Then', 'I should have <left> cucumbers');
+            assertStepEqual(firstScenarioOutline.steps[0], 'Given ', 'there are <start> cucumbers');
+            assertStepEqual(firstScenarioOutline.steps[1], 'When ', 'I eat <eat> cucumbers');
+            assertStepEqual(firstScenarioOutline.steps[2], 'Then ', 'I should have <left> cucumbers');
 
             assert.equal(firstScenarioOutline.examples[0].dataTable.length, 3);
             assertRowEqual(firstScenarioOutline.examples[0].dataTable[0], ['start', 'eat', 'left']);
@@ -162,9 +162,9 @@ describe('gherkin-model', function () {
 
     });
 
-    function assertStepEqual(actualStep, keyword, name) {
+    function assertStepEqual(actualStep, keyword, text) {
         assert.equal(keyword, actualStep.keyword);
-        assert.equal(name, actualStep.name);
+        assert.equal(text, actualStep.text);
     }
 
     function assertRowEqual(actualRow, expectedRow) {
