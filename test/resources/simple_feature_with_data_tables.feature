@@ -1,9 +1,5 @@
 Feature: Metadata
 
-  In order to describe my specification
-  As a writer
-  I want to be able to provide some metadata about my work
-
   Scenario: Provide information about authors and contributors
     Given the "authors" property in "featurebook.json" contains the following authors
       | firstName | lastName    | email                  |
