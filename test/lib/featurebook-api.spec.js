@@ -1,6 +1,9 @@
+'use strict';
+
 var featurebook = require('../../lib/featurebook-api'),
-    chai = require('chai'),
-    should = chai.should();
+    chai = require('chai');
+
+chai.should();
 
 describe('featurebook api', function () {
 

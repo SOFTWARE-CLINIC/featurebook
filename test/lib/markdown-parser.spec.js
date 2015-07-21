@@ -1,3 +1,5 @@
+'use strict';
+
 var markdown = require('../../lib/markdown-parser');
 
 describe('markdown-parser', function () {
@@ -14,12 +16,12 @@ describe('markdown-parser', function () {
                 .should.equal('<p><a href="https://www.google.com">An inline-style link</a></p>\n');
         });
 
-        it('should parse an inline-style link to another feature (without / prefix)', function() {
+        it('should parse an inline-style link to another feature (without / prefix)', function () {
             markdown.toHTML('This is an [amazing feature](amazing.feature) dude.')
                 .should.equal('<p>This is an <a href="/#/viewer/amazing.feature">amazing feature</a> dude.</p>\n');
         });
 
-        it('should parse an inline-style link to another feature (with / prefix)', function() {
+        it('should parse an inline-style link to another feature (with / prefix)', function () {
             markdown.toHTML('This is an [amazing feature](/amazing.feature) dude.')
                 .should.equal('<p>This is an <a href="/#/viewer/amazing.feature">amazing feature</a> dude.</p>\n');
         });

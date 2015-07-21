@@ -1,0 +1,8 @@
+{
+  "bitwise": true,
+  "globalstrict": true,
+  "noarg": true,
+  "node": true,
+  "undef": true,
+  "unused": true
+}

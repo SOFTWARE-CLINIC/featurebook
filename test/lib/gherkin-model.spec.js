@@ -1,7 +1,9 @@
-var gherkin = require('../../lib/gherkin-model'),
-    chai = require('chai'),
-    should = chai.should();
+'use strict';
 
+var gherkin = require('../../lib/gherkin-model'),
+    chai = require('chai');
+
+chai.should();
 chai.use(require('./helpers/chai-gherkin-model'));
 
 describe('gherkin-model', function () {

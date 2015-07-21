@@ -1,7 +1,11 @@
+'use strict';
+
 var walker = require('../../lib/dir-walker'),
     assert = require('assert'),
-    should = require('chai').should(),
+    chai = require('chai'),
     path = require('path');
+
+chai.should();
 
 describe('directory-walker', function () {
     describe('#walkSync', function () {

@@ -1,7 +1,10 @@
+'use strict';
+
 var marked = require('marked'),
     markdown = require('markdown').markdown,
-    chai = require('chai'),
-    should = chai.should();
+    chai = require('chai');
+
+chai.should();
 
 describe('markdown AST', function () {
 
