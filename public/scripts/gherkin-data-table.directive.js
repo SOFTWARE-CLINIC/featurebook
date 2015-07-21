@@ -11,7 +11,8 @@
             templateUrl: 'views/gherkin-data-table.html',
             replace: true,
             scope: {
-                data: '=ngModel'
+                tableHeader: '=',
+                tableBody: '='
             }
         };
     }

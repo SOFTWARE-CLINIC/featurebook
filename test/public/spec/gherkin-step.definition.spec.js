@@ -18,7 +18,7 @@ describe('step directive', function () {
         // given
         $scope.step = {
             keyword: 'Given',
-            name: 'I have this simple step'
+            text: 'I have this simple step'
         };
 
         // when

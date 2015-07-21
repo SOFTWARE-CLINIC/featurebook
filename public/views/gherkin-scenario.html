@@ -1,7 +1,7 @@
 <div class="featurebook-scenario">
-    <div class="featurebook-tag" ng-repeat="tag in scenario.tags track by $index">{{tag}}</div>
+    <div class="featurebook-tag" ng-repeat="tag in scenario.tags track by $index">{{tag.name}}</div>
     <div class="featurebook-scenario-name">{{scenario.keyword}}: {{scenario.name}}</div>
-    <div class="featurebook-scenario-description"
+    <div class="featurebook-scenario-description featurebook-markdown"
          ng-if="scenario.description"
          ng-bind-html="scenario.description"></div>
 
@@ -9,10 +9,12 @@
 
     <div class="featurebook-examples" ng-repeat="example in scenario.examples">
         <div class="featurebook-examples-name">{{example.keyword}}: {{example.name}}</div>
-        <div class="featurebook-examples-description"
+        <div class="featurebook-examples-description featurebook-markdown"
              ng-if="example.description"
              ng-bind-html="example.description"></div>
 
-        <gherkin-data-table class="featurebook-indent-1x" ng-model="example.dataTable"></gherkin-data-table>
+        <gherkin-data-table class="featurebook-indent-1x"
+                            table-header="example.tableHeader"
+                            table-body="example.tableBody"></gherkin-data-table>
     </div>
 </div>

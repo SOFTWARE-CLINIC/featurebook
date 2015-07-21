@@ -1,8 +1,8 @@
 <table>
-    <tr ng-repeat="row in data track by $index" ng-if="$index === 0">
-        <th ng-repeat="cell in row track by $index">{{cell}}</th>
+    <tr>
+        <th ng-repeat="cell in tableHeader.cells track by $index">{{cell.value}}</th>
     </tr>
-    <tr ng-repeat="row in data track by $index" ng-if="$index > 0">
-        <td ng-repeat="cell in row track by $index">{{cell}}</td>
+    <tr ng-repeat="row in tableBody">
+        <td ng-repeat="cell in row.cells track by $index">{{cell.value}}</td>
     </tr>
 </table>

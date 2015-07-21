@@ -15,11 +15,12 @@
             },
             link: function gherkinStepDirectiveLinkFunction(scope) {
                 scope.hasDataTable = function hasDataTable() {
-                    var step = scope.step;
-                    return step.dataTable && step.dataTable.length > 0;
+                    return angular.isDefined(scope.step.argument)
+                        && scope.step.argument.type === 'DataTable';
                 };
                 scope.hasDocString = function hasDocString() {
-                    return angular.isDefined(scope.step.docString);
+                    return angular.isDefined(scope.step.argument)
+                        && scope.step.argument.type === 'DocString';
                 };
             }
         };
