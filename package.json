@@ -8,7 +8,8 @@
   "main": "lib/index.js",
   "preferGlobal": true,
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "coverage-upload": "codeclimate-test-reporter < coverage/lcov.info"
   },
   "keywords": [
     "gherkin",
@@ -59,14 +60,17 @@
   },
   "devDependencies": {
     "chai": "^3.0.0",
+    "codeclimate-test-reporter": "^0.1.0",
     "concat-stream": "^1.4.8",
     "gulp": "^3.9.0",
+    "gulp-istanbul": "^0.10.0",
     "gulp-jshint": "^1.11.2",
     "gulp-mocha": "^2.1.2",
     "jshint-stylish": "^2.0.1",
     "karma": "^0.13.0",
     "karma-jasmine": "^0.3.2",
     "karma-ng-html2js-preprocessor": "^0.1.2",
-    "karma-phantomjs-launcher": "^0.2.0"
+    "karma-phantomjs-launcher": "^0.2.0",
+    "mocha-junit-reporter": "^1.6.1"
   }
 }
