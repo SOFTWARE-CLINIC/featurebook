@@ -1,7 +1,6 @@
 'use strict';
 
 var walker = require('../../lib/dir-walker'),
-    assert = require('assert'),
     chai = require('chai'),
     path = require('path');
 
@@ -39,9 +38,9 @@ describe('directory-walker', function () {
     });
 
     function assertNodeEqual(actualNode, expectedName, expectedType, expectedPath, expectedItemsLength) {
-        assert.equal(actualNode.name, expectedName, 'invalid node name');
-        assert.equal(actualNode.type, expectedType, 'invalid node type');
-        assert.equal(actualNode.path, expectedPath, 'invalid relative path');
+        actualNode.name.should.equal(expectedName);
+        actualNode.type.should.equal(expectedType);
+        actualNode.path.should.equal(expectedPath);
         actualNode.items.should.have.length(expectedItemsLength || 0);
     }
 
