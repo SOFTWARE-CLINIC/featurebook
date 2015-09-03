@@ -12,10 +12,14 @@
         $activate();
 
         function $activate() {
-            $scope.feature = $route.current.locals.feature;
+            $scope.featureResponse = $route.current.locals.feature;
 
             $scope.edit = function edit() {
                 $location.path('/editor/' + $route.current.params.path);
+            };
+
+            $scope.hasError = function hasError() {
+                return $scope.featureResponse.status !== 'success';
             };
         }
     }

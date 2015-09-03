@@ -55,6 +55,10 @@ table {
     font-weight: bold;
 }
 
+.featurebook-error-message {
+    color: #BC3F3C;
+}
+
 .featurebook-node-file {
     color: white;
     text-decoration: none;
