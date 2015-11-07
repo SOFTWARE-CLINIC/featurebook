@@ -8,6 +8,7 @@
   "main": "lib/index.js",
   "preferGlobal": true,
   "scripts": {
+    "postinstall": "bower install",
     "test": "gulp test",
     "coverage-upload": "codeclimate-test-reporter < coverage/lcov.info"
   },
@@ -59,6 +60,7 @@
     "pdfkit": "^0.7.1"
   },
   "devDependencies": {
+    "bower": "^1.6.5",
     "chai": "^3.0.0",
     "codeclimate-test-reporter": "^0.1.0",
     "concat-stream": "^1.4.8",
