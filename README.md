@@ -223,16 +223,12 @@ public API.
 ### Running tests
 
 ```shell
-$ npm install -g gulp bower
+$ npm install -g gulp
 $ npm install
 ```
 
 ```shell
 $ gulp test:lib
-```
-
-```shell
-$ cd public && bower install && cd ..
 ```
 
 ```shell
