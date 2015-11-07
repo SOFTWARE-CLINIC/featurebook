@@ -10,8 +10,6 @@ dependencies:
   override:
     - npm prune && npm install:
         pwd: .
-    - bower prune && bower install:
-        pwd: public
 
 notify:
   webhooks:

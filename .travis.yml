@@ -11,7 +11,7 @@ env:
   - CODECLIMATE_REPO_TOKEN=fa4c7a699042fb2632cca5b0535edebb32939fa04462f2cde0cef928667e338a
 
 before_script:
-  - 'npm install -g gulp bower && cd public && bower install && cd ..'
+  - 'npm install -g gulp'
 
 after_success:
   - npm run-script coverage-upload
