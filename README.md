@@ -5,7 +5,6 @@ FeatureBook
 [![CircleCI](https://img.shields.io/circleci/project/SOFTWARE-CLINIC/featurebook/master.svg?style=shield)](https://circleci.com/gh/SOFTWARE-CLINIC/featurebook)
 [![Code Climate](https://codeclimate.com/github/SOFTWARE-CLINIC/featurebook/badges/gpa.svg)](https://codeclimate.com/github/SOFTWARE-CLINIC/featurebook)
 [![Test Coverage](https://codeclimate.com/github/SOFTWARE-CLINIC/featurebook/badges/coverage.svg)](https://codeclimate.com/github/SOFTWARE-CLINIC/featurebook/coverage)
-[![GitHub issues](https://img.shields.io/github/issues/SOFTWARE-CLINIC/featurebook.svg)](https://github.com/SOFTWARE-CLINIC/featurebook/issues)
 [![npm version](https://badge.fury.io/js/featurebook.svg)](http://badge.fury.io/js/featurebook)
 [![dependencies](https://david-dm.org/SOFTWARE-CLINIC/featurebook.svg)](https://david-dm.org/SOFTWARE-CLINIC/featurebook)
 [![devDependencies](https://david-dm.org/SOFTWARE-CLINIC/featurebook/dev-status.svg)](https://david-dm.org/SOFTWARE-CLINIC/featurebook#info=devDependencies)
@@ -56,16 +55,10 @@ system. Forget about a bunch of hello world examples presented in a super boring
 
 ## Usage
 
-FeatureBook can be installed from [npm](https://www.npmjs.com):
+FeatureBook can be installed (or updated if it's already installed) from [npm](https://www.npmjs.com):
 
 ```shell
 $ npm install featurebook -g
-```
-
-If it's already installed, you only need to update to the latest version:
-
-```shell
-$ npm update featurebook -g
 ```
 
 You can serve the current directory as a system specification:
