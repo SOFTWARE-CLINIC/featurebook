@@ -58,7 +58,7 @@ FeatureBook can be installed (or updated if it's already installed) from [npm](h
 $ npm install -g featurebook
 ```
 
-> You can check which npm packages are installed with the `$ npm ls -g --depth=0` command.
+> You can check which npm packages are installed with the `npm ls -g --depth=0` command.
 
 You can serve the current directory as a system specification:
 
@@ -215,16 +215,13 @@ public API.
 ### Running tests
 
 ```shell
+$ npm install
 $ npm install -g gulp bower
-$ npm install && bower install
+$ bower install
 ```
 
 ```shell
-$ gulp test:lib
-```
-
-```shell
-$ gulp test:public
+$ gulp test
 ```
 
 ## Contributing
