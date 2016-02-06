@@ -1,5 +1,5 @@
 module.exports = function (chai, utils) {
-    var Assertion = chai.Assertion;
+  var Assertion = chai.Assertion;
 
-    // register helpers here
+  // register helpers here
 };

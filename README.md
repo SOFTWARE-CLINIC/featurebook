@@ -69,13 +69,28 @@ $ featurebook serve --port 3000
 Or simply build a PDF document:
 
 ```shell
-$ featurebook build --format=pdf
+$ featurebook pdf
 ```
 
 To list all available commands and options:
 
-```shell
+```
 $ featurebook --help
+
+  Usage: featurebook [options] [command]
+
+
+  Commands:
+
+    serve [options] [source-dir]  serve <source-dir> as a system specification
+    pdf [options] [source-dir]    build the specification PDF document
+    html [options] [source-dir]   build the specification HTML document
+
+  Options:
+
+    -h, --help     output usage information
+    -V, --version  output the version number
+
 ```
 
 Or just display help for a given command:
