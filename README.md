@@ -2,9 +2,6 @@ FeatureBook
 ===========
 
 [![Build Status](https://travis-ci.org/SOFTWARE-CLINIC/featurebook.svg)](https://travis-ci.org/SOFTWARE-CLINIC/featurebook)
-[![CircleCI](https://img.shields.io/circleci/project/SOFTWARE-CLINIC/featurebook/master.svg?style=shield)](https://circleci.com/gh/SOFTWARE-CLINIC/featurebook)
-[![Code Climate](https://codeclimate.com/github/SOFTWARE-CLINIC/featurebook/badges/gpa.svg)](https://codeclimate.com/github/SOFTWARE-CLINIC/featurebook)
-[![Test Coverage](https://codeclimate.com/github/SOFTWARE-CLINIC/featurebook/badges/coverage.svg)](https://codeclimate.com/github/SOFTWARE-CLINIC/featurebook/coverage)
 [![npm version](https://badge.fury.io/js/featurebook.svg)](http://badge.fury.io/js/featurebook)
 [![dependencies](https://david-dm.org/SOFTWARE-CLINIC/featurebook.svg)](https://david-dm.org/SOFTWARE-CLINIC/featurebook)
 [![devDependencies](https://david-dm.org/SOFTWARE-CLINIC/featurebook/dev-status.svg)](https://david-dm.org/SOFTWARE-CLINIC/featurebook#info=devDependencies)
@@ -37,7 +34,7 @@ Even in 2015, there are development teams that don't know how to apply
 [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)) or some other
 [Agile methodology](https://en.wikipedia.org/wiki/Agile_software_development) in day-to-day business. Believe it or not
 but that's the matter of fact. Doing just daily meetings at 9 or 10 a.m. doesn't really mean that you're in the Agile
-mode! With business analysts or other business folks it's even worse. Most of them haven't heard the buzzwords Scrum or
+mode. With business analysts or other business folks it's even worse. Most of them haven't heard the buzzwords Scrum or
 Agile. Therefore, it's not surprising that so many people undervalue specifying unambiguously what the system is
 supposed to do. Instead, we are given 200 pages Microsoft Word documents that, after a short while, become a maintenance
 nightmare and complete mess to read and understand.
@@ -51,15 +48,17 @@ and applications. If it's not a top secret mission critical beast, feel free to 
 the details publicly. Otherwise let's meet in person in Warsaw, Poland.
 If you buy the tickets and we like the destination, we'll fly over and do the training for you and your team!
 (Especially we're looking forward to seeing Albania one day.) The outcome would be a FeatureBook tailored for your
-system. Forget about a bunch of hello world examples presented in a super boring fashion that cost thousands bucks.
+system.
 
 ## Usage
 
 FeatureBook can be installed (or updated if it's already installed) from [npm](https://www.npmjs.com):
 
 ```shell
-$ npm install featurebook -g
+$ npm install -g featurebook
 ```
+
+> You can check which npm packages are installed with the `$ npm ls -g --depth=0` command.
 
 You can serve the current directory as a system specification:
 
@@ -216,8 +215,8 @@ public API.
 ### Running tests
 
 ```shell
-$ npm install -g gulp
-$ npm install
+$ npm install -g gulp bower
+$ npm install && bower install
 ```
 
 ```shell

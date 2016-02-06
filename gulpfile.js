@@ -4,7 +4,6 @@ var gulp     = require('gulp'),
     jshint   = require('gulp-jshint'),
     stylish  = require('jshint-stylish'),
     mocha    = require('gulp-mocha'),
-    istanbul = require('gulp-istanbul'),
     Server   = require('karma').Server;
 
 gulp.task('lint', ['lint:lib', 'lint:public']);
@@ -37,23 +36,11 @@ gulp.task('lint:test:public', function () {
 
 gulp.task('test', ['test:lib', 'test:public']);
 
-gulp.task('test:lib', function (done) {
-  gulp.src('lib/**/*.js')
-    .pipe(istanbul({includeUntested: true}))
-    .pipe(istanbul.hookRequire())
-    .on('finish', function () {
-          gulp.src('./test/lib/**/*.spec.js', {read: false})
-            .pipe(mocha({
-                    reporter: 'mocha-junit-reporter'
-                  }))
-            .pipe(istanbul.writeReports({
-                    dir:        './coverage',
-                    reporters:  ['lcov'],
-                    reportOpts: {dir: './coverage'}
-                  }))
-            .pipe(istanbul.enforceThresholds({thresholds: {global: 10}}))
-            .on('end', done);
-        });
+gulp.task('test:lib', function () {
+  gulp.src('test/lib/**/*.spec.js', {read: false})
+    .pipe(mocha({
+      reporter: 'spec'
+    }));
 });
 
 gulp.task('test:public', function (done) {
