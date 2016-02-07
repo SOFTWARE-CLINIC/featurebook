@@ -1,27 +1,27 @@
 (function () {
-    'use strict';
+  'use strict';
 
-    /* global angular */
-    angular.module('scFeatureBook')
-        .controller('FeatureViewerController', FeatureViewerController);
+  /* global angular */
+  angular.module('scFeatureBook')
+    .controller('FeatureViewerController', FeatureViewerController);
 
-    FeatureViewerController.$inject = ['$scope', '$route', '$location'];
+  FeatureViewerController.$inject = ['$scope', '$route', '$location'];
 
-    function FeatureViewerController($scope, $route, $location) {
+  function FeatureViewerController($scope, $route, $location) {
 
-        $activate();
+    $activate();
 
-        function $activate() {
-            $scope.featureResponse = $route.current.locals.feature;
+    function $activate() {
+      $scope.featureResponse = $route.current.locals.feature;
 
-            $scope.edit = function edit() {
-                $location.path('/editor/' + $route.current.params.path);
-            };
+      $scope.edit = function edit() {
+        $location.path('/editor/' + $route.current.params.path);
+      };
 
-            $scope.hasError = function hasError() {
-                return $scope.featureResponse.status !== 'success';
-            };
-        }
+      $scope.hasError = function hasError() {
+        return $scope.featureResponse.status !== 'success';
+      };
     }
+  }
 
 })();

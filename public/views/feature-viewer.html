@@ -1,8 +1,6 @@
 <div ng-if="!hasError()" class="featurebook-feature">
     <div class="featurebook-tag" ng-repeat="tag in featureResponse.data.tags track by $index">{{tag.name}}</div>
-    <div class="featurebook-feature-name">{{featureResponse.data.keyword}}: {{featureResponse.data.name}}
-        <i ng-click="edit()" class="fa fa-pencil-square-o featurebook-pull-right featurebook-cursor-pointer"></i>
-    </div>
+    <div class="featurebook-feature-name">{{featureResponse.data.keyword}}: {{featureResponse.data.name}}</div>
     <div class="featurebook-feature-description featurebook-markdown"
          ng-bind-html="featureResponse.data.description"></div>
 

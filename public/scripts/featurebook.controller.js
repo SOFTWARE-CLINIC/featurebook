@@ -1,27 +1,27 @@
 (function () {
-    'use strict';
+  'use strict';
 
-    /* global angular */
-    angular.module('scFeatureBook')
-        .controller('FeatureBookController', FeatureBookController);
+  /* global angular */
+  angular.module('scFeatureBook')
+    .controller('FeatureBookController', FeatureBookController);
 
-    FeatureBookController.$inject = ['$scope', '$window', 'featureBookService'];
+  FeatureBookController.$inject = ['$scope', '$window', 'featureBookService'];
 
-    function FeatureBookController($scope, $window, featureBookService) {
+  function FeatureBookController($scope, $window, featureBookService) {
 
-        $activate();
+    $activate();
 
-        function $activate() {
-            featureBookService.metadata().then(function (metadata) {
-                $scope.metadata = metadata;
-                $window.document.title = metadata.title + ' ' + (metadata.version || '');
-            });
+    function $activate() {
+      featureBookService.metadata().then(function (metadata) {
+        $scope.metadata = metadata;
+        $window.document.title = metadata.title + ' ' + (metadata.version || '');
+      });
 
-            featureBookService.findAll().then(function (featuresTree) {
-                $scope.featuresTree = featuresTree;
-            });
-        }
-
+      featureBookService.findAll().then(function (featuresTree) {
+        $scope.featuresTree = featuresTree;
+      });
     }
+
+  }
 
 })();

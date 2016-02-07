@@ -1,14 +1,14 @@
 (function () {
-    'use strict';
+  'use strict';
 
-    /* global angular */
-    angular.module('scFeatureBook')
-        .filter('encodeURIComponent', encodeURIComponentFilter);
+  /* global angular */
+  angular.module('scFeatureBook')
+    .filter('encodeURIComponent', encodeURIComponentFilter);
 
-    encodeURIComponentFilter.$inject = ['$window'];
+  encodeURIComponentFilter.$inject = ['$window'];
 
-    function encodeURIComponentFilter($window) {
-        return $window.encodeURIComponent;
-    }
+  function encodeURIComponentFilter($window) {
+    return $window.encodeURIComponent;
+  }
 
 })();

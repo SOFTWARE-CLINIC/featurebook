@@ -1,20 +1,20 @@
 (function () {
-    'use strict';
+  'use strict';
 
-    /* global angular */
-    angular.module('scFeatureBook')
-        .directive('featureTree', featureTreeDirectiveFactory);
+  /* global angular */
+  angular.module('scFeatureBook')
+    .directive('featureTree', featureTreeDirectiveFactory);
 
-    function featureTreeDirectiveFactory() {
-        return {
-            restrict: 'E',
-            templateUrl: 'views/feature-tree.html',
-            replace: true,
-            transclude: true,
-            scope: {
-                tree: '=ngModel'
-            }
-        };
-    }
+  function featureTreeDirectiveFactory() {
+    return {
+      restrict: 'E',
+      templateUrl: 'views/feature-tree.html',
+      replace: true,
+      transclude: true,
+      scope: {
+        tree: '=ngModel'
+      }
+    };
+  }
 
 })();

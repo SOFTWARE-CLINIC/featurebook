@@ -1,19 +1,19 @@
 (function () {
-    'use strict';
+  'use strict';
 
-    /* global angular */
-    angular.module('scFeatureBook')
-        .directive('person', personDirectiveFactory);
+  /* global angular */
+  angular.module('scFeatureBook')
+    .directive('person', personDirectiveFactory);
 
-    function personDirectiveFactory() {
-        return {
-            restrict: 'E',
-            templateUrl: 'views/person.html',
-            replace: true,
-            scope: {
-                person: '=ngModel'
-            }
-        };
-    }
+  function personDirectiveFactory() {
+    return {
+      restrict: 'E',
+      templateUrl: 'views/person.html',
+      replace: true,
+      scope: {
+        person: '=ngModel'
+      }
+    };
+  }
 
 })();
