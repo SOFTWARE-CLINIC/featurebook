@@ -52,7 +52,12 @@ system.
 
 ## Usage
 
-FeatureBook can be installed (or updated if it's already installed) from [npm](https://www.npmjs.com):
+Before installing FeatureBook, you will need the following:
+
+* Node.js v0.10.x+
+* [npm](https://www.npmjs.com) (which comes bundled with Node) v2.1.0+
+
+FeatureBook can be installed (or updated if it's already installed) from npm:
 
 ```shell
 $ npm install -g featurebook
