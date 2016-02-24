@@ -1,0 +1,13 @@
+doctype html
+head
+  title #{metadata.title} #{metadata.version}
+body
+  h1 #{metadata.title} #{metadata.version}
+
+ul
+  each author, index in metadata.authors
+    li= index + ': ' + author.firstName + ' ' + author.lastName
+
+ul
+  each contributor, index in metadata.contributors
+    li= index + ': ' + contributor.firstName + ' ' + contributor.lastName

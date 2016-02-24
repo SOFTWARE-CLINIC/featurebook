@@ -47,7 +47,7 @@ function buildPdf(sourceDir, options) {
 function buildHtml(sourceDir, options) {
   featurebook.commands.html(
     sourceDir || process.cwd(),
-    options.ouputDir || path.join(process.cwd(), 'dist', 'html'));
+    options.outputDir || path.join(process.cwd(), 'dist', 'html'));
 }
 
 function displayHelpIfNoCommandWasProvided() {
