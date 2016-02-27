@@ -1,13 +1,27 @@
+mixin printNode(obj)
+  if obj && obj.type === 'file'
+    div= obj.path
+  else if obj && obj.type === 'folder'
+    h3= obj.name
+    each item in obj.items
+      +printNode(item)
+
 doctype html
+
 head
   title #{metadata.title} #{metadata.version}
+
 body
   h1 #{metadata.title} #{metadata.version}
 
-ul
-  each author, index in metadata.authors
-    li= index + ': ' + author.firstName + ' ' + author.lastName
+  if metadata.authors
+    ul
+      each author in metadata.authors
+        li= author.firstName + ' ' + author.lastName
 
-ul
-  each contributor, index in metadata.contributors
-    li= index + ': ' + contributor.firstName + ' ' + contributor.lastName
+  if metadata.contributors
+    ul
+      each contributor in metadata.contributors
+        li= contributor.firstName + ' ' + contributor.lastName
+
++printNode(nodes)

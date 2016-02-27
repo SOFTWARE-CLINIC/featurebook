@@ -108,6 +108,11 @@ FeatureBook can be used with [Grunt](https://github.com/SOFTWARE-CLINIC/featureb
 [Gulp](https://github.com/SOFTWARE-CLINIC/featurebook-gulp-example) to generate a system specification as part of your
 continuous integration process.
 
+> To try out the latest development version clone this repository and [link](https://docs.npmjs.com/cli/link) the featurebook package:
+> ```
+> $ git clone https://github.com/SOFTWARE-CLINIC/featurebook.git && cd featurebook && npm link
+> ```
+
 ## Specification format
 
 A system specification is a directory containing:
