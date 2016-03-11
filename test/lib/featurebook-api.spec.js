@@ -31,7 +31,7 @@ describe('featurebook', function () {
 
     it('should return the contents of the summary file', function (done) {
       featurebook.readSummary('test/resources/specs/tiny', function (err, summary) {
-        shoule.equal(err, null);
+        should.equal(err, null);
         summary.should.equal('# Tiny Specification\n');
         done();
       })

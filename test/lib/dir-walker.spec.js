@@ -11,7 +11,7 @@ describe('directory-walker', function () {
     it('should return all files and directories', function () {
       var tree = walker.walkSync('test/resources');
 
-      assertNodeEqual(tree, 'resources', 'folder', '.', 12);
+      assertNodeEqual(tree, 'resources', 'folder', '.', 13);
 
       assertNodeEqual(tree.items[0], 'eating_cucumbers.feature', 'file', 'eating_cucumbers.feature');
       assertNodeEqual(tree.items[1], 'hello_world.feature', 'file', 'hello_world.feature');
@@ -24,7 +24,7 @@ describe('directory-walker', function () {
         return stats.isDirectory();
       });
 
-      assertNodeEqual(tree, 'resources', 'folder', '.', 1);
+      assertNodeEqual(tree, 'resources', 'folder', '.', 2);
       assertNodeEqual(tree.items[0], 'non_functional', 'folder', 'non_functional');
     });
 
@@ -33,7 +33,7 @@ describe('directory-walker', function () {
         return stats.isDirectory() || ( stats.isFile() && path.extname(filePath) === '.feature');
       });
 
-      assertNodeEqual(tree, 'resources', 'folder', '.', 12);
+      assertNodeEqual(tree, 'resources', 'folder', '.', 13);
     });
   });
 
