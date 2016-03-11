@@ -23,10 +23,12 @@ describe('jade template', function () {
   });
 
   it('should output authors', function () {
-    var metadata = {authors: [
-      {firstName: 'Richard', lastName: 'Feynman', email: 'rfeynmane@icloud.com'},
-      {firstName: 'Michael', lastName: 'Faraday', email: 'mfaraday@gmail.com'}
-    ]};
+    var metadata = {
+      authors: [
+        {firstName: 'Richard', lastName: 'Feynman', email: 'rfeynmane@icloud.com'},
+        {firstName: 'Michael', lastName: 'Faraday', email: 'mfaraday@gmail.com'}
+      ]
+    };
     var locals = {metadata: metadata};
     var html = fn(locals);
     html.should.equal('<!DOCTYPE html><head><title> </title></head><body><h1> </h1><ul><li>Richard Feynman</li><li>Michael Faraday</li></ul></body>');
