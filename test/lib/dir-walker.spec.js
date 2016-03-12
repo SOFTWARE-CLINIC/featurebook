@@ -7,41 +7,233 @@ var walker = require('../../lib/dir-walker'),
 chai.should();
 
 describe('directory-walker', function () {
-  describe('#walkSync', function () {
-    it('should return all files and directories', function () {
-      var tree = walker.walkSync('test/resources');
 
-      assertNodeEqual(tree, 'resources', 'folder', '.', 13);
-
-      assertNodeEqual(tree.items[0], 'eating_cucumbers.feature', 'file', 'eating_cucumbers.feature');
-      assertNodeEqual(tree.items[1], 'hello_world.feature', 'file', 'hello_world.feature');
-      assertNodeEqual(tree.items[2], 'non_functional', 'folder', 'non_functional', 1);
-      assertNodeEqual(tree.items[2].items[0], 'load_testing.feature', 'file', 'non_functional/load_testing.feature');
-    });
-
-    it('should return only directories', function () {
-      var tree = walker.walkSync('test/resources', function directoriesFilter(filePath, stats) {
-        return stats.isDirectory();
-      });
-
-      assertNodeEqual(tree, 'resources', 'folder', '.', 2);
-      assertNodeEqual(tree.items[0], 'non_functional', 'folder', 'non_functional');
-    });
-
-    it('should return Gherkin source files', function () {
-      var tree = walker.walkSync('test/resources', function gherkinSourceFilesFilter(filePath, stats) {
-        return stats.isDirectory() || ( stats.isFile() && path.extname(filePath) === '.feature');
-      });
-
-      assertNodeEqual(tree, 'resources', 'folder', '.', 13);
+  describe('#findSync', function () {
+    it('should find files synchronously', function () {
+      var files = walker.findSync(/file.*/, 'test/resources/dir-walker');
+      files.should.deep.equal([
+        'test/resources/dir-walker/dir-a/dir-b/dir-c/file-e.feature',
+        'test/resources/dir-walker/dir-a/dir-b/file-c.feature',
+        'test/resources/dir-walker/dir-a/dir-b/file-d.txt',
+        'test/resources/dir-walker/dir-a/file-a.feature',
+        'test/resources/dir-walker/dir-a/file-b.txt'
+      ]);
     });
   });
 
-  function assertNodeEqual(actualNode, expectedName, expectedType, expectedPath, expectedItemsLength) {
-    actualNode.name.should.equal(expectedName);
-    actualNode.type.should.equal(expectedType);
-    actualNode.path.should.equal(expectedPath);
-    actualNode.items.should.have.length(expectedItemsLength || 0);
-  }
+  describe('#findTreeSync', function () {
+    it('should find files and directories tree synchronously', function () {
+      var tree = walker.findTreeSync('test/resources/dir-walker');
+      tree.should.deep.equal({
+        "path": ".",
+        "name": "dir-walker",
+        "type": "directory",
+        "children": [
+          {
+            "path": "dir-a",
+            "name": "dir-a",
+            "type": "directory",
+            "children": [
+              {
+                "path": "dir-a/dir-b",
+                "name": "dir-b",
+                "type": "directory",
+                "children": [
+                  {
+                    "path": "dir-a/dir-b/dir-c",
+                    "name": "dir-c",
+                    "type": "directory",
+                    "children": [
+                      {
+                        "path": "dir-a/dir-b/dir-c/file-e.feature",
+                        "name": "file-e.feature",
+                        "type": "file"
+                      }
+                    ]
+                  },
+                  {
+                    "path": "dir-a/dir-b/file-c.feature",
+                    "name": "file-c.feature",
+                    "type": "file"
+                  },
+                  {
+                    "path": "dir-a/dir-b/file-d.txt",
+                    "name": "file-d.txt",
+                    "type": "file"
+                  }
+                ]
+              },
+              {
+                "path": "dir-a/file-a.feature",
+                "name": "file-a.feature",
+                "type": "file"
+              },
+              {
+                "path": "dir-a/file-b.txt",
+                "name": "file-b.txt",
+                "type": "file"
+              }
+            ]
+          }
+        ]
+      });
+    });
+  });
+
+  describe('#find', function () {
+
+  });
+
+  describe('#walkSync', function () {
+    it('should return all files and directories', function () {
+      var tree = walker.walkSync('test/resources/dir-walker');
+      tree.should.deep.equal({
+        "path": ".",
+        "name": "dir-walker",
+        "type": "folder",
+        "items": [
+          {
+            "path": "dir-a",
+            "name": "dir-a",
+            "type": "folder",
+            "items": [
+              {
+                "path": "dir-a/dir-b",
+                "name": "dir-b",
+                "type": "folder",
+                "items": [
+                  {
+                    "path": "dir-a/dir-b/dir-c",
+                    "name": "dir-c",
+                    "type": "folder",
+                    "items": [
+                      {
+                        "path": "dir-a/dir-b/dir-c/file-e.feature",
+                        "name": "file-e.feature",
+                        "type": "file",
+                        "items": []
+                      }
+                    ]
+                  },
+                  {
+                    "path": "dir-a/dir-b/file-c.feature",
+                    "name": "file-c.feature",
+                    "type": "file",
+                    "items": []
+                  },
+                  {
+                    "path": "dir-a/dir-b/file-d.txt",
+                    "name": "file-d.txt",
+                    "type": "file",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "path": "dir-a/file-a.feature",
+                "name": "file-a.feature",
+                "type": "file",
+                "items": []
+              },
+              {
+                "path": "dir-a/file-b.txt",
+                "name": "file-b.txt",
+                "type": "file",
+                "items": []
+              }
+            ]
+          }
+        ]
+      });
+
+    });
+
+    it('should return only directories', function () {
+      function directoryFilter(filePath, stats) {
+        return stats.isDirectory();
+      }
+      var tree = walker.walkSync('test/resources/dir-walker', directoryFilter);
+      tree.should.deep.equal({
+        "path": ".",
+        "name": "dir-walker",
+        "type": "folder",
+        "items": [
+          {
+            "path": "dir-a",
+            "name": "dir-a",
+            "type": "folder",
+            "items": [
+              {
+                "path": "dir-a/dir-b",
+                "name": "dir-b",
+                "type": "folder",
+                "items": [
+                  {
+                    "path": "dir-a/dir-b/dir-c",
+                    "name": "dir-c",
+                    "type": "folder",
+                    "items": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      });
+    });
+
+    it('should return Gherkin source files', function () {
+      function gherkinSourceFilesAndDirectoriesFilter(filePath, stats) {
+        return stats.isDirectory() || ( stats.isFile() && path.extname(filePath) === '.feature');
+      }
+      var tree = walker.walkSync('test/resources/dir-walker', gherkinSourceFilesAndDirectoriesFilter);
+      tree.should.deep.equal({
+        "path": ".",
+        "name": "dir-walker",
+        "type": "folder",
+        "items": [
+          {
+            "path": "dir-a",
+            "name": "dir-a",
+            "type": "folder",
+            "items": [
+              {
+                "path": "dir-a/dir-b",
+                "name": "dir-b",
+                "type": "folder",
+                "items": [
+                  {
+                    "path": "dir-a/dir-b/dir-c",
+                    "name": "dir-c",
+                    "type": "folder",
+                    "items": [
+                      {
+                        "path": "dir-a/dir-b/dir-c/file-e.feature",
+                        "name": "file-e.feature",
+                        "type": "file",
+                        "items": []
+                      }
+                    ]
+                  },
+                  {
+                    "path": "dir-a/dir-b/file-c.feature",
+                    "name": "file-c.feature",
+                    "type": "file",
+                    "items": []
+                  }
+                ]
+              },
+              {
+                "path": "dir-a/file-a.feature",
+                "name": "file-a.feature",
+                "type": "file",
+                "items": []
+              }
+            ]
+          }
+        ]
+      });
+    });
+  });
 
 });
