@@ -4,9 +4,9 @@ var walker = require('../../lib/dir-walker'),
   chai = require('chai'),
   path = require('path');
 
-chai.should();
+var should = chai.should();
 
-describe('directory-walker', function () {
+describe('dir-walker', function () {
 
   describe('#findSync', function () {
     it('should find files synchronously', function () {
@@ -18,6 +18,22 @@ describe('directory-walker', function () {
         'test/resources/dir-walker/dir-a/file-a.feature',
         'test/resources/dir-walker/dir-a/file-b.txt'
       ]);
+    });
+  });
+
+  describe('#find', function () {
+    it('should find files asynchronously', function (done) {
+      walker.find(/file.*/, 'test/resources/dir-walker', function (err, files) {
+        should.equal(err, null);
+        files.should.deep.equal([
+          'test/resources/dir-walker/dir-a/file-a.feature',
+          'test/resources/dir-walker/dir-a/file-b.txt',
+          'test/resources/dir-walker/dir-a/dir-b/file-c.feature',
+          'test/resources/dir-walker/dir-a/dir-b/file-d.txt',
+          'test/resources/dir-walker/dir-a/dir-b/dir-c/file-e.feature'
+        ]);
+        done();
+      });
     });
   });
 
@@ -78,10 +94,6 @@ describe('directory-walker', function () {
         ]
       });
     });
-  });
-
-  describe('#find', function () {
-
   });
 
   describe('#walkSync', function () {
