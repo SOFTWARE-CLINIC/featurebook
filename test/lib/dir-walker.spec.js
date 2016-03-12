@@ -96,6 +96,68 @@ describe('dir-walker', function () {
     });
   });
 
+  describe('#findTree', function () {
+    it('should find files and directories tree asynchronously', function (done) {
+      walker.findTree('test/resources/dir-walker', function (err, tree) {
+        should.equal(err, null);
+        tree.should.deep.equal({
+          "path": ".",
+          "name": "dir-walker",
+          "type": "directory",
+          "children": [
+            {
+              "path": "dir-a",
+              "name": "dir-a",
+              "type": "directory",
+              "children": [
+                {
+                  "path": "dir-a/dir-b",
+                  "name": "dir-b",
+                  "type": "directory",
+                  "children": [
+                    {
+                      "path": "dir-a/dir-b/dir-c",
+                      "name": "dir-c",
+                      "type": "directory",
+                      "children": [
+                        {
+                          "path": "dir-a/dir-b/dir-c/file-e.feature",
+                          "name": "file-e.feature",
+                          "type": "file"
+                        }
+                      ]
+                    },
+                    {
+                      "path": "dir-a/dir-b/file-c.feature",
+                      "name": "file-c.feature",
+                      "type": "file"
+                    },
+                    {
+                      "path": "dir-a/dir-b/file-d.txt",
+                      "name": "file-d.txt",
+                      "type": "file"
+                    }
+                  ]
+                },
+                {
+                  "path": "dir-a/file-a.feature",
+                  "name": "file-a.feature",
+                  "type": "file"
+                },
+                {
+                  "path": "dir-a/file-b.txt",
+                  "name": "file-b.txt",
+                  "type": "file"
+                }
+              ]
+            }
+          ]
+        });
+        done();
+      });
+    });
+  });
+
   describe('#walkSync', function () {
     it('should return all files and directories', function () {
       var tree = walker.walkSync('test/resources/dir-walker');
