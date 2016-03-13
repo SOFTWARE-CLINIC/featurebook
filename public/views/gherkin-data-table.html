@@ -1,8 +1,10 @@
-<table>
-    <tr>
-        <th ng-repeat="cell in tableHeader.cells track by $index">{{cell.value}}</th>
-    </tr>
-    <tr ng-repeat="row in tableBody">
-        <td ng-repeat="cell in row.cells track by $index">{{cell.value}}</td>
-    </tr>
-</table>
+<div class="table-responsive">
+    <table class="data-table">
+        <tr>
+            <th ng-repeat="cell in tableHeader.cells track by $index">{{cell.value}}</th>
+        </tr>
+        <tr ng-repeat="row in tableBody">
+            <td ng-repeat="cell in row.cells track by $index" ng-bind-html="cell.value | highlightGherkinVariables"></td>
+        </tr>
+    </table>
+</div>

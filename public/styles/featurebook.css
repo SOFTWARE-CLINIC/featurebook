@@ -16,9 +16,19 @@ table {
     border-collapse: collapse;
 }
 
+.table-responsive {
+  overflow-x: scroll;
+}
+
+.data-table td {
+  white-space: nowrap;
+}
+
 .featurebook {
     margin: 0 auto;
-    max-width: 1140px;
+    margin-left: 40px;
+    margin-right: 40px;
+    /*max-width: 1140px;*/
 }
 
 .featurebook-metadata {
@@ -46,7 +56,7 @@ table {
 
 .featurebook-features-tree {
     float: left;
-    width: 35%;
+    width: 25%;
     background: #373743;
     overflow-x: auto;
 }
@@ -79,7 +89,7 @@ table {
 
 .featurebook-container {
     float: left;
-    width: 63%;
+    width: 73%;
     margin-left: 2%;
     margin-bottom: 2%;
     background: #373743;
@@ -178,7 +188,7 @@ table {
     display: inline-block;
     text-align: right;
     margin-right: 0;
-    width: 15%;
+    width: 5em;
     vertical-align: top;
 }
 
