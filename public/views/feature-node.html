@@ -5,7 +5,7 @@
        href="#viewer/{{feature.path | encodeURIComponent}}">{{feature.name | titleize}}
     </a>
 
-    <a ng-switch-when="folder"
+    <a ng-switch-when="directory"
        class="featurebook-node-directory"
        ng-class="{active : isActive(feature)}"
        href="#summary/{{feature.path | encodeURIComponent}}">{{feature.name | titleize}}</a>

@@ -15,8 +15,8 @@
         scope.isActive = function isActive(feature) {
           return $routeParams.path === feature.path;
         };
-        if (scope.feature.items.length > 0) {
-          element.append($compile('<feature-tree ng-model="feature.items"></feature-tree>')(scope));
+        if (scope.feature.children) {
+          element.append($compile('<feature-tree ng-model="feature.children"></feature-tree>')(scope));
         }
       }
     };

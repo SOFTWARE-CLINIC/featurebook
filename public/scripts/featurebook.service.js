@@ -11,10 +11,9 @@
     return {
       metadata: metadata,
       getSummaryByPath: getSummaryByPath,
-      findAll: findAll,
+      getSpecTree: getSpecTree,
       getModelByPath: getModelByPath,
-      getContentByPath: getContentByPath,
-      save: save
+      getContentByPath: getContentByPath
     };
 
     function metadata() {
@@ -23,9 +22,9 @@
       });
     }
 
-    function findAll() {
-      return $http.get('api/rest/feature/tree').then(function (response) {
-        return response.data.items;
+    function getSpecTree() {
+      return $http.get('api/rest/spec/tree').then(function (response) {
+        return response.data.children;
       });
     }
 
@@ -49,16 +48,6 @@
       });
     }
 
-    function save(path, content) {
-      return $http({
-        method: 'POST',
-        url: '/api/rest/raw/' + encodeURIComponent(path),
-        data: content,
-        headers: {
-          'Content-Type': 'text/plain'
-        }
-      });
-    }
   }
 
 })();

@@ -27,7 +27,7 @@ describe('FeatureBookController', function () {
             var metadata = {'title': 'My Sample Specification', 'version': '1.0'};
             // and
             spyOn(featureBookService, 'metadata').and.returnValue($q.when(metadata));
-            spyOn(featureBookService, 'findAll').and.returnValue($q.when({}));
+            spyOn(featureBookService, 'getSpecTree').and.returnValue($q.when({}));
 
             // when
             $controller('FeatureBookController', {$scope: $scope});
@@ -37,16 +37,16 @@ describe('FeatureBookController', function () {
             expect($scope.metadata).toEqual(metadata);
         });
 
-        it('should fetch featuresTree', function () {
+        it('should fetch specTree', function () {
             // given
-            var featuresTree = {
+            var specTree = {
                 'path': '.',
                 'name': 'my_specification',
-                'type': 'folder',
-                'items': []
+                'type': 'directory',
+                'children': []
             };
             // and
-            spyOn(featureBookService, 'findAll').and.returnValue($q.when(featuresTree));
+            spyOn(featureBookService, 'getSpecTree').and.returnValue($q.when(specTree));
             spyOn(featureBookService, 'metadata').and.returnValue($q.when({}));
 
             // when
@@ -54,7 +54,7 @@ describe('FeatureBookController', function () {
             $scope.$digest();
 
             // then
-            expect($scope.featuresTree).toEqual(featuresTree);
+            expect($scope.featuresTree).toEqual(specTree);
         });
 
         it('should set document title and version', function () {
@@ -62,7 +62,7 @@ describe('FeatureBookController', function () {
             var metadata = {'title': 'My Sample Specification', 'version': '1.0'};
             // and
             spyOn(featureBookService, 'metadata').and.returnValue($q.when(metadata));
-            spyOn(featureBookService, 'findAll').and.returnValue($q.when({}));
+            spyOn(featureBookService, 'getSpecTree').and.returnValue($q.when({}));
 
             // when
             $controller('FeatureBookController', {$scope: $scope});
@@ -77,7 +77,7 @@ describe('FeatureBookController', function () {
             var metadata = {'title': 'My Sample Specification'};
             // and
             spyOn(featureBookService, 'metadata').and.returnValue($q.when(metadata));
-            spyOn(featureBookService, 'findAll').and.returnValue($q.when({}));
+            spyOn(featureBookService, 'getSpecTree').and.returnValue($q.when({}));
 
             // when
             $controller('FeatureBookController', {$scope: $scope});
