@@ -1,8 +1,7 @@
 'use strict';
 
-var featurebook = require('../../lib/featurebook-api'),
-  chai = require('chai');
-
+var featurebook = require('../../lib/featurebook-api');
+var chai = require('chai');
 var should = chai.should();
 
 describe('featurebook-api', function () {
@@ -119,53 +118,53 @@ describe('featurebook-api', function () {
     it('should return spec tree', function () {
       var specTree = featurebook.readSpecTreeSync(TINY_SPEC_PATH);
       specTree.should.deep.equal({
-          "path": ".",
-          "name": "tiny",
-          "type": "directory",
-          "children": [
-            {
-              "path": "section-a",
-              "name": "section-a",
-              "type": "directory",
-              "children": [
-                {
-                  "path": "section-a/file-a.feature",
-                  "name": "file-a.feature",
-                  "type": "file"
-                },
-                {
-                  "path": "section-a/file-b.feature",
-                  "name": "file-b.feature",
-                  "type": "file"
-                },
-                {
-                  "path": "section-a/section-b",
-                  "name": "section-b",
-                  "type": "directory",
-                  "children": [
-                    {
-                      "path": "section-a/section-b/file-c.feature",
-                      "name": "file-c.feature",
-                      "type": "file"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "path": "section-c",
-              "name": "section-c",
-              "type": "directory",
-              "children": [
-                {
-                  "path": "section-c/file-d.feature",
-                  "name": "file-d.feature",
-                  "type": "file"
-                }
-              ]
-            }
-          ]
-        });
+        "path": ".",
+        "name": "tiny",
+        "type": "directory",
+        "children": [
+          {
+            "path": "section-a",
+            "name": "section-a",
+            "type": "directory",
+            "children": [
+              {
+                "path": "section-a/file-a.feature",
+                "name": "file-a.feature",
+                "type": "file"
+              },
+              {
+                "path": "section-a/file-b.feature",
+                "name": "file-b.feature",
+                "type": "file"
+              },
+              {
+                "path": "section-a/section-b",
+                "name": "section-b",
+                "type": "directory",
+                "children": [
+                  {
+                    "path": "section-a/section-b/file-c.feature",
+                    "name": "file-c.feature",
+                    "type": "file"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "path": "section-c",
+            "name": "section-c",
+            "type": "directory",
+            "children": [
+              {
+                "path": "section-c/file-d.feature",
+                "name": "file-d.feature",
+                "type": "file"
+              }
+            ]
+          }
+        ]
+      });
     });
 
   });

@@ -17,7 +17,7 @@ table {
 }
 
 .table-responsive {
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .data-table td {

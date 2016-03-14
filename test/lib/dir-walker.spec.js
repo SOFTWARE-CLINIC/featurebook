@@ -1,26 +1,27 @@
 'use strict';
 
-var walker = require('../../lib/dir-walker'),
-  chai = require('chai'),
-  path = require('path');
-
+var walker = require('../../lib/dir-walker');
+var chai = require('chai');
+var path = require('path');
 var should = chai.should();
 
 describe('dir-walker', function () {
 
   var TEST_DIR = 'test/resources/dir-walker';
-  var ALL_FILES_FILTER = function () { return true; };
+  var ALL_FILES_FILTER = function () {
+    return true;
+  };
 
   describe('#find', function () {
     it('should find files asynchronously', function (done) {
       walker.find(/file.*/, TEST_DIR, function (err, files) {
         should.equal(err, null);
         files.should.deep.equal([
-          'test/resources/dir-walker/dir-a/file-a.feature',
-          'test/resources/dir-walker/dir-a/file-b.txt',
-          'test/resources/dir-walker/dir-a/dir-b/file-c.feature',
-          'test/resources/dir-walker/dir-a/dir-b/file-d.txt',
-          'test/resources/dir-walker/dir-a/dir-b/dir-c/file-e.feature'
+          path.normalize('test/resources/dir-walker/dir-a/file-a.feature'),
+          path.normalize('test/resources/dir-walker/dir-a/file-b.txt'),
+          path.normalize('test/resources/dir-walker/dir-a/dir-b/file-c.feature'),
+          path.normalize('test/resources/dir-walker/dir-a/dir-b/file-d.txt'),
+          path.normalize('test/resources/dir-walker/dir-a/dir-b/dir-c/file-e.feature')
         ]);
         done();
       });
@@ -31,11 +32,11 @@ describe('dir-walker', function () {
     it('should find files synchronously', function () {
       var files = walker.findSync(/file.*/, TEST_DIR);
       files.should.deep.equal([
-        'test/resources/dir-walker/dir-a/dir-b/dir-c/file-e.feature',
-        'test/resources/dir-walker/dir-a/dir-b/file-c.feature',
-        'test/resources/dir-walker/dir-a/dir-b/file-d.txt',
-        'test/resources/dir-walker/dir-a/file-a.feature',
-        'test/resources/dir-walker/dir-a/file-b.txt'
+        path.normalize('test/resources/dir-walker/dir-a/dir-b/dir-c/file-e.feature'),
+        path.normalize('test/resources/dir-walker/dir-a/dir-b/file-c.feature'),
+        path.normalize('test/resources/dir-walker/dir-a/dir-b/file-d.txt'),
+        path.normalize('test/resources/dir-walker/dir-a/file-a.feature'),
+        path.normalize('test/resources/dir-walker/dir-a/file-b.txt')
       ]);
     });
   });
