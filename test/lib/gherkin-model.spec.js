@@ -3,14 +3,16 @@
 var featurebook = require('../../lib/featurebook-api');
 var chai = require('chai');
 var should = chai.should();
-chai.use(require('./helpers/chai-gherkin-model'));
+var path = require('path');
 
 describe('gherkin-model', function () {
+
+  var FEATURES_DIR = 'test/resources/features';
 
   describe('#readFeatureSync', function () {
 
     it('should parse a simple feature with a single scenario', function () {
-      var feature = featurebook.readFeatureSync('test/resources/hello_world.feature'),
+      var feature = featurebook.readFeatureSync(path.join(FEATURES_DIR, 'hello_world.feature')),
         firstScenarioDefinition = feature.scenarioDefinitions[0];
 
       feature.name.should.equal('Hello World');
@@ -26,7 +28,7 @@ describe('gherkin-model', function () {
     });
 
     it('should parse a simple feature with a single scenario outline', function () {
-      var feature = featurebook.readFeatureSync('test/resources/eating_cucumbers.feature'),
+      var feature = featurebook.readFeatureSync(path.join(FEATURES_DIR, 'eating_cucumbers.feature')),
         firstScenarioDefinition = feature.scenarioDefinitions[0];
 
       feature.name.should.equal('Eating cucumbers');
@@ -44,7 +46,7 @@ describe('gherkin-model', function () {
     });
 
     it('should parse a simple feature with the background', function () {
-      var feature = featurebook.readFeatureSync('test/resources/simple_feature_with_background.feature');
+      var feature = featurebook.readFeatureSync(path.join(FEATURES_DIR, 'simple_feature_with_background.feature'));
       var backgroundSteps = feature.background.steps;
       var firstScenarioSteps = feature.scenarioDefinitions[0].steps;
 
@@ -64,7 +66,7 @@ describe('gherkin-model', function () {
     });
 
     it('should parse a simple feature written in Polish', function () {
-      var feature = featurebook.readFeatureSync('test/resources/simple_feature_written_in_polish.feature'),
+      var feature = featurebook.readFeatureSync(path.join(FEATURES_DIR, 'simple_feature_written_in_polish.feature')),
         firstScenario = feature.scenarioDefinitions[0];
 
       feature.name.should.equal('Logowanie do aplikacji');
@@ -78,7 +80,7 @@ describe('gherkin-model', function () {
     });
 
     it('should parse a simple feature with data tables', function () {
-      var feature = featurebook.readFeatureSync('test/resources/simple_feature_with_data_tables.feature'),
+      var feature = featurebook.readFeatureSync(path.join(FEATURES_DIR, 'simple_feature_with_data_tables.feature')),
         firstScenarioDefinition = feature.scenarioDefinitions[0];
 
       feature.name.should.equal('Metadata');
@@ -98,7 +100,7 @@ describe('gherkin-model', function () {
     });
 
     it('should parse a simple feature with doc strings', function () {
-      var feature = featurebook.readFeatureSync('test/resources/simple_feature_with_doc_strings.feature'),
+      var feature = featurebook.readFeatureSync(path.join(FEATURES_DIR, 'simple_feature_with_doc_strings.feature')),
         firstScenario = feature.scenarioDefinitions[0];
 
       feature.background.steps[0].argument.content.should.equal('Awesome Blog\n============\nWelcome to Awesome Blog!');
@@ -110,7 +112,7 @@ describe('gherkin-model', function () {
     });
 
     it('should parse a simple feature with tags', function () {
-      var feature = featurebook.readFeatureSync('test/resources/simple_feature_with_tags.feature');
+      var feature = featurebook.readFeatureSync(path.join(FEATURES_DIR, 'simple_feature_with_tags.feature'));
 
       feature.tags[0].name.should.equal('@FeatureTag1');
       feature.tags[1].name.should.equal('@FeatureTag2');
@@ -124,7 +126,7 @@ describe('gherkin-model', function () {
     });
 
     it('should parse a simple feature with scenario outline and data table', function () {
-      var feature = featurebook.readFeatureSync('test/resources/simple_feature_with_scenario_outline_and_data_table.feature'),
+      var feature = featurebook.readFeatureSync(path.join(FEATURES_DIR, 'simple_feature_with_scenario_outline_and_data_table.feature')),
         firstScenarioDefinition = feature.scenarioDefinitions[0],
         firstStep = firstScenarioDefinition.steps[0];
 
@@ -146,7 +148,7 @@ describe('gherkin-model', function () {
     });
 
     it('should preserve order when parsing scenarios and scenario outlines', function () {
-      var feature = featurebook.readFeatureSync('test/resources/simple_feature_with_scenarios_and_scenario_outlines.feature');
+      var feature = featurebook.readFeatureSync(path.join(FEATURES_DIR, 'simple_feature_with_scenarios_and_scenario_outlines.feature'));
 
       feature.scenarioDefinitions[0].name.should.equal('first outline');
       feature.scenarioDefinitions[1].name.should.equal('first scenario');
@@ -155,7 +157,7 @@ describe('gherkin-model', function () {
     });
 
     it('should parse a simple feature with scenario outline and two examples', function () {
-      var feature = featurebook.readFeatureSync('test/resources/simple_feature_with_scenario_outline_and_two_examples.feature'),
+      var feature = featurebook.readFeatureSync(path.join(FEATURES_DIR, 'simple_feature_with_scenario_outline_and_two_examples.feature')),
         firstScenario = feature.scenarioDefinitions[0];
 
       firstScenario.examples[0].name.should.equal('Successful withdrawal');

@@ -1,9 +1,8 @@
 'use strict';
 
-var chai = require('chai'),
-  jade = require('jade');
-
-chai.should();
+var chai = require('chai');
+var jade = require('jade');
+var should = chai.should();
 
 describe('jade template', function () {
 

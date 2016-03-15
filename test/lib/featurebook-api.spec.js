@@ -9,6 +9,7 @@ describe('featurebook-api', function () {
   var TINY_SPEC_PATH = 'test/resources/specs/tiny';
 
   describe('#readMetadata', function () {
+
     it('should return metadata', function (done) {
       featurebook.readMetadata(TINY_SPEC_PATH, function (err, metadata) {
         should.equal(err, null);
@@ -16,6 +17,7 @@ describe('featurebook-api', function () {
         done();
       });
     });
+
   });
 
   describe('#readMetadataSync', function () {
