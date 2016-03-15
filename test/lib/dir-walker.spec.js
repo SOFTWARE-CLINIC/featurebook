@@ -16,7 +16,7 @@ describe('dir-walker', function () {
     it('should find files asynchronously', function (done) {
       walker.find(/file.*/, TEST_DIR, function (err, files) {
         should.equal(err, null);
-        files.should.deep.equal([
+        files.should.have.members([
           path.normalize('test/resources/dir-walker/dir-a/file-a.feature'),
           path.normalize('test/resources/dir-walker/dir-a/file-b.txt'),
           path.normalize('test/resources/dir-walker/dir-a/dir-b/file-c.feature'),
@@ -31,7 +31,7 @@ describe('dir-walker', function () {
   describe('#findSync', function () {
     it('should find files synchronously', function () {
       var files = walker.findSync(/file.*/, TEST_DIR);
-      files.should.deep.equal([
+      files.should.have.members([
         path.normalize('test/resources/dir-walker/dir-a/dir-b/dir-c/file-e.feature'),
         path.normalize('test/resources/dir-walker/dir-a/dir-b/file-c.feature'),
         path.normalize('test/resources/dir-walker/dir-a/dir-b/file-d.txt'),
