@@ -9,7 +9,7 @@ describe('jade template', function () {
   var templateFile, compileOptions, fn;
 
   beforeEach(function () {
-    templateFile = 'lib/builder/specification.jade';
+    templateFile = 'lib/META-INF/index.jade';
     compileOptions = {};
     fn = jade.compileFile(templateFile, compileOptions);
   });

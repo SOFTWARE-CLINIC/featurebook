@@ -8,7 +8,7 @@ chai.should();
 describe('learning jade', function () {
 
   it.skip('should compile template to HTML', function () {
-    var templateFile = 'lib/builder/specification.jade';
+    var templateFile = 'lib/META-INF/index.jade';
     var compileOptions = {pretty: true};
     var fn = jade.compileFile(templateFile, compileOptions);
     var locals = {

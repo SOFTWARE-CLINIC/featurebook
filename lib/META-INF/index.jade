@@ -1,9 +1,9 @@
 mixin printNode(obj)
   if obj && obj.type === 'file'
     div= obj.path
-  else if obj && obj.type === 'folder'
+  else if obj && obj.type === 'directory'
     h3= obj.name
-    each item in obj.items
+    each item in obj.children
       +printNode(item)
 
 doctype html
