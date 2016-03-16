@@ -1,15 +1,12 @@
 {
   "name": "featurebook",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "dependencies": {
     "angular": "1.4.9",
     "angular-route": "1.4.9",
     "angular-sanitize": "1.4.9"
   },
   "devDependencies": {
-    "angular-mocks": "^1.4.9"
-  },
-  "resolutions": {
-    "angular": "1.4.9"
+    "angular-mocks": "1.4.9"
   }
 }
