@@ -1,0 +1,23 @@
+mixin printNode(obj)
+  if obj && obj.type === 'file'
+    div= obj.path
+  else if obj && obj.type === 'directory'
+    h3= obj.name
+    each item in obj.children
+      +printNode(item)
+
+doctype html
+html
+  body
+
+    if metadata.authors
+      ul
+        each author in metadata.authors
+          li= author.firstName + ' ' + author.lastName
+
+    if metadata.contributors
+      ul
+        each contributor in metadata.contributors
+          li= contributor.firstName + ' ' + contributor.lastName
+
+    +printNode(nodes)

@@ -4,7 +4,7 @@ var chai = require('chai');
 var jade = require('jade');
 var should = chai.should();
 
-describe('jade template', function () {
+describe.skip('jade template', function () {
 
   var templateFile, compileOptions, fn;
 

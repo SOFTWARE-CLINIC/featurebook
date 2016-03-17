@@ -1,35 +1,38 @@
-h1 #{feature.keyword}: #{feature.name}
+doctype html
+html
+  body
+    h1 #{feature.keyword}: #{feature.name}
 
-div #{feature.description}
+    div #{feature.description}
 
-if feature.background
-  h2 #{feature.background.keyword}: #{feature.background.name}
-  each step in feature.background.steps
-    div.featurebook-step
-      span.featurebook-keyword= step.keyword
-      span= step.text
+    if feature.background
+      h2 #{feature.background.keyword}: #{feature.background.name}
+      each step in feature.background.steps
+        div.featurebook-step
+          span.featurebook-keyword= step.keyword
+          span= step.text
 
-each scenarioDefinition in feature.scenarioDefinitions
-  h2= scenarioDefinition.keyword + ': ' + scenarioDefinition.name
-  each step in scenarioDefinition.steps
-    div.featurebook-step
-      span.featurebook-keyword= step.keyword
-      span= step.text
-      if step.argument && step.argument.type == 'DataTable'
-        table
-          each row in step.argument.rows
+    each scenarioDefinition in feature.scenarioDefinitions
+      h2= scenarioDefinition.keyword + ': ' + scenarioDefinition.name
+      each step in scenarioDefinition.steps
+        div.featurebook-step
+          span.featurebook-keyword= step.keyword
+          span= step.text
+          if step.argument && step.argument.type == 'DataTable'
+            table
+              each row in step.argument.rows
+                tr
+                  each cell in row.cells
+                    td= cell.value
+
+      if scenarioDefinition.examples
+        each example in scenarioDefinition.examples
+          h2= example.keyword + ': ' + example.name
+          table
             tr
-              each cell in row.cells
-                td= cell.value
-
-  if scenarioDefinition.examples
-    each example in scenarioDefinition.examples
-      h2= example.keyword + ': ' + example.name
-      table
-        tr
-          each cell in example.tableHeader.cells
-            th= cell.value
-        each row in example.tableBody
-          tr
-            each cell in row.cells
-              td= cell.value
+              each cell in example.tableHeader.cells
+                th= cell.value
+            each row in example.tableBody
+              tr
+                each cell in row.cells
+                  td= cell.value

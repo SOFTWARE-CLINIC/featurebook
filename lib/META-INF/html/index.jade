@@ -1,27 +1,10 @@
-mixin printNode(obj)
-  if obj && obj.type === 'file'
-    div= obj.path
-  else if obj && obj.type === 'directory'
-    h3= obj.name
-    each item in obj.children
-      +printNode(item)
-
 doctype html
+html
+  head
+    title #{metadata.title} #{metadata.version}
+    link(href='stylesheet.css', rel='stylesheet')
+    script(src='script.js')
 
-head
-  title #{metadata.title} #{metadata.version}
-
-body
-  h1 #{metadata.title} #{metadata.version}
-
-  if metadata.authors
-    ul
-      each author in metadata.authors
-        li= author.firstName + ' ' + author.lastName
-
-  if metadata.contributors
-    ul
-      each contributor in metadata.contributors
-        li= contributor.firstName + ' ' + contributor.lastName
-
-+printNode(nodes)
+  frameset(cols="20%,80%")
+    frame(src='spec-tree.html', name='specTreeFrame', title='Specification tree')
+    frame(src='feature.html', name='featureFrame', title='Feature contents', scrolling='yes')
