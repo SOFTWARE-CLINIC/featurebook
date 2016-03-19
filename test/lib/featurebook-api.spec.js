@@ -64,31 +64,37 @@ describe('featurebook-api', function () {
         specTree.should.deep.equal({
           "path": ".",
           "name": "tiny",
+          "displayName": "Tiny",
           "type": "directory",
           "children": [
             {
               "path": "section-a",
               "name": "section-a",
+              "displayName": "Section-a",
               "type": "directory",
               "children": [
                 {
                   "path": "section-a/file-a.feature",
                   "name": "file-a.feature",
+                  "displayName": "File-a",
                   "type": "file"
                 },
                 {
                   "path": "section-a/file-b.feature",
                   "name": "file-b.feature",
+                  "displayName": "File-b",
                   "type": "file"
                 },
                 {
                   "path": "section-a/section-b",
                   "name": "section-b",
+                  "displayName": "Section-b",
                   "type": "directory",
                   "children": [
                     {
                       "path": "section-a/section-b/file-c.feature",
                       "name": "file-c.feature",
+                      "displayName": "File-c",
                       "type": "file"
                     }
                   ]
@@ -98,11 +104,13 @@ describe('featurebook-api', function () {
             {
               "path": "section-c",
               "name": "section-c",
+              "displayName": "Section-c",
               "type": "directory",
               "children": [
                 {
                   "path": "section-c/file-d.feature",
                   "name": "file-d.feature",
+                  "displayName": "File-d",
                   "type": "file"
                 }
               ]
@@ -122,31 +130,37 @@ describe('featurebook-api', function () {
       specTree.should.deep.equal({
         "path": ".",
         "name": "tiny",
+        "displayName": "Tiny",
         "type": "directory",
         "children": [
           {
             "path": "section-a",
             "name": "section-a",
+            "displayName": "Section-a",
             "type": "directory",
             "children": [
               {
                 "path": "section-a/file-a.feature",
                 "name": "file-a.feature",
+                "displayName": "File-a",
                 "type": "file"
               },
               {
                 "path": "section-a/file-b.feature",
                 "name": "file-b.feature",
+                "displayName": "File-b",
                 "type": "file"
               },
               {
                 "path": "section-a/section-b",
                 "name": "section-b",
+                "displayName": "Section-b",
                 "type": "directory",
                 "children": [
                   {
                     "path": "section-a/section-b/file-c.feature",
                     "name": "file-c.feature",
+                    "displayName": "File-c",
                     "type": "file"
                   }
                 ]
@@ -156,11 +170,13 @@ describe('featurebook-api', function () {
           {
             "path": "section-c",
             "name": "section-c",
+            "displayName": "Section-c",
             "type": "directory",
             "children": [
               {
                 "path": "section-c/file-d.feature",
                 "name": "file-d.feature",
+                "displayName": "File-d",
                 "type": "file"
               }
             ]

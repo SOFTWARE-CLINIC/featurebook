@@ -2,11 +2,11 @@
     <a ng-switch-when="file"
        class="featurebook-node-file"
        ng-class="{active : isActive(feature)}"
-       href="#viewer/{{feature.path | encodeURIComponent}}">{{feature.name | titleize}}
+       href="#viewer/{{feature.path | encodeURIComponent}}">{{feature.displayName}}
     </a>
 
     <a ng-switch-when="directory"
        class="featurebook-node-directory"
        ng-class="{active : isActive(feature)}"
-       href="#summary/{{feature.path | encodeURIComponent}}">{{feature.name | titleize}}</a>
+       href="#summary/{{feature.path | encodeURIComponent}}">{{feature.displayName}}</a>
 </li>
