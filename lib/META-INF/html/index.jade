@@ -2,9 +2,10 @@ doctype html
 html
   head
     title #{metadata.title} #{metadata.version}
-    link(href='stylesheet.css', rel='stylesheet')
-    script(src='script.js')
+    style
+      include stylesheet.css
 
-  frameset(cols="20%,80%")
-    frame(src='spec-tree.html', name='specTreeFrame', title='Specification tree')
-    frame(src='feature.html', name='featureFrame', title='Feature contents', scrolling='yes')
+  body
+    div.featurebook-container
+      include metadata.jade
+      include spec-tree.jade

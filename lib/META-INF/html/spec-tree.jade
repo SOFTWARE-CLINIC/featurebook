@@ -1,23 +1,15 @@
 mixin printNode(obj)
   if obj && obj.type === 'file'
-    div= obj.path
+    li
+      a.featurebook-spec-tree-file(href=obj.path + '.html')= obj.name
   else if obj && obj.type === 'directory'
-    h3= obj.name
-    each item in obj.children
-      +printNode(item)
-
-doctype html
-html
-  body
-
-    if metadata.authors
+    li
+      a.featurebook-spec-tree-directory(href=obj.path)= obj.name
       ul
-        each author in metadata.authors
-          li= author.firstName + ' ' + author.lastName
+        each child in obj.children
+          +printNode(child)
 
-    if metadata.contributors
-      ul
-        each contributor in metadata.contributors
-          li= contributor.firstName + ' ' + contributor.lastName
-
-    +printNode(nodes)
+aside.featurebook-spec-tree
+  ul
+    each child in specTree.children
+      +printNode(child)
