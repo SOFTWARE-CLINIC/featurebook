@@ -5,6 +5,4 @@ npm-debug.log
 .idea
 *.iml
 
-features/dist
-
-coverage
+docs/dist

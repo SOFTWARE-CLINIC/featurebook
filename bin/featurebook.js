@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 'use strict';
 
-var pkg = require('../package.json'),
-  program = require('commander'),
-  featurebook = require('../lib/featurebook-api'),
-  path = require('path');
+var program = require('commander');
+var featurebook = require('../lib/featurebook-api');
+var path = require('path');
 
 program
-  .version(pkg.version);
+  .version(featurebook.version);
 
 program
   .command('serve [source-dir]')

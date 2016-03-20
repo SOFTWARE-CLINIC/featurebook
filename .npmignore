@@ -1,7 +1,10 @@
+.idea
 .bowerrc
 .editorconfig
 .jshintrc
 .travis.yml
+test
 bower.json
 public/bower_components
 gulpfile.js
+docs/dist
