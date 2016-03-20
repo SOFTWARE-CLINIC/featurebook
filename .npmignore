@@ -1,0 +1,7 @@
+.bowerrc
+.editorconfig
+.jshintrc
+.travis.yml
+bower.json
+public/bower_components
+gulpfile.js
