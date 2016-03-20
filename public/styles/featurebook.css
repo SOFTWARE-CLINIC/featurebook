@@ -6,7 +6,7 @@
 
 body {
     background: #23232E;
-    font-family: 'Anaheim', Arial, Helvetica, sans-serif;
+    font-family: Arial Narrow, Arial, Helvetica, sans-serif;
     font-size: 16px;
     color: #7BA1AD;
     margin: 20px;
@@ -236,11 +236,6 @@ table {
 
 .featurebook-markdown a {
     color: white;
-}
-
-.featurebook-editor {
-    height: 600px;
-    font-size: 20px;
 }
 
 .featurebook-cursor-pointer {

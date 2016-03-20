@@ -1,3 +1,16 @@
+mixin printStep(step)
+  div.featurebook-step
+    span.featurebook-step-keyword= step.keyword
+    span.featurebook-step-text= step.text
+      if step.argument && step.argument.type == 'DataTable'
+        table.featurebook-data-table
+          each row in step.argument.rows
+            tr
+              each cell in row.cells
+                td= cell.value
+      if step.argument && step.argument.type == 'DocString'
+        pre.featurebook-doc-string= step.argument.content
+
 doctype html
 html
   head
@@ -6,49 +19,38 @@ html
       include stylesheet.css
 
   body
+    div.featurebook-container
+      include _metadata.jade
+      include _spec-tree.jade
 
-    include metadata.jade
+      main.featurebook-main
+        div.featurebook-feature-name #{feature.keyword}: #{feature.name}
 
-    include spec-tree.jade
+        div #{feature.description}
 
-    main.featurebook-main
-      div.featurebook-feature-name #{feature.keyword}: #{feature.name}
+        if feature.background
+          div.featurebook-background
+            div.featurebook-background-name #{feature.background.keyword}: #{feature.background.name}
+            each step in feature.background.steps
+              +printStep(step)
 
-      div #{feature.description}
+        each scenarioDefinition in feature.scenarioDefinitions
+          div.featurebook-scenario-definition
+            each tag in scenarioDefinition.tags
+              div.featurebook-tag= tag.name
+            div.featurebook-scenario-definition-name= scenarioDefinition.keyword + ': ' + scenarioDefinition.name
+            each step in scenarioDefinition.steps
+              +printStep(step)
 
-      if feature.background
-        div.featurebook-background
-          div.featurebook-background-name #{feature.background.keyword}: #{feature.background.name}
-          each step in feature.background.steps
-            div.featurebook-step
-              span.featurebook-step-keyword= step.keyword
-              span.featurebook-step-text= step.text
-
-      each scenarioDefinition in feature.scenarioDefinitions
-        div.featurebook-scenario-definition
-          each tag in scenarioDefinition.tags
-            div.featurebook-tag= tag.name
-          div.featurebook-scenario-definition-name= scenarioDefinition.keyword + ': ' + scenarioDefinition.name
-          each step in scenarioDefinition.steps
-            div.featurebook-step
-              span.featurebook-step-keyword= step.keyword
-              span.featurebook-step-text= step.text
-              if step.argument && step.argument.type == 'DataTable'
-                table
-                  each row in step.argument.rows
+            if scenarioDefinition.examples
+              each example in scenarioDefinition.examples
+                div.featurebook-examples
+                  div.featurebook-examples-name= example.keyword + ': ' + example.name
+                  table.featurebook-data-table
                     tr
-                      each cell in row.cells
-                        td= cell.value
-
-          if scenarioDefinition.examples
-            each example in scenarioDefinition.examples
-              div.featurebook-examples
-                div.featurebook-examples-name= example.keyword + ': ' + example.name
-                table
-                  tr
-                    each cell in example.tableHeader.cells
-                      th= cell.value
-                  each row in example.tableBody
-                    tr
-                      each cell in row.cells
-                        td= cell.value
+                      each cell in example.tableHeader.cells
+                        th= cell.value
+                    each row in example.tableBody
+                      tr
+                        each cell in row.cells
+                          td= cell.value
