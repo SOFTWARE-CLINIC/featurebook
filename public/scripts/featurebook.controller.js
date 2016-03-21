@@ -1,7 +1,6 @@
 (function () {
   'use strict';
 
-  /* global angular */
   angular.module('scFeatureBook')
     .controller('FeatureBookController', FeatureBookController);
 
@@ -10,7 +9,7 @@
   function FeatureBookController($scope, $window, featureBookService) {
 
     function activate() {
-      featureBookService.metadata().then(function (metadata) {
+      featureBookService.getMetadata().then(function (metadata) {
         $scope.metadata = metadata;
         $window.document.title = metadata.title + ' ' + (metadata.version || '');
       });

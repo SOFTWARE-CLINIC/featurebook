@@ -12,14 +12,4 @@ describe('featureBookService', function () {
         });
     });
 
-    describe('#metadata', function () {
-    });
-
-    describe('#findAll', function () {
-    });
-
-    describe('findByPath', function () {
-    });
-
-
 });

@@ -1,7 +1,6 @@
 (function () {
   'use strict';
 
-  /* global angular */
   angular.module('scFeatureBook')
     .factory('featureBookService', featureBookServiceFactory);
 
@@ -9,14 +8,14 @@
 
   function featureBookServiceFactory($http) {
     return {
-      metadata: metadata,
-      getSummaryByPath: getSummaryByPath,
+      getMetadata: getMetadata,
+      getSummary: getSummary,
       getSpecTree: getSpecTree,
-      getModelByPath: getModelByPath,
+      getFeature: getFeature,
       getContentByPath: getContentByPath
     };
 
-    function metadata() {
+    function getMetadata() {
       return $http.get('api/rest/metadata').then(function (response) {
         return response.data;
       });
@@ -28,8 +27,8 @@
       });
     }
 
-    function getModelByPath(path) {
-      return $http.get('api/rest/feature/parsed/' + encodeURIComponent(path)).then(function (response) {
+    function getFeature(path) {
+      return $http.get('api/rest/feature/' + encodeURIComponent(path)).then(function (response) {
         return response.data;
       });
     }
@@ -40,7 +39,7 @@
       });
     }
 
-    function getSummaryByPath(path) {
+    function getSummary(path) {
       return $http.get('api/rest/summary/' + (path ? encodeURIComponent(path) : '')).then(function (response) {
         return response.data;
       }, function (response) {

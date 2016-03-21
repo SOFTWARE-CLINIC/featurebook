@@ -1,7 +1,6 @@
 (function () {
   'use strict';
 
-  /* global angular */
   angular.module('scFeatureBook')
     .directive('feature', featureNodeDirectiveFactory);
 
@@ -21,6 +20,5 @@
       }
     };
   }
-
 
 })();

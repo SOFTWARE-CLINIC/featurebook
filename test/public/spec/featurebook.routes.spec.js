@@ -1,6 +1,6 @@
 'use strict';
 
-describe('featurebook', function () {
+describe('featurebook routes config', function () {
 
     var $rootScope, $route, $location, featureBookService;
 
@@ -17,7 +17,7 @@ describe('featurebook', function () {
 
     it('should configure route for `/summary/`', function () {
         expect($route.current).toBeUndefined();
-        spyOn(featureBookService, 'getSummaryByPath').and.returnValue('<div>summary</div>');
+        spyOn(featureBookService, 'getSummary').and.returnValue('<div>summary</div>');
 
         $location.path('/summary/');
         $rootScope.$digest();
@@ -27,7 +27,7 @@ describe('featurebook', function () {
     });
 
     it('should configure route for `/viewer/my.feature`', function () {
-        spyOn(featureBookService, 'getModelByPath').and.returnValue({name: 'Test feature'});
+        spyOn(featureBookService, 'getFeature').and.returnValue({name: 'Test feature'});
         $location.path('/viewer/my.feature');
         $rootScope.$digest();
 
@@ -38,7 +38,7 @@ describe('featurebook', function () {
     });
 
     it('should configure route for `/viewer/a/sub/folder/for/my.feature`', function () {
-        spyOn(featureBookService, 'getModelByPath').and.returnValue({name: 'Test feature'});
+        spyOn(featureBookService, 'getFeature').and.returnValue({name: 'Test feature'});
         $location.path('/viewer/a/sub/folder/for/my.feature');
         $rootScope.$digest();
 
@@ -49,7 +49,7 @@ describe('featurebook', function () {
     });
 
     it('should redirect to `/summary/` otherwise', function () {
-        spyOn(featureBookService, 'getSummaryByPath').and.returnValue('<div>summary</div>div>');
+        spyOn(featureBookService, 'getSummary').and.returnValue('<div>summary</div>div>');
         $location.path('/somewhere');
         $rootScope.$digest();
 

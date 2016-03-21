@@ -1,7 +1,6 @@
 (function () {
   'use strict';
 
-  /* global angular */
   angular.module('scFeatureBook')
     .controller('FeatureViewerController', FeatureViewerController);
 
@@ -13,10 +12,6 @@
 
     function $activate() {
       $scope.featureResponse = $route.current.locals.feature;
-
-      $scope.edit = function edit() {
-        $location.path('/editor/' + $route.current.params.path);
-      };
 
       $scope.hasError = function hasError() {
         return $scope.featureResponse.status !== 'success';

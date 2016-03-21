@@ -11,6 +11,7 @@ module.exports = function (config) {
       'public/views/**/*.html',
 
       'public/scripts/featurebook.module.js',
+      'public/scripts/featurebook.routes.js',
       'public/scripts/featurebook.controller.js',
       'public/scripts/summary.controller.js',
       'public/scripts/featurebook.service.js',
