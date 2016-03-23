@@ -4,16 +4,15 @@
   angular.module('scFeatureBook')
     .controller('FeatureViewerController', FeatureViewerController);
 
-  FeatureViewerController.$inject = ['$scope', '$route', '$location'];
+  FeatureViewerController.$inject = ['$scope', '$route'];
 
-  function FeatureViewerController($scope, $route, $location) {
+  function FeatureViewerController($scope, $route) {
 
-    $activate();
+    activate();
 
-    function $activate() {
+    function activate() {
       $scope.featureResponse = $route.current.locals.feature;
-
-      $scope.hasError = function hasError() {
+      $scope.hasError = function () {
         return $scope.featureResponse.status !== 'success';
       };
     }

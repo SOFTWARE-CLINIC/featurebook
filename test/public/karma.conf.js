@@ -13,6 +13,7 @@ module.exports = function (config) {
       'public/scripts/featurebook.module.js',
       'public/scripts/featurebook.routes.js',
       'public/scripts/featurebook.controller.js',
+      'public/scripts/feature-viewer.controller.js',
       'public/scripts/summary.controller.js',
       'public/scripts/featurebook.service.js',
       'public/scripts/person.directive.js',

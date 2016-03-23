@@ -2,18 +2,92 @@
 
 describe('FeatureViewerController', function () {
 
-    var $controller;
+  var $rootScope;
+  var $controller;
+  var $route;
 
-    beforeEach(function () {
-        module('scFeatureBook');
+  beforeEach(function () {
+    angular.mock.module('scFeatureBook');
+    angular.mock.inject(function (_$rootScope_, _$controller_, _$route_) {
+      $rootScope = _$rootScope_;
+      $controller = _$controller_;
+      $route = _$route_;
+    });
+  });
 
-        inject(function (_$controller_) {
-            $controller = _$controller_;
-        });
+  describe('#activate', function () {
+    it('should save route resolve', function () {
+      // given
+      var $scope = $rootScope.$new();
+      // and
+      $route.current = {
+        locals: {
+          feature: {
+            status: 'success',
+            data: {
+              keyword: 'Feature'
+            }
+          }
+        }
+      };
+
+      // when
+      $controller('FeatureViewerController', {$scope: $scope});
+      $scope.$digest();
+
+      // then
+      expect($scope.featureResponse).toEqual({
+        status: 'success',
+        data: {
+          keyword: 'Feature'
+        }
+      });
+    });
+  });
+
+  describe('#hasError', function () {
+    it('should return `true` when route resolve response status is `success`', function () {
+      // given
+      var $scope = $rootScope.$new();
+      // and
+      $route.current = {
+        locals: {
+          feature: {
+            status: 'success',
+            data: {
+              keyword: 'Feature'
+            }
+          }
+        }
+      };
+
+      // when
+      $controller('FeatureViewerController', {$scope: $scope});
+      $scope.$digest();
+
+      // then
+      expect($scope.hasError()).toBe(false);
     });
 
-    describe('#$activate', function () {
-        // TODO Implement me
+    it('should return `false` when route resolve status is `error`', function () {
+      // given
+      var $scope = $rootScope.$new();
+      // and
+      $route.current = {
+        locals: {
+          feature: {
+            status: 'error'
+          }
+        }
+      };
+
+      // when
+      $controller('FeatureViewerController', {$scope: $scope});
+      $scope.$digest();
+
+      // then
+      expect($scope.hasError()).toBe(true);
     });
+  });
 
 });
