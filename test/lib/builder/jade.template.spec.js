@@ -1,5 +1,3 @@
-'use strict';
-
 var chai = require('chai');
 var jade = require('jade');
 var should = chai.should();
