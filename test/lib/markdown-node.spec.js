@@ -1,9 +1,6 @@
-'use strict';
-
-var MarkdownNode = require('../../../lib/builder/markdown-node'),
-  chai = require('chai');
-
-chai.should();
+var MarkdownNode = require('../../lib/markdown-node');
+var chai = require('chai');
+var should = chai.should();
 
 describe('markdown-node', function () {
 

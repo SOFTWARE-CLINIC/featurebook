@@ -1,5 +1,3 @@
-'use strict';
-
 var markdown = require('../../lib/markdown-parser');
 
 describe('markdown-parser', function () {

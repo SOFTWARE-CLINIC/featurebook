@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-'use strict';
-
 var program = require('commander');
 var featurebook = require('../lib/featurebook-api');
 var path = require('path');
+
+var DEFAULT_SERVE_PORT = 3000;
 
 program
   .version(featurebook.version);
@@ -30,22 +30,21 @@ program.parse(process.argv);
 
 displayHelpIfNoCommandWasProvided();
 
-function serve(sourceDir, options) {
-  featurebook.commands.serve(
-    sourceDir || process.cwd(),
-    options.port || 3000
-  );
+function serve(specDir, options) {
+  require('../lib/featurebook-serve').execute(
+    specDir || process.cwd(),
+    options.port || DEFAULT_SERVE_PORT);
 }
 
-function buildPdf(sourceDir, options) {
-  featurebook.commands.pdf(
-    sourceDir || process.cwd(),
+function buildPdf(specDir, options) {
+  require('../lib/featurebook-pdf').build(
+    specDir || process.cwd(),
     options.outputDir || path.join(process.cwd(), 'dist', 'pdf'));
 }
 
-function buildHtml(sourceDir, options) {
-  featurebook.commands.html(
-    sourceDir || process.cwd(),
+function buildHtml(specDir, options) {
+  require('../lib/featurebook-html').build(
+    specDir || process.cwd(),
     options.outputDir || path.join(process.cwd(), 'dist', 'html'));
 }
 
