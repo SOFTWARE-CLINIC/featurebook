@@ -1,6 +1,6 @@
-var markdown = require('../../lib/markdown-parser');
+var markdown = require('../../lib/featurebook-markdown');
 
-describe('markdown-parser', function () {
+describe('featurebook-parser', function () {
 
   describe('#parse', function () {
 

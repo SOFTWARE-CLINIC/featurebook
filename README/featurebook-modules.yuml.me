@@ -1,5 +1,6 @@
+[featurebook-markdown]->[markdown-it]
 [featurebook-api]->[gherkin]
-[featurebook-api]->[markdown-it]
+[featurebook-api]->[featurebook-markdown]
 [featurebook-serve]->[featurebook-api]
 [featurebook-serve]->[express]
 [featurebook-html]->[featurebook-api]
@@ -7,5 +8,10 @@
 [featurebook-cli]->[featurebook-serve]
 [featurebook-cli]->[featurebook-html]
 [featurebook-cli]->[featurebook-pdf]
+[featurebook-app]->[featurebook-api]
+[featurebook-app]->[NW.js]
 
-[featurebook-cli]-[note: A command line interface.{bg:cornsilk}]"
+[featurebook-api]-[note: FeatureBook's API{bg:cornsilk}]
+[featurebook-cli]-[note: FeatureBook's command line interface{bg:cornsilk}]
+[featurebook-markdown]-[note: Markdown parser for FeatureBook{bg:cornsilk}]
+[featurebook-app]-[note: FeatureBook native application{bg:cornsilk}]
