@@ -26,7 +26,7 @@ html
       main.featurebook-main
         div.featurebook-feature-name #{feature.keyword}: #{feature.name}
 
-        div !{feature.description}
+        div.featurebook-feature-description.featurebook-markdown !{feature.description}
 
         if feature.background
           div.featurebook-background

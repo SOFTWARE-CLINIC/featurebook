@@ -1,7 +1,6 @@
 (function () {
   'use strict';
 
-  /* global angular */
   angular.module('scFeatureBook')
     .controller('SummaryController', SummaryController);
 
@@ -12,9 +11,9 @@
 
   function SummaryController($scope, $route) {
 
-    $activate();
+    activate();
 
-    function $activate() {
+    function activate() {
       $scope.summary = $route.current.locals.summary || DEFAULT_SUMMARY_MESSAGE;
     }
   }
