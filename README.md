@@ -23,8 +23,8 @@ FeatureBook
 ## Introduction
 
 FeatureBook is a command line tool (and [Node.js](https://nodejs.org) library) for generating beautiful system
-specifications from [Gherkin](https://github.com/cucumber/cucumber/wiki/Gherkin) source files. Here are the
-[example](https://github.com/SOFTWARE-CLINIC/featurebook-examples) specifications you can play with.
+specifications from [Gherkin](https://github.com/cucumber/cucumber/wiki/Gherkin) source files.
+[Here](https://github.com/SOFTWARE-CLINIC/featurebook-examples) are the example specifications you can play with.
 
 ![Screenshot 1](/README/featurebook_screenshot_1.png)
 
@@ -123,8 +123,8 @@ A system specification is a directory containing:
 * Gherkin source files organized into subdirectories
 * The `assets` directory for images and videos that you can refer to from within the Gherkin source files
   as well as summary descriptors
-* An optional `SUMMARY.md` descriptor
-* An optional `featurebook.json` descriptor
+* An optional directory descriptor, `SUMMARY.md`
+* An optional specification descriptor, `featurebook.json`
 
 ```
 |-- assets
@@ -150,9 +150,9 @@ A system specification is a directory containing:
 
 There are a few conventions:
 
-* Single Gherkin source file contains a description of a single feature.
-* Source files have `.feature` extension.
-* A feature name displayed in the navigation tree is inferred from the corresponding Gherkin source file name, i.e. it's
+* A single Gherkin source file contains a description of a single feature.
+* Source files have the `.feature` extension.
+* A feature name displayed in the navigation tree is inferred from the corresponding Gherkin file name, i.e. it's
   a titleized base file name. For example, `service_level_agreement.feature` becomes `Service level agreement`.
 * You can use [Markdown](http://en.wikipedia.org/wiki/Markdown) in Gherkin source files and directory descriptors (`SUMMARY.md`).
   The FeatureBook's Markdown parser recognizes the `feature://` and `asset://` URL schemas so you can cross reference features and insert
