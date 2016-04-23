@@ -12,6 +12,9 @@ FeatureBook
 * [Rationale](#rationale)
 * [Usage](#usage)
 * [Specification format](#specification-format)
+ * [Gherkin source files](#gherkin-source-files)
+ * [featurebook.json](#featurebookjson)
+ * [SUMMARY.md](#summarymd)
 * [Public API](#public-api)
 * [Development environment](#development-environment)
 * [Contributing](#contributing)
@@ -20,9 +23,8 @@ FeatureBook
 ## Introduction
 
 FeatureBook is a command line tool (and [Node.js](https://nodejs.org) library) for generating beautiful system
-specifications from [Gherkin](https://github.com/cucumber/cucumber/wiki/Gherkin) source files.
-
-Here is an [example](https://github.com/SOFTWARE-CLINIC/featurebook-examples).
+specifications from [Gherkin](https://github.com/cucumber/cucumber/wiki/Gherkin) source files. Here are the
+[example](https://github.com/SOFTWARE-CLINIC/featurebook-examples) specifications you can play with.
 
 ![Screenshot 1](/README/featurebook_screenshot_1.png)
 
@@ -63,8 +65,6 @@ FeatureBook can be installed (or updated if it's already installed) from npm:
 $ npm install -g featurebook
 ```
 
-> You can check which npm packages are installed with the `npm ls -g --depth=0` command.
-
 You can serve the current directory as a system specification:
 
 ```shell
@@ -87,117 +87,119 @@ $ featurebook --help
 
   Commands:
 
-    serve [options] [source-dir]  serve <source-dir> as a system specification
-    pdf [options] [source-dir]    build the specification PDF document
-    html [options] [source-dir]   build the specification HTML document
+    serve [options] [spec-dir]  serve <spec-dir> as a system specification
+    pdf [options] [spec-dir]    build the specification PDF document
+    html [options] [spec-dir]   build the specification HTML document
 
   Options:
 
     -h, --help     output usage information
     -V, --version  output the version number
-
 ```
 
-Or just display help for a given command:
+To display help for a given command:
 
 ```shell
 $ featurebook serve --help
+
+  Usage: serve [options] [spec-dir]
+
+  serve <spec-dir> as a system specification
+
+  Options:
+
+    -h, --help         output usage information
+    -p, --port <port>  port on which to listen to (defaults to 3000)
 ```
 
 FeatureBook can be used with [Grunt](https://github.com/SOFTWARE-CLINIC/featurebook-grunt-example) or
 [Gulp](https://github.com/SOFTWARE-CLINIC/featurebook-gulp-example) to generate a system specification as part of your
 continuous integration process.
 
-> To try out the latest development version clone this repository and [link](https://docs.npmjs.com/cli/link) the featurebook package:
-> ```
-> $ git clone https://github.com/SOFTWARE-CLINIC/featurebook.git && cd featurebook && npm link
-> ```
-
 ## Specification format
 
 A system specification is a directory containing:
 
-* Gherkin source files
+* Gherkin source files organized into subdirectories
 * The `assets` directory for images and videos that you can refer to from within the Gherkin source files
+  as well as summary descriptors
 * An optional `SUMMARY.md` descriptor
 * An optional `featurebook.json` descriptor
 
 ```
 |-- assets
-|   |-- images
-|   |   |-- picture_is_worth_1000_words.png
-|   |   `-- two_pictures_are_worth_2000_words.png
-|   `-- videos
-|       |-- video_is_worth_2000_words.mp4
-|       `-- two_videos_are_worth_4000_words.mp4
-|-- webapp
-|   `-- admin
-|       |-- users
-|       |   |-- list_users.feature
-|       |   `-- register_user.feature
-|       `-- projects
-|           |-- list_projects.feature
-|           |-- create_project.feature
-|           `-- clone_project.feature
+|   `-- images
+|       |-- analytics.png
+|       |-- lock_box.jpg
+|       `-- time_tracking.png
+|-- administrating
+|   |-- employee_management.feature
+|   |-- project_management.feature
+|   `-- reporting.feature
+|-- authenticating
+|   |-- admin_authentication.feature
+|   |-- employee_authentication.feature
+|   `-- SUMMARY.md
+|-- non_functional
+|   `-- service_level_agreement.feature
+|-- time_tracking.feature
+|-- unparsable.feature
 |-- SUMMARY.md
 `-- featurebook.json
 ```
 
 There are a few conventions:
 
-* Single Gherkin source file contains a description of a single feature
-* Source files have `.feature` extension
+* Single Gherkin source file contains a description of a single feature.
+* Source files have `.feature` extension.
 * A feature name displayed in the navigation tree is inferred from the corresponding Gherkin source file name, i.e. it's
-  a titleized base file name. For example, `list_users.feature` becomes `List Users`.
+  a titleized base file name. For example, `service_level_agreement.feature` becomes `Service level agreement`.
+* You can use [Markdown](http://en.wikipedia.org/wiki/Markdown) in Gherkin source files and directory descriptors (`SUMMARY.md`).
+  The FeatureBook's Markdown parser recognizes the `feature://` and `asset://` URL schemas so you can cross reference features and insert
+  images contained in the `assets` directory.
+
+### Gherkin source files
 
 A Gherkin source file usually looks like this:
 
 ```gherkin
-Feature: Some terse yet descriptive text of what is desired
+Feature: Service level agreement
 
-  Textual *description* of the business value of this feature
-  Business rules that govern the scope of the feature
-  Any additional information and ~~formatting~~ that will make
-  the feature easier to read and **understand**
+  Keeping our customers happy is really important. This is why we cater for
+  the highest availabilty.
 
-  ![Picture alt text](/assets/images/picture_is_worth_1000_words.png)
+  ![Analytics](asset://assets/images/analytics.png)
 
-  Scenario: Some determinable business situation
-    Given some precondition
-      And some other precondition
-     When some action by the actor
-      And some other action
-      And yet another action
-     Then some testable outcome is achieved
-      And something else we can check happens too
+  Scenario: New account creation
+    Given there are "100000" users registered on the system
+    When I create a new account
+    Then I should be taken to my dashboard within "5" ms
 
-  Scenario: A different situation
-    ...
+  Scenario: Homepage page access
+    Given "1000" users are hitting the homepage simultaneously
+    Then each user should get a response within "2" ms
 ```
-
-Note that you can use [Markdown](http://en.wikipedia.org/wiki/Markdown) to describe your features and scenarios.
 
 ### featurebook.json
 
-The `featurebook.json` contains system specification metadata such as: title, version, authors, and contributors.
+The `featurebook.json` contains specification's metadata, i.e. title, version, authors, and contributors.
 
 ```javascript
 {
-  "modelVersion": "1.0.0",
-  "title": "My System Specification",
+  "title": "Time Tracking",
   "version": "1.0.0",
   "authors": [
     {
-      "firstName": "Henryk",
-      "lastName": "Sienkiewicz",
-      "email": "hsienkiewicz@gmail.com"
+      "firstName": "Richard",
+      "lastName": "Feynman",
+      "email": "rfeynman@gmail.com"
     }
   ],
   "contributors": [
     {
-      "firstName": "Eliza",
-      "lastName": "Orzeszkowa",
-      "email": "eorzeszkowa@gmail.com"
+      "firstName": "Isaac",
+      "lastName": "Newton",
+      "email": "inewton@gmail.com"
     }
   ]
 }
@@ -205,28 +207,17 @@ The `featurebook.json` contains system specification metadata such as: title, ve
 
 ### SUMMARY.md
 
-Typically, this should be the introduction to your specification where you can:
-
-* give a general overview of the system being specified
-* provide description that is pertinent to all features and scenarios
-* keep a list of notable changes and reviews
+Typically, this is a textual description of features and scenarios contained in a given directory.
+The summary of the root specification directory should give a general ovierview and reading guidelines.
 
 ```
-Summary
-=======
+# Time Tracking
 
-This is a great thirst-quencherer. Buy drinks or get them for free.
+Best time tracking system for a small business. A simple online timer with a powerful timesheet calculator.
 
-*This is part of a demo project to show how to use ATTD/BDD at a client site.
-This is not to be used commercially, nor is the software very valuable, except
-for demonstration purposes.*
+![Time tracking](asset://assets/images/time_tracking.png)
 
-## Change log
-
-| Version | Date       | Description  | Authors            |
-| ------- | ---------- | ------------ | ------------------ |
-| 2.0     | 13-09-2012 | First review | Eliza Orzeszkowa   |
-| 1.0     | 15-07-2012 | First draft  | Henryk Sienkiewicz |
+It is recommended to start reading the [admin authentication](feature://authenticating/admin_authentication.feature) feature.
 ```
 
 ## Public API
@@ -246,8 +237,13 @@ $ bower install
 ```
 
 ```shell
-$ gulp test
+$ npm test
 ```
+
+> To try out the latest development version clone this repository and [link](https://docs.npmjs.com/cli/link) the featurebook package:
+> ```
+> $ git clone https://github.com/SOFTWARE-CLINIC/featurebook.git && cd featurebook && npm link
+> ```
 
 ## Contributing
 
