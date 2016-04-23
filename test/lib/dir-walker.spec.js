@@ -1,3 +1,5 @@
+'use strict';
+
 var walker = require('../../lib/dir-walker');
 var chai = require('chai');
 var path = require('path');

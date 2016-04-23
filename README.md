@@ -123,7 +123,7 @@ A system specification is a directory containing:
 * Gherkin source files organized into subdirectories
 * The `assets` directory for images and videos that you can refer to from within the Gherkin source files
   as well as summary descriptors
-* An optional directory descriptor, `SUMMARY.md`
+* Optional directory descriptors, `SUMMARY.md`
 * An optional specification descriptor, `featurebook.json`
 
 ```
@@ -153,10 +153,10 @@ There are a few conventions:
 * A single Gherkin source file contains a description of a single feature.
 * Source files have the `.feature` extension.
 * A feature name displayed in the navigation tree is inferred from the corresponding Gherkin file name, i.e. it's
-  a titleized base file name. For example, `service_level_agreement.feature` becomes `Service level agreement`.
+  a titleized base file name. For example, `service_level_agreement.feature` becomes **Service level agreement**.
 * You can use [Markdown](http://en.wikipedia.org/wiki/Markdown) in Gherkin source files and directory descriptors (`SUMMARY.md`).
-  The FeatureBook's Markdown parser recognizes the `feature://` and `asset://` URL schemas so you can cross reference features and insert
-  images contained in the `assets` directory.
+  The FeatureBook's Markdown parser recognizes the `feature://` and `asset://` URL schemas so you can cross reference features
+  and images contained in the `assets` directory.
 
 ### Gherkin source files
 

@@ -1,15 +1,8 @@
 'use strict';
 
-var chai = require('chai');
-var should = chai.should();
+var featurebookServe = require('../../lib/featurebook-serve');
 
 describe('featurebook-serve', function () {
-
-  var featurebookServe;
-
-  beforeEach(function () {
-    featurebookServe = require('../../lib/featurebook-serve');
-  });
 
   describe('$imageRenderer', function () {
 
