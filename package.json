@@ -49,7 +49,6 @@
     "gherkin": "3.2.0",
     "jade": "1.11.0",
     "lodash": "4.6.1",
-    "markdown": "0.5.0",
     "markdown-it": "^6.0.0",
     "marked": "0.3.5",
     "opener": "1.4.1",
