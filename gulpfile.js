@@ -1,38 +1,8 @@
-"use strict";
+'use strict';
 
-var gulp = require('gulp'),
-  jshint = require('gulp-jshint'),
-  stylish = require('jshint-stylish'),
-  mocha = require('gulp-mocha'),
-  Server = require('karma').Server;
-
-gulp.task('lint', ['lint:lib', 'lint:public']);
-gulp.task('lint:lib', ['lint:src:lib', 'lint:test:lib']);
-gulp.task('lint:public', ['lint:src:lib', 'lint:test:lib']);
-
-gulp.task('lint:src:lib', function () {
-  return gulp.src('./lib/**/*.js')
-    .pipe(jshint())
-    .pipe(jshint.reporter(stylish));
-});
-
-gulp.task('lint:test:lib', function () {
-  return gulp.src('./test/lib/**/*.spec.js')
-    .pipe(jshint())
-    .pipe(jshint.reporter(stylish));
-});
-
-gulp.task('lint:src:public', function () {
-  return gulp.src('./public/scripts/**.*.js')
-    .pipe(jshint())
-    .pipe(jshint.reporter(stylish));
-});
-
-gulp.task('lint:test:public', function () {
-  return gulp.src('./test/public/scripts/**.*.spec.js')
-    .pipe(jshint())
-    .pipe(jshint.reporter(stylish));
-});
+var gulp = require('gulp');
+var mocha = require('gulp-mocha');
+var Server = require('karma').Server;
 
 gulp.task('test', ['test:lib', 'test:public']);
 

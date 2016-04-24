@@ -123,8 +123,8 @@ A system specification is a directory containing:
 * Gherkin source files organized into subdirectories
 * The `assets` directory for images and videos that you can refer to from within the Gherkin source files
   as well as summary descriptors
-* Optional directory descriptors, `SUMMARY.md`
-* An optional specification descriptor, `featurebook.json`
+* Optional directory descriptors (`SUMMARY.md`)
+* An optional specification descriptor (`featurebook.json`)
 
 ```
 |-- assets
@@ -231,12 +231,8 @@ public API.
 ### Running tests
 
 ```shell
-$ npm install
 $ npm install -g gulp bower
-$ bower install
-```
-
-```shell
+$ npm install && bower install
 $ npm test
 ```
 
