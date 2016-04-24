@@ -26,7 +26,7 @@ html
       main.featurebook-main
         div.featurebook-feature-name #{feature.keyword}: #{feature.name}
 
-        div #{feature.description}
+        div.featurebook-feature-description.featurebook-markdown !{feature.description}
 
         if feature.background
           div.featurebook-background
@@ -39,6 +39,7 @@ html
             each tag in scenarioDefinition.tags
               div.featurebook-tag= tag.name
             div.featurebook-scenario-definition-name= scenarioDefinition.keyword + ': ' + scenarioDefinition.name
+            div !{scenarioDefinition.description}
             each step in scenarioDefinition.steps
               +printStep(step)
 

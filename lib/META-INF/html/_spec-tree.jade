@@ -4,7 +4,7 @@ mixin printNode(obj)
       a.featurebook-spec-tree-file(href= pathPrefix + obj.path + '.html', class= obj.path === path ? 'active' : null)= obj.displayName
   else if obj && obj.type === 'directory'
     li
-      a.featurebook-spec-tree-directory(href= pathPrefix + obj.path, class= obj.path === path ? 'active' : null)= obj.displayName
+      a.featurebook-spec-tree-directory(href= pathPrefix + obj.path + '/index.html', class= obj.path === path ? 'active' : null)= obj.displayName
       ul
         each child in obj.children
           +printNode(child)

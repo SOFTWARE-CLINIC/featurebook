@@ -1,1 +1,0 @@
-Feature: Using FeatureBook with Grunt
