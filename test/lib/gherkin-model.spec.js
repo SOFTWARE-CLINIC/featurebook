@@ -9,40 +9,6 @@ describe('gherkin-model', function () {
 
   describe('#readFeatureSync', function () {
 
-    it('should parse a simple feature with a single scenario', function () {
-      var feature = featurebook.readFeatureSync(path.join(FEATURES_DIR, 'hello_world.feature')),
-        firstScenarioDefinition = feature.scenarioDefinitions[0];
-
-      feature.name.should.equal('Hello World');
-
-      feature.scenarioDefinitions.should.have.length(1);
-
-      firstScenarioDefinition.name.should.equal('Look Ma');
-      firstScenarioDefinition.steps.should.have.length(3);
-
-      assertStepEqual(firstScenarioDefinition.steps[0], 'Given ', 'I am in a browser');
-      assertStepEqual(firstScenarioDefinition.steps[1], 'When ', 'I make a syntax error');
-      assertStepEqual(firstScenarioDefinition.steps[2], 'Then ', 'stuff should be red');
-    });
-
-    it('should parse a simple feature with a single scenario outline', function () {
-      var feature = featurebook.readFeatureSync(path.join(FEATURES_DIR, 'eating_cucumbers.feature')),
-        firstScenarioDefinition = feature.scenarioDefinitions[0];
-
-      feature.name.should.equal('Eating cucumbers');
-      feature.scenarioDefinitions.should.have.length(1);
-
-      firstScenarioDefinition.name.should.equal('Eat');
-      firstScenarioDefinition.steps.should.have.length(3);
-
-      assertStepEqual(firstScenarioDefinition.steps[0], 'Given ', 'there are <start> cucumbers');
-      assertStepEqual(firstScenarioDefinition.steps[1], 'When ', 'I eat <eat> cucumbers');
-      assertStepEqual(firstScenarioDefinition.steps[2], 'Then ', 'I should have <left> cucumbers');
-
-      assertTableHeaderEqual(firstScenarioDefinition.examples[0].tableHeader, ['start', 'eat', 'left']);
-      assertTableDataEqual(firstScenarioDefinition.examples[0].tableBody, [['12', '5', '7'], ['20', '5', '15']]);
-    });
-
     it('should parse a simple feature with the background', function () {
       var feature = featurebook.readFeatureSync(path.join(FEATURES_DIR, 'simple_feature_with_background.feature'));
       var backgroundSteps = feature.background.steps;
@@ -61,20 +27,6 @@ describe('gherkin-model', function () {
       assertStepEqual(firstScenarioSteps[0], 'Given ', 'scenario step 1');
       assertStepEqual(firstScenarioSteps[1], 'When ', 'scenario step 2');
       assertStepEqual(firstScenarioSteps[2], 'Then ', 'scenario step 3');
-    });
-
-    it('should parse a simple feature written in Polish', function () {
-      var feature = featurebook.readFeatureSync(path.join(FEATURES_DIR, 'simple_feature_written_in_polish.feature')),
-        firstScenario = feature.scenarioDefinitions[0];
-
-      feature.name.should.equal('Logowanie do aplikacji');
-      feature.scenarioDefinitions.should.have.length(1);
-
-      assertStepEqual(firstScenario.steps[0], 'Mając ', 'otwartą stronę "/login.com"');
-      assertStepEqual(firstScenario.steps[1], 'Kiedy ', 'wpiszesz "admin" jako nazwę');
-      assertStepEqual(firstScenario.steps[2], 'I ', 'wpiszesz "***" jako hasło');
-      assertStepEqual(firstScenario.steps[3], 'I ', 'klikniesz przycisk "Loguj"');
-      assertStepEqual(firstScenario.steps[4], 'Wtedy ', 'zalogujesz się jako administrator');
     });
 
     it('should parse a simple feature with data tables', function () {
