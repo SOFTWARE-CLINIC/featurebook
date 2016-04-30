@@ -1,4 +1,4 @@
-var featurebook = require('../../lib/featurebook-api');
+var featurebook = require('featurebook-api');
 var chai = require('chai');
 var should = chai.should();
 var path = require('path');

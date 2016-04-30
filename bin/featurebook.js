@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var program = require('commander');
-var featurebook = require('../lib/featurebook-api');
+var featurebook = require('featurebook-api');
 var path = require('path');
 
 var DEFAULT_SERVE_PORT = 3000;
