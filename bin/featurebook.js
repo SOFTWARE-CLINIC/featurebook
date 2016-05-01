@@ -54,7 +54,7 @@ function pdf(specDir, options) {
 
 function html(specDir, options) {
   var outputDir = options.outputDir || path.join(process.cwd(), 'dist', 'html');
-  require('../lib/featurebook-html')(specDir || process.cwd(), outputDir);
+  require('featurebook-html')(specDir || process.cwd(), outputDir);
 }
 
 function displayHelpIfNoCommandWasProvided() {
