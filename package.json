@@ -44,13 +44,13 @@
     "featurebook-api": "git+https://github.com/SOFTWARE-CLINIC/featurebook-api.git",
     "featurebook-markdown": "git+https://github.com/SOFTWARE-CLINIC/featurebook-markdown.git",
     "featurebook-html": "git+https://github.com/SOFTWARE-CLINIC/featurebook-html.git",
+    "featurebook-pdf": "git+https://github.com/SOFTWARE-CLINIC/featurebook-pdf.git",
     "bash-color": "0.0.3",
     "commander": "2.9.0",
     "express": "4.13.4",
     "fs-extra": "0.28.0",
     "lodash": "4.11.1",
-    "opener": "1.4.1",
-    "pdfkit": "0.7.2"
+    "opener": "1.4.1"
   },
   "devDependencies": {
     "chai": "3.5.0",

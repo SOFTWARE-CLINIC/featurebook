@@ -49,7 +49,7 @@ function serve(specDir, options) {
 
 function pdf(specDir, options) {
   var outputDir = options.outputDir || path.join(process.cwd(), 'dist', 'pdf');
-  require('../lib/featurebook-pdf')(specDir || process.cwd(), outputDir);
+  require('featurebook-pdf')(specDir || process.cwd(), outputDir);
 }
 
 function html(specDir, options) {
