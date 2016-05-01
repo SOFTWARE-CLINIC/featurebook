@@ -5,6 +5,9 @@
   "bin": {
     "featurebook": "./bin/featurebook.js"
   },
+  "files": [
+    "bin"
+  ],
   "preferGlobal": true,
   "scripts": {
     "test": "gulp test"
@@ -45,23 +48,14 @@
     "featurebook-markdown": "git+https://github.com/SOFTWARE-CLINIC/featurebook-markdown.git",
     "featurebook-html": "git+https://github.com/SOFTWARE-CLINIC/featurebook-html.git",
     "featurebook-pdf": "git+https://github.com/SOFTWARE-CLINIC/featurebook-pdf.git",
+    "featurebook-serve": "git+https://github.com/SOFTWARE-CLINIC/featurebook-serve.git",
     "bash-color": "0.0.3",
     "commander": "2.9.0",
-    "express": "4.13.4",
-    "fs-extra": "0.28.0",
-    "lodash": "4.11.1",
     "opener": "1.4.1"
   },
   "devDependencies": {
     "chai": "3.5.0",
-    "concat-stream": "1.5.1",
     "gulp": "3.9.1",
-    "gulp-mocha": "2.2.0",
-    "jasmine-core": "2.4.1",
-    "karma": "0.13.22",
-    "karma-jasmine": "0.3.8",
-    "karma-ng-html2js-preprocessor": "0.2.2",
-    "karma-phantomjs-launcher": "1.0.0",
-    "phantomjs-prebuilt": "2.1.7"
+    "gulp-mocha": "2.2.0"
   }
 }
