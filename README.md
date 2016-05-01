@@ -228,14 +228,6 @@ public API.
 
 ## Development environment
 
-### Running tests
-
-```shell
-$ npm install -g gulp bower
-$ npm install && bower install
-$ npm test
-```
-
 > To try out the latest development version clone this repository and [link](https://docs.npmjs.com/cli/link) the featurebook package:
 > ```
 > $ git clone https://github.com/SOFTWARE-CLINIC/featurebook.git && cd featurebook && npm link
