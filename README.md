@@ -233,6 +233,10 @@ public API.
 > $ git clone https://github.com/SOFTWARE-CLINIC/featurebook.git && cd featurebook && npm link
 > ```
 
+### npm packages
+
+![FeatureBook modules](/README/featurebook-modules.png)
+
 ## Contributing
 
 You wanna contribute to FeatureBook? That is truly great!

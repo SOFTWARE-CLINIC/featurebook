@@ -34,7 +34,7 @@ displayHelpIfNoCommandWasProvided();
 
 function serve(specDir, options) {
   var port = options.port || DEFAULT_SERVE_PORT;
-  var app = require('featurebook-serve')(specDir || process.cwd(), port, printServeStatus);
+  require('featurebook-serve')(specDir || process.cwd(), port, printServeStatus);
 
   function printServeStatus() {
     var color = require('bash-color');
