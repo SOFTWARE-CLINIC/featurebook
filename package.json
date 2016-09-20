@@ -39,20 +39,17 @@
   "bugs": {
     "url": "https://github.com/SOFTWARE-CLINIC/featurebook/issues"
   },
-  "license": "Apache-2.0",
+  "license": "MIT",
   "engines": {
-    "node": ">= 0.10.x"
+    "node": ">= 4"
   },
   "dependencies": {
-    "featurebook-api": "git+https://github.com/SOFTWARE-CLINIC/featurebook-api.git",
-    "featurebook-markdown": "git+https://github.com/SOFTWARE-CLINIC/featurebook-markdown.git",
-    "featurebook-html": "git+https://github.com/SOFTWARE-CLINIC/featurebook-html.git",
-    "featurebook-pdf": "git+https://github.com/SOFTWARE-CLINIC/featurebook-pdf.git",
-    "featurebook-serve": "git+https://github.com/SOFTWARE-CLINIC/featurebook-serve.git",
+    "featurebook-api": "1.0.0-alpha.2",
+    "featurebook-html": "1.0.0-alpha.1",
+    "featurebook-pdf": "1.0.0-alpha.1",
+    "featurebook-serve": "1.0.0-alpha.3",
     "bash-color": "0.0.4",
     "commander": "2.9.0",
-    "opener": "1.4.1"
-  },
-  "devDependencies": {
+    "opener": "1.4.2"
   }
 }
