@@ -1,6 +1,6 @@
 {
   "name": "featurebook",
-  "version": "0.0.31",
+  "version": "0.0.30",
   "description": "A command line tool (and Node.js library) for generating beautiful system specifications from Gherkin source files.",
   "bin": {
     "featurebook": "./bin/featurebook.js"
@@ -45,8 +45,8 @@
   },
   "dependencies": {
     "featurebook-api": "1.0.0-alpha.2",
-    "featurebook-html": "1.0.0-alpha.1",
-    "featurebook-pdf": "1.0.0-alpha.1",
+    "featurebook-html": "1.0.0-alpha.2",
+    "featurebook-pdf": "1.0.0-alpha.3",
     "featurebook-serve": "1.0.0-alpha.3",
     "bash-color": "0.0.4",
     "commander": "2.9.0",
