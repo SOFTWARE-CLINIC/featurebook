@@ -2,13 +2,18 @@
 
 var program = require('commander');
 var featurebook = require('featurebook-api');
+var featurebookServe = require('featurebook-serve');
+var featurebookPdf = require('featurebook-pdf');
+var featurebookHtml = require('featurebook-html');
 var path = require('path');
+var color = require('bash-color');
+var opener = require('opener');
 
 var DEFAULT_SERVE_PORT = 3000;
 var COMMAND_NAMES = ['serve', 'pdf', 'html'];
 
 program
-  .version(featurebook.version);
+  .version('CLI version: ' + require('../package.json').version + '\nAPI version: ' + featurebook.getVersion());
 
 program
   .command('serve [spec-dir]')
@@ -34,27 +39,26 @@ displayHelpIfNoCommandWasProvided();
 
 function serve(specDir, options) {
   var port = options.port || DEFAULT_SERVE_PORT;
-  require('featurebook-serve')(specDir || process.cwd(), port, printServeStatus);
+  featurebookServe(specDir || process.cwd(), port, printServeStatus);
 
   function printServeStatus() {
-    var color = require('bash-color');
     console.log(color.green('FeatureBook is running on port ' + port));
     require('dns').lookup(require('os').hostname(), function (err, address) {
       var shareLink = 'http://' + address + ':' + port;
       console.log(color.yellow('It is available to all computers in the local network at ' + shareLink));
-      require('opener')(shareLink);
+      opener(shareLink);
     });
   }
 }
 
 function pdf(specDir, options) {
   var outputDir = options.outputDir || path.join(process.cwd(), 'dist', 'pdf');
-  require('featurebook-pdf')(specDir || process.cwd(), outputDir);
+  featurebookPdf(specDir || process.cwd(), outputDir);
 }
 
 function html(specDir, options) {
   var outputDir = options.outputDir || path.join(process.cwd(), 'dist', 'html');
-  require('featurebook-html')(specDir || process.cwd(), outputDir);
+  featurebookHtml(specDir || process.cwd(), outputDir);
 }
 
 function displayHelpIfNoCommandWasProvided() {

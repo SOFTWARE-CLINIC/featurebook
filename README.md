@@ -14,6 +14,7 @@ FeatureBook
 * [Specification format](#specification-format)
  * [Gherkin source files](#gherkin-source-files)
  * [featurebook.json](#featurebookjson)
+ * [.featurebookignore](#featurebookignore)
  * [SUMMARY.md](#summarymd)
 * [Public API](#public-api)
 * [Development environment](#development-environment)
@@ -56,7 +57,7 @@ system.
 
 Before installing FeatureBook, you will need the following:
 
-* Node.js v0.10.x+
+* Node.js v4.x+
 * [npm](https://www.npmjs.com) (which comes bundled with Node) v2.1.0+
 
 FeatureBook can be installed (or updated if it's already installed) from npm:
