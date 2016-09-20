@@ -144,7 +144,8 @@ A system specification is a directory containing:
 |-- time_tracking.feature
 |-- unparsable.feature
 |-- SUMMARY.md
-`-- featurebook.json
+|-- featurebook.json
+`-- .featurebookignore
 ```
 
 There are a few conventions:
@@ -183,7 +184,7 @@ Feature: Service level agreement
 
 The `featurebook.json` contains specification's metadata, i.e. title, version, authors, and contributors.
 
-```javascript
+```js
 {
   "title": "Time Tracking",
   "version": "1.0.0",
@@ -203,6 +204,20 @@ The `featurebook.json` contains specification's metadata, i.e. title, version, a
   ]
 }
 ```
+
+### .featurebookignore
+
+A `.featurebookignore` file specifies files that featurebook should ignore when traversing the specification directory.
+For example, a typical [SpecFlow](http://www.specflow.org) project contains `.feature` and auto-generated `.feature.cs`
+files. To ignore the auto-generated files you can create `.featurebookignore` with the following content:
+
+```
+# Ignore auto-generated C# code
+*.cs
+```
+
+> Note that featurebook implicitly adds the following patterns to the ignore list: `featurebook.json`, `SUMMARY.md`,
+> `.featurebookignore`, `assets`, `dist`, `.git`.
 
 ### SUMMARY.md
 
@@ -243,4 +258,4 @@ You wanna contribute to FeatureBook? That is truly great!
 
 ## License
 
-Code is under the [Apache Licence, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt).
+Code is under the [MIT](https://opensource.org/licenses/MIT).
