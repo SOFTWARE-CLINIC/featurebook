@@ -33,7 +33,7 @@ specifications from [Gherkin](https://github.com/cucumber/cucumber/wiki/Gherkin)
 
 ## Rationale
 
-Even in 2015, there are development teams that don't know how to apply
+Even in 2017, there are development teams that don't know how to apply
 [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)) or some other
 [Agile methodology](https://en.wikipedia.org/wiki/Agile_software_development) in day-to-day business. Believe it or not
 but that's the matter of fact. Doing just daily meetings at 9 or 10 a.m. doesn't really mean that you're in the Agile
@@ -164,6 +164,8 @@ There are a few conventions:
 A Gherkin source file usually looks like this:
 
 ```gherkin
+# language: en
+# featurebookDisplayName: Service Level Agreement Overwrite
 Feature: Service level agreement
 
   Keeping our customers happy is really important. This is why we cater for
@@ -180,6 +182,9 @@ Feature: Service level agreement
     Given "1000" users are hitting the homepage simultaneously
     Then each user should get a response within "2" ms
 ```
+
+> NB Featurebook recognizes the `featurebookDisplayName` comment to overwrite the name of a given
+> feature which is displayed in the navigation tree.
 
 ### featurebook.json
 
