@@ -19,6 +19,7 @@ FeatureBook
 * [Public API](#public-api)
 * [Development environment](#development-environment)
 * [Contributing](#contributing)
+* [Project roadmap](#project-roadmap)
 * [License](#license)
 
 ## Introduction
@@ -261,6 +262,14 @@ public API.
 
 You wanna contribute to FeatureBook? That is truly great!
 [Here](https://github.com/SOFTWARE-CLINIC/featurebook/wiki/Contributing) are some tips to get you started.
+
+## Project roadmap
+
+FeatureBook started as a command line tool based on Node.js. However this requires project managers and other non-tech
+people to install `node` and `npm` and have basic understanding of those command line tools. Even if it's not very complicated
+to install `node` I decided to distribute FeatureBook as as cross-platform desktop application
+based on [electron](https://electron.atom.io/). You can find the corresponding repository here
+[featurebook-desktop](https://github.com/SOFTWARE-CLINIC/featurebook-desktop).
 
 ## License
 
