@@ -44,12 +44,12 @@
     "node": ">= 4"
   },
   "dependencies": {
-    "featurebook-api": "1.0.0-alpha.4",
-    "featurebook-html": "1.0.0-alpha.3",
-    "featurebook-pdf": "1.0.0-alpha.4",
-    "featurebook-serve": "1.0.0-alpha.5",
-    "bash-color": "0.0.4",
-    "commander": "2.9.0",
-    "opener": "1.4.3"
+    "featurebook-api": "^1.0.0-alpha.4",
+    "featurebook-html": "^1.0.0-alpha.3",
+    "featurebook-pdf": "^1.0.0-alpha.4",
+    "featurebook-serve": "^1.0.0-alpha.5",
+    "bash-color": "^0.0.4",
+    "commander": "^2.20.0",
+    "opener": "^1.5.1"
   }
 }
