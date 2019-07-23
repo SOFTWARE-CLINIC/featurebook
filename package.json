@@ -51,5 +51,9 @@
     "bash-color": "^0.0.4",
     "commander": "^2.20.0",
     "opener": "^1.5.1"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.0",
+    "chai": "^4.2.0"
   }
 }
